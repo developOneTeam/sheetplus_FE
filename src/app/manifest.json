@@ -1,0 +1,9 @@
+{
+    "name": "SCHU Sheet+ 학술제",
+    "short_name": "SCHU Sheet+",
+    "theme_color": "#26539C",
+    "background_color": "#fff",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait"
+}
