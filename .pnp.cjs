@@ -38,6 +38,7 @@ const RAW_RUNTIME_STATE =
           ["@types/react-dom", "npm:18.3.0"],\
           ["eslint", "npm:8.57.1"],\
           ["eslint-config-next", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:14.2.14"],\
+          ["eslint-plugin-next-on-pages", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:1.13.5"],\
           ["framer-motion", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:11.11.1"],\
           ["next", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:14.2.14"],\
           ["next-auth", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:5.0.0-beta.22"],\
@@ -1515,6 +1516,25 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@types/estree", [\
+      ["npm:1.0.6", {\
+        "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/@types-estree-npm-1.0.6-b5e23f2ea2-10c0.zip/node_modules/@types/estree/",\
+        "packageDependencies": [\
+          ["@types/estree", "npm:1.0.6"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/estree-jsx", [\
+      ["npm:1.0.5", {\
+        "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/@types-estree-jsx-npm-1.0.5-b8759e98c2-10c0.zip/node_modules/@types/estree-jsx/",\
+        "packageDependencies": [\
+          ["@types/estree-jsx", "npm:1.0.5"],\
+          ["@types/estree", "npm:1.0.6"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@types/json-schema", [\
       ["npm:7.0.15", {\
         "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/@types-json-schema-npm-7.0.15-fd16381786-10c0.zip/node_modules/@types/json-schema/",\
@@ -2859,6 +2879,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/commander-npm-11.1.0-56e979613c-10c0.zip/node_modules/commander/",\
         "packageDependencies": [\
           ["commander", "npm:11.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["comment-parser", [\
+      ["npm:1.4.1", {\
+        "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/comment-parser-npm-1.4.1-f416dc95e4-10c0.zip/node_modules/comment-parser/",\
+        "packageDependencies": [\
+          ["comment-parser", "npm:1.4.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4211,6 +4240,30 @@ const RAW_RUNTIME_STATE =
           ["object.fromentries", "npm:2.0.8"],\
           ["safe-regex-test", "npm:1.0.3"],\
           ["string.prototype.includes", "npm:2.0.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/eslint",\
+          "eslint"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["eslint-plugin-next-on-pages", [\
+      ["npm:1.13.5", {\
+        "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/eslint-plugin-next-on-pages-npm-1.13.5-a08913ea06-10c0.zip/node_modules/eslint-plugin-next-on-pages/",\
+        "packageDependencies": [\
+          ["eslint-plugin-next-on-pages", "npm:1.13.5"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:1.13.5", {\
+        "packageLocation": "./.yarn/__virtual__/eslint-plugin-next-on-pages-virtual-0893751bef/5/home/paperbox/.yarn/berry/cache/eslint-plugin-next-on-pages-npm-1.13.5-a08913ea06-10c0.zip/node_modules/eslint-plugin-next-on-pages/",\
+        "packageDependencies": [\
+          ["eslint-plugin-next-on-pages", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:1.13.5"],\
+          ["@types/eslint", null],\
+          ["@types/estree-jsx", "npm:1.0.5"],\
+          ["comment-parser", "npm:1.4.1"],\
+          ["eslint", "npm:8.57.1"]\
         ],\
         "packagePeers": [\
           "@types/eslint",\
@@ -7586,6 +7639,7 @@ const RAW_RUNTIME_STATE =
           ["@types/react-dom", "npm:18.3.0"],\
           ["eslint", "npm:8.57.1"],\
           ["eslint-config-next", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:14.2.14"],\
+          ["eslint-plugin-next-on-pages", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:1.13.5"],\
           ["framer-motion", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:11.11.1"],\
           ["next", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:14.2.14"],\
           ["next-auth", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:5.0.0-beta.22"],\
