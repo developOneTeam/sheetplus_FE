@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "pages:build": "yarn dlx @cloudflare/next-on-pages",
+    "pages:build": "yarn dlx -p vercel -p @cloudflare/next-on-pages @cloudflare/next-on-pages",
     "preview": "yarn run pages:build && wrangler pages dev",
     "deploy": "yarn run pages:build && wrangler pages deploy"
   },
