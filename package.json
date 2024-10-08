@@ -6,9 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pages:build": "npx @cloudflare/next-on-pages",
+    "preview": "npm run pages:build && wrangler pages dev",
+    "deploy": "npm run pages:build && wrangler pages deploy"
   },
   "dependencies": {
+    "@auth/d1-adapter": "^1.6.0",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@serwist/next": "^9.0.9",
@@ -19,6 +23,8 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.5",
+    "@cloudflare/workers-types": "^4.20241004.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
