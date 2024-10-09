@@ -7,14 +7,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "prepare": "panda codegen",
     "pages:build": "npx @cloudflare/next-on-pages",
     "preview": "yarn run pages:build && wrangler pages dev",
     "deploy": "yarn run pages:build && wrangler pages deploy"
   },
   "dependencies": {
     "@auth/d1-adapter": "^1.6.0",
-    "@emotion/react": "^11.13.3",
-    "@emotion/styled": "^11.13.0",
     "@serwist/next": "^9.0.9",
     "framer-motion": "^11.11.1",
     "next": "14.2.14",
@@ -25,6 +24,7 @@
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.5",
     "@cloudflare/workers-types": "^4.20241004.0",
+    "@pandacss/dev": "^0.46.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
