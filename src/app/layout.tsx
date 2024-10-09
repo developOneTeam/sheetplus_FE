@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={`${suiteV.variable}`}>
+      <body className={suiteV.className}>
         {children}
       </body>
     </html>
