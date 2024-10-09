@@ -21,15 +21,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-form {
-  width: 25rem;
-}
-
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

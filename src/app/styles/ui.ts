@@ -1,11 +1,34 @@
 import { styled } from "@/styled-system/jsx";
 
+export const Main = styled("main", {
+    base: {
+        width: "100%",
+        lg: {
+            "& section": {
+                width: "25em"
+            }
+        }
+    },
+
+    variants: {
+        center: {
+            true: {
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                marginTop: "10rem"
+            }
+        }
+    }
+});
+
 export const Button = styled("button", {
     base: {
         color: "#fff",
         background: "schu.primary",
         border: "none",
         borderRadius: "5px",
+        padding: "0.4em",
 
         width: "100%",
         display: "flex",
@@ -92,10 +115,18 @@ export const NavButton = styled(IconButton, {
 export const FaqLink = styled("a", {
     base: {
         color: "schu.grey",
-        textDecoration: "solid",
-        fontSize: "1rem"    
+        textDecoration: "solid 1.2px underline",
+        fontSize: "0.9rem"    
     }
 });
+
+export const Form = styled("form", {
+    base: {
+        display: "flex",
+        flexDirection: "column",
+        minWidth: 0
+    }
+})
 
 export const InputWrapper = styled("div", {
     base: {
@@ -103,18 +134,15 @@ export const InputWrapper = styled("div", {
         borderBottom: "solid 2px",
         borderColor: "schu.secondaryBg",
         color: "schu.grey",
-        width: "100%",
-        margin: "1em",
-    
+        width: "100%",    
         display: "flex",
         gap: "2px",
+        marginBottom: "0.5em",
+        fontSize: "1.2em",
 
         "& .material-symbols-rounded": {
             fontVariationSettings: "'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 32",
-        },
-        "& input": {
-            border: "none",
-        },
+        }
     },
     
     variants: {
@@ -125,6 +153,20 @@ export const InputWrapper = styled("div", {
         }
     }
 });
+
+export const Input = styled("input", {
+    base: {
+        border: "none",
+        fontSize: "1.2rem",
+        flexShrink: 1,
+        minWidth: 0,
+
+        _focus: {
+            border: "none",
+            outline: "none"
+        }
+    }
+})
 
 export const NavToast = styled("div", {
     base: {
@@ -170,13 +212,19 @@ export const AccentArea = styled("div", {
     base: {
         background: "schu.primaryBg",
         borderRadius: "10px",
-        padding: "0.5em",    
+        padding: "0.5em 1em",
+        width: "100%",
     },
 
     variants: {
         center: {
             true: {
                 textAlign: "center"
+            }
+        },
+        size: {
+            sm: {
+                fontSize: "0.9rem"
             }
         }
     }
