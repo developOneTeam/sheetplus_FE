@@ -24,7 +24,7 @@ export default function LoginForm() {
     }
 
     useEffect(() => {
-        if (formDisabled && submitButton.current) {
+        if (!formDisabled && submitButton.current) {
             submitButton.current.removeAttribute("disabled");
         }
     }, [formDisabled]);
