@@ -36,7 +36,7 @@ export default function LoginForm() {
             <Input type="text" name="email" placeholder="Email" onChange={enableButton} />
             <label htmlFor="email">@sch.ac.kr</label>
           </InputWrapper>
-          <Button ref={submitButton} type="submit" types={formDisabled} disabled>메일 보내기</Button>
+          <Button ref={submitButton} type="submit" types={formDisabled} onSubmit={() => {disableForm("disabled")}} disabled>메일 보내기</Button>
           <p>{formMessage}</p>
         </>
     );
