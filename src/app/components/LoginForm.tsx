@@ -7,8 +7,9 @@ export default function LoginForm() {
     const submitButton = useRef<HTMLButtonElement>(null);
 
     function enableButton(e: ChangeEvent<HTMLInputElement>) {
-        if (e.target.value.length === 0) {
+        if (e.target.value.length === 0 && submitButton.current) {
             disableForm("disabled");
+            submitButton.current.setAttribute("disabled", "");
         } else {
             disableForm(undefined);
         }
