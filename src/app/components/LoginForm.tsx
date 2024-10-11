@@ -3,7 +3,7 @@ import { InputWrapper, Input, Button } from "../styles/ui";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 
 export default function LoginForm() {
-    const [formDisabled, disableForm] = useState<"disabled"|undefined>("disabled");
+    const [formDisabled, disableForm] = useState<boolean>(true);
     const [formMessage, setFormMessage] = useState<string>("");
     const submitButton = useRef<HTMLButtonElement>(null);
 
@@ -12,10 +12,10 @@ export default function LoginForm() {
 
         if ((e.target.value.length === 0 || isFullAddress)
             && submitButton.current) {
-            disableForm("disabled");
+            disableForm(true);
             submitButton.current.setAttribute("disabled", "");
         } else {
-            disableForm(undefined);
+            disableForm(false);
         }
 
         if (isFullAddress) {
@@ -33,10 +33,10 @@ export default function LoginForm() {
         <>
           <InputWrapper>
             <span className="material-symbols-rounded">mail</span>
-            <Input type="text" name="email" placeholder="Email" onChange={enableButton} />
+            <Input type="text" name="email" placeholder="Email" onChange={enableButton} autoFocus />
             <label htmlFor="email">@sch.ac.kr</label>
           </InputWrapper>
-          <Button ref={submitButton} type="submit" types={formDisabled} onSubmit={() => {disableForm("disabled")}} disabled>메일 보내기</Button>
+          <Button ref={submitButton} type="submit" types={formDisabled ? "disabled": undefined} onClick={() => {console.log("a"); disableForm(true)}} disabled>메일 보내기</Button>
           <p>{formMessage}</p>
         </>
     );
