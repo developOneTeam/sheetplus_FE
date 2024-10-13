@@ -83,20 +83,47 @@ export const iconButton = recipe({
                 color: colorByMode.color.text,
                 background: "transparent",
                 borderRadius: "8px",
+                textDecoration: "none",
+                aspectRatio: "1/1",
+                width: "fit-content",
+                padding: "1rem",
+                margin: "0.5rem",
                 
                 selectors: {
                     "&:hover": {
-                        background: global.color.greyRing
+                        background: global.color.greyRing,
+                        color: global.color.secondary
                     },
                 
                     "&:focus": {
                         background: global.color.greyRing,
-                        outline: `solid 2px ${global.bg.secondary}`
+                        outline: `solid 2px ${global.bg.secondary}`,
+                        color: global.color.secondary
                     }    
                 }
             },
             on: {
                 color: global.color.secondary
+            },
+            navMenu: {
+                borderRadius: "10px",
+                background: colorByMode.bg.nav,
+                boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
+                padding: "2.25rem",
+
+                display: "none",
+                alignItems: "center",
+                justifyContent: "center",
+                bottom: 0,
+                left: 0,
+                margin: "1rem",
+                position: "fixed",
+
+                "@media": {
+                    "screen and (min-width: 768px)": {
+                        display: "flex",
+                    }
+                }
             }
         }
     }

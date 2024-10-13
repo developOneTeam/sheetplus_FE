@@ -13,7 +13,7 @@ export const main = recipe({
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                marginTop: "10rem"
+                marginTop: "12rem"
             }
         }
     }
@@ -26,6 +26,8 @@ export const mainSection = style({
     justifyContent: "center",
     alignItems: "center",
     flexWrap: "wrap",
+    margin: "0 1rem",
+    width: "calc(100% - 2rem)",
 
     selectors: {
         [`${main()} &`]: {
@@ -162,7 +164,8 @@ export const navLayout = style({
     position: "fixed",
     bottom: "1em",
     margin: "0 1em",
-    width: "100%",
+    left: 0,
+    right: 0,
 
     borderRadius: "10px",
     background: colorByMode.bg.nav,
@@ -170,5 +173,21 @@ export const navLayout = style({
 
     display: "flex",
     alignItems: "center",
-    gap: "0.5em",
+    justifyContent: "center",
+    
+    "@media": {
+        "screen and (min-width: 768px)": {
+            marginLeft: "6rem",
+            left: "auto",
+            right: "auto"
+        }
+    }
 });
+
+export const navList = style({
+    display: "flex",
+    alignItems: "center",
+    listStyle: "none",
+    margin: 0,
+    padding: 0
+})

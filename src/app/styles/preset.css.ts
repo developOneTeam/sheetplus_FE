@@ -7,7 +7,7 @@ export const global = createGlobalTheme(":root", {
         disabled: "#7E7E7E",
         error: "#EF4136",
         grey: "#959595",
-        greyRing: "#9595954D",
+        greyRing: "#9595951A",
     },
     bg: {
         primary10: "#26539C1A",

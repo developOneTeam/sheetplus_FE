@@ -3,6 +3,7 @@ import { signIn } from "@/auth";
 import { accentArea, formLayout, header, iconDesc, iconNav, main, mainSection, sheet, subtitle, title } from "./styles/layouts.css";
 import { iconButton } from "./styles/buttons.css";
 import { defaultH2, defaultP, faqLink, icon } from "./styles/others.css";
+import Nav from "./components/Nav";
 
 export default function Home() {
 
@@ -42,9 +43,7 @@ export default function Home() {
           <a className={faqLink} href="/">이메일 주소가 기억나지 않나요?</a>
         </section>
       </main>
-      <footer>
-          
-      </footer>
+      <Nav />
     </>
   );
 }

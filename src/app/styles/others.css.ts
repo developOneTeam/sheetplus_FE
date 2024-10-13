@@ -2,6 +2,7 @@ import { style } from "@vanilla-extract/css";
 import { iconDesc, inputWrapper } from "./layouts.css";
 import { global } from "./preset.css";
 import { recipe } from "@vanilla-extract/recipes";
+import { iconButton } from "./buttons.css";
 
 export const faqLink = style({
     color: global.color.grey,
@@ -36,6 +37,11 @@ export const defaultP = recipe({
             sm: {
                 fontSize: "0.9rem"
             }
+        },
+        width: {
+            max: {
+                width: "max-content"
+            }
         }
     }
 })
@@ -51,6 +57,9 @@ export const icon = style({
             color: global.color.secondary,
             fontSize: "4em !important",
             fontVariationSettings: "'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 48",
-        }
+        },
+        [`${iconButton({ types: "navMenu" })}&`]: {
+            fontVariationSettings: "'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 48"    
+        } 
     }
 })
