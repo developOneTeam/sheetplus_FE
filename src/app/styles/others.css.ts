@@ -4,18 +4,39 @@ import { global } from "./preset.css";
 import { recipe } from "@vanilla-extract/recipes";
 import { iconButton } from "./buttons.css";
 
-export const faqLink = style({
-    color: global.color.grey,
-    textDecoration: "solid 1.2px underline",
-    fontSize: "0.9rem",
-    border: "none",
-    background: "inherit",
-    cursor: "pointer"
+export const faqLink = recipe({
+    base: {
+        color: global.color.grey,
+        textDecoration: "solid 1.2px underline",
+        fontSize: "0.9rem",
+        border: "none",
+        background: "inherit",
+        cursor: "pointer",    
+    },
+    variants: {
+        style: {
+            nonButton: {
+                background: "none",
+            }
+        },
+        underline: {
+            false: {
+                textDecoration: "none"
+            }
+        },
+        margin: {
+            "updown": {
+                margin: "0.5em 0"
+            }
+        }
+    }
 });
 
 export const defaultH2 = recipe({
     base: {
         fontSize: "1.5rem",
+        fontWeight: 600,
+
         selectors: {
             [`${iconDesc} &`]: {
                 fontWeight: 400,
@@ -27,6 +48,12 @@ export const defaultH2 = recipe({
         style: {
             disabled: {
                 color: global.color.grey
+            },
+            primary: {
+                color: global.color.primary
+            },
+            nomargin: {
+                margin: 0
             }
         }
     }
@@ -37,6 +64,7 @@ export const defaultP = recipe({
         fontSize: "1.0rem",
         margin: 0,
         wordBreak: "keep-all",
+        fontWeight: 400,
     },
     variants: {
         style: {
@@ -47,7 +75,10 @@ export const defaultP = recipe({
             },
             disabled: {
                 color: global.color.grey,
-            },    
+            },
+            secondary: {
+                color: global.color.secondary,
+            }
         },
         size: {
             sm: {
@@ -57,11 +88,19 @@ export const defaultP = recipe({
         width: {
             max: {
                 width: "max-content"
+            },
+            block: {
+                display: "block"
             }
         },
         align: {
             center: {
                 textAlign: "center"
+            }
+        },
+        weight: {
+            semiBold: {
+                fontWeight: 500
             }
         }
     }

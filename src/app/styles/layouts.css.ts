@@ -14,6 +14,10 @@ export const main = recipe({
                 flexDirection: "column",
                 alignItems: "center",
                 marginTop: "12rem"
+            },
+            false: {
+                margin: "1rem",
+                width: "calc(100% - 2rem)"
             }
         }
     }
@@ -40,11 +44,22 @@ export const mainSection = style({
     }
 });
 
-export const header = style({
-    display: "flex",
-    justifyContent: "space-between",
-    margin: "1em",
-    padding: 0
+export const header = recipe({
+    base: {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        margin: "1em",
+        padding: 0
+    },
+    variants: {
+        section: {
+            true: {
+                margin: "1em 0",
+                alignItems: "flex-end"
+            }
+        }
+    }
 });
 
 export const title = style({
@@ -166,12 +181,16 @@ export const accentArea = recipe({
         borderRadius: "10px",
         padding: "0.5em 1em",
         width: "100%",
-        boxSizing: "border-box"
+        boxSizing: "border-box",
+        display: "flex",
+        flexDirection: "column",
+        minWidth: 0
     },
 
     variants: {
         center: {
             true: {
+                alignItems: "center",
                 textAlign: "center"
             }
         }
@@ -208,4 +227,25 @@ export const navList = style({
     listStyle: "none",
     margin: 0,
     padding: 0
+});
+
+export const stampList = style({
+    display: "flex",
+    alignItems: "center",
+    gap: "0.5em",
+    marginTop: "0.5em",
+    minWidth: 0,
+    boxSizing: "border-box",
+    width: "100%"
 })
+
+export const stamp = style({
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "0.5em",
+    borderRadius: "50%",
+    aspectRatio: "1/1",
+    width: "4em",
+    background: global.bg.primary60
+});

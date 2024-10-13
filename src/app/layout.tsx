@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={suiteV.className}>
-        <header className={header}>
+        <header className={header()}>
           <h1 className={title}>
             SCHU<span className={sheet}>sheet<sup>+</sup></span>
             <span className={subtitle}>제1회 SW융합대학 학술제</span>

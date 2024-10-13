@@ -5,6 +5,7 @@ import { iconButton } from "../styles/buttons.css";
 import { iconDesc, navLayout, navList } from "../styles/layouts.css";
 import { defaultP } from "../styles/others.css";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 
 export default function Nav() {
@@ -13,7 +14,7 @@ export default function Nav() {
 
     return (
         <footer>
-            <button className={`${iconDesc} ${iconButton({ types: "navMenu" })} ${iconButton({ types: "nav" })}`} onClick={() => (
+            <button className={`${iconButton({ types: "navMenu" })} ${iconButton({ types: "nav" })}`} onClick={() => (
                 navDisplayed ? showNav(false) : showNav(true)
             )}>
                <span className={`material-symbols-rounded`}>menu</span>
@@ -29,26 +30,26 @@ export default function Nav() {
                     className={navLayout}
                 >
                     <ul className={navList}>
-                        <li><a href="/" className={`${iconDesc} ${iconButton({ types: "nav"})} ${(path === "/" || path === "/home") ? iconButton({ types: "on" }) :""} `}>
+                        <li><Link href="/" className={`${iconDesc} ${iconButton({ types: "nav"})} ${(path === "/" || path === "/home") ? iconButton({ types: "on" }) :""} `}>
                             <span className={`material-symbols-rounded`}>roofing</span>
                             <p className={defaultP({ size: "sm", width: "max" })}>홈</p>
-                        </a></li>
-                        <li><a href="/schedule" className={`${iconDesc} ${iconButton({ types: "nav"})} ${path === "/schedule" ? iconButton({ types: "on" }) :""}`}>
+                        </Link></li>
+                        <li><Link href="/schedule" className={`${iconDesc} ${iconButton({ types: "nav"})} ${path === "/schedule" ? iconButton({ types: "on" }) :""}`}>
                             <span className={`material-symbols-rounded`}>calendar_month</span>
                             <p className={defaultP({ size: "sm", width: "max" })}>일정</p>
-                        </a></li>
-                        <li><a href="/activities" className={`${iconDesc} ${iconButton({ types: "nav"})} ${path === "/activities" ? iconButton({ types: "on" }) :""}`}>
+                        </Link></li>
+                        <li><Link href="/activities" className={`${iconDesc} ${iconButton({ types: "nav"})} ${path === "/activities" ? iconButton({ types: "on" }) :""}`}>
                             <span className={`material-symbols-rounded`}>approval</span>
                             <p className={defaultP({ size: "sm", width: "max" })}>참여 활동</p>
-                        </a></li>
-                        <li><a href="/works" className={`${iconDesc} ${iconButton({ types: "nav"})} ${path === "/works" ? iconButton({ types: "on" }) :""}`}>
+                        </Link></li>
+                        <li><Link href="/works" className={`${iconDesc} ${iconButton({ types: "nav"})} ${path === "/works" ? iconButton({ types: "on" }) :""}`}>
                             <span className={`material-symbols-rounded`}>architecture</span>
                             <p className={defaultP({ size: "sm", width: "max" })}>작품 찾기</p>
-                        </a></li>
-                        <li><a href="/settings" className={`${iconDesc} ${iconButton({ types: "nav"})} ${path === "/settings" ? iconButton({ types: "on" }) :""}`}>
+                        </Link></li>
+                        <li><Link href="/settings" className={`${iconDesc} ${iconButton({ types: "nav"})} ${path === "/settings" ? iconButton({ types: "on" }) :""}`}>
                             <span className={`material-symbols-rounded`}>settings</span>
                             <p className={defaultP({ size: "sm", width: "max" })}>설정</p>
-                        </a></li>
+                        </Link></li>
                     </ul>
                 </motion.nav>
             ): ""}

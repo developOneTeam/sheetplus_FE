@@ -11,6 +11,7 @@ export const global = createGlobalTheme(":root", {
     },
     bg: {
         primary10: "#26539C1A",
+        primary60: "#26539C99",
         primary90: "#26539CE6",
         secondary: "#1C9AD6E6",
         disabled: "#D9D9D9"

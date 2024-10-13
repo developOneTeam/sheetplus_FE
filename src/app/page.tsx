@@ -1,3 +1,4 @@
+import Link from "next/link";
 import DialogLink from "./components/DialogLink";
 import LoginForm from "./components/LoginForm";
 import { button } from "./styles/buttons.css";
@@ -25,8 +26,8 @@ export default function Home() {
               <p className={defaultP({ align: "center" })}>
               사전에 연동해두셨다면 포털 로그인 후 &#39;웹메일&#39; - &#39;환경설정&#39;에서 아이디를 찾을 수 있어요. 찾을 수 없다면 계정 삭제 가능성이 있으니 전산팀에 문의해보세요.
               </p>
-              <a href="https://portal.sch.ac.kr" className={button()} target="_blank">순천향대 포털에서 확인하기</a>
-              <a href="tel:041-530-1411" className={button({ types: "secondary" })}>전산팀에 전화하기</a>
+              <Link href="https://portal.sch.ac.kr" className={button()} target="_blank">순천향대 포털에서 확인하기</Link>
+              <Link href="tel:041-530-1411" className={button({ types: "secondary" })}>전산팀에 전화하기</Link>
           </DialogLink>
         </section>
       </main>

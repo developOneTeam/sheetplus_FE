@@ -12,7 +12,7 @@ export default function DialogLink(props: { children: React.ReactNode, message: 
 
     return (
         <>
-            <button className={faqLink} type="button" onClick={() => openDialog()}>{props.message}</button>
+            <button className={faqLink()} type="button" onClick={() => openDialog()}>{props.message}</button>
             <Dialog open={isOpen} setOpen={open} icon={props.icon} title={props.message} type={props.type} >
                 {props.children}
             </Dialog>
