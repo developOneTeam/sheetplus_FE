@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { iconButton } from "../styles/buttons.css";
 import { iconDesc, navLayout, navList } from "../styles/layouts.css";

@@ -137,6 +137,7 @@ export const dialogOutline = style({
     borderRadius: "10px",
     width: "25rem",
     border: "none",
+    opacity: 0
 })
 
 export const dialogLayout = style({
