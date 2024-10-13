@@ -13,12 +13,21 @@ export const faqLink = style({
     cursor: "pointer"
 });
 
-export const defaultH2 = style({
-    fontSize: "1.5rem",
-    selectors: {
-        [`${iconDesc} &`]: {
-            fontWeight: 400,
-            margin: 0
+export const defaultH2 = recipe({
+    base: {
+        fontSize: "1.5rem",
+        selectors: {
+            [`${iconDesc} &`]: {
+                fontWeight: 400,
+                margin: 0
+            }
+        }    
+    },
+    variants: {
+        style: {
+            disabled: {
+                color: global.color.grey
+            }
         }
     }
 });
@@ -30,12 +39,15 @@ export const defaultP = recipe({
         wordBreak: "keep-all",
     },
     variants: {
-        error: {
-            true: {
+        style: {
+            error: {
                 color: global.color.error,
                 marginTop: "1em",
                 textAlign: "center"
-            }
+            },
+            disabled: {
+                color: global.color.grey,
+            },    
         },
         size: {
             sm: {
@@ -80,6 +92,9 @@ export const icon = recipe({
             },
             notice: {
                 color: global.color.secondary
+            },
+            disabled: {
+                color: global.color.grey
             }
         }
     }

@@ -67,6 +67,8 @@ export const iconButton = recipe({
         height: "1.5em",
         background: "transparent",
         cursor: "pointer",
+        textDecoration: "none",
+        color: colorByMode.color.text,
     
         selectors: {
             "&:hover": {

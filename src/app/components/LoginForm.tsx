@@ -48,7 +48,7 @@ export default function LoginForm() {
             <button className={button({types: formDisabled ? "disabled": undefined})} ref={submitButton} type="submit" disabled>
                 메일 보내기
             </button>
-            <p className={defaultP({error: formMessage.length > 0 ? true : undefined})}>{formMessage}</p>
+            <p className={defaultP({style: formMessage.length > 0 ? "error" : undefined})}>{formMessage}</p>
         </form>
     );
 }

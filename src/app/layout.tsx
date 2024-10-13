@@ -31,9 +31,9 @@ export default function RootLayout({
             <span className={subtitle}>제1회 SW융합대학 학술제</span>
           </h1>
           <section className={iconNav}>
-            <button className={`${iconButton()} ${icon} material-symbols-rounded`}>
+            <a href="/notifications" className={`${iconButton()} ${icon} material-symbols-rounded`}>
               notifications
-            </button>
+            </a>
           </section>
         </header>
         {children}

@@ -157,6 +157,7 @@ export const iconDesc = style({
     display: "flex",
     alignItems: "center",
     flexDirection: "column",
+    gap: "0.5rem",
 });
 
 export const accentArea = recipe({

@@ -28,7 +28,7 @@ export default function Dialog(props: { children: React.ReactNode, open: boolean
                 </form>
                 <div className={iconDesc}>
                     <span className={`${icon({ color: props.type })} material-symbols-rounded`}>{props.icon}</span>
-                    <h2 className={defaultH2}>{props.title}</h2>
+                    <h2 className={defaultH2()}>{props.title}</h2>
                 </div>
                 {props.children}
             </div>
