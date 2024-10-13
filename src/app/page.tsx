@@ -1,26 +1,13 @@
 import LoginForm from "./components/LoginForm";
 import { signIn } from "@/auth";
-import { accentArea, formLayout, header, iconDesc, iconNav, main, mainSection, sheet, subtitle, title } from "./styles/layouts.css";
-import { iconButton } from "./styles/buttons.css";
+import { accentArea, formLayout, iconDesc, main, mainSection } from "./styles/layouts.css";
 import { defaultH2, defaultP, faqLink, icon } from "./styles/others.css";
-import Nav from "./components/Nav";
 
 export default function Home() {
 
 
   return (
     <>
-      <header className={header}>
-        <h1 className={title}>
-          SCHU<span className={sheet}>sheet<sup>+</sup></span>
-          <span className={subtitle}>제1회 SW융합대학 학술제</span>
-        </h1>
-        <section className={iconNav}>
-          <button className={`${iconButton()} ${icon} material-symbols-rounded`}>
-            notifications
-          </button>
-        </section>
-      </header>
       <main className={main({ center: true })}>
         <section className={mainSection}>
           <div className={iconDesc}>
@@ -43,7 +30,6 @@ export default function Home() {
           <a className={faqLink} href="/">이메일 주소가 기억나지 않나요?</a>
         </section>
       </main>
-      <Nav />
     </>
   );
 }

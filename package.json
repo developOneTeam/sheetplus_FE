@@ -19,6 +19,7 @@
     "@vanilla-extract/recipes": "^0.5.5",
     "@vanilla-extract/sprinkles": "^1.6.3",
     "framer-motion": "^11.11.1",
+    "html5-qrcode": "^2.3.8",
     "next": "^14.2.14",
     "next-auth": "^5.0.0-beta.22",
     "react": "^18",
@@ -34,7 +35,6 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.14",
     "eslint-plugin-next-on-pages": "^1.13.5",
-    "serwist": "^9.0.9",
     "typescript": "^5"
   },
   "packageManager": "yarn@4.5.0+sha512.837566d24eec14ec0f5f1411adb544e892b3454255e61fdef8fd05f3429480102806bac7446bc9daff3896b01ae4b62d00096c7e989f1596f2af10b927532f39"

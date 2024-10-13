@@ -4,10 +4,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import { iconButton } from "../styles/buttons.css";
 import { iconDesc, navLayout, navList } from "../styles/layouts.css";
 import { defaultP } from "../styles/others.css";
+import { usePathname } from "next/navigation";
 
 
 export default function Nav() {
     const [navDisplayed, showNav] = useState<boolean>(true);
+    const path = usePathname();
 
     return (
         <footer>
@@ -28,23 +30,23 @@ export default function Nav() {
                 >
                 <nav className={navLayout}>
                     <ul className={navList}>
-                        <li><a href="/" className={`${iconDesc} ${iconButton({ types: "nav"})}`}>
+                        <li><a href="/" className={`${iconDesc} ${iconButton({ types: "nav"})} ${path === "/" ? iconButton({ types: "on" }) :""} `}>
                             <span className={`material-symbols-rounded`}>roofing</span>
                             <p className={defaultP({ size: "sm", width: "max" })}>홈</p>
                         </a></li>
-                        <li><a href="/schedule" className={`${iconDesc} ${iconButton({ types: "nav"})}`}>
+                        <li><a href="/schedule" className={`${iconDesc} ${iconButton({ types: "nav"})} ${path === "/schedule" ? iconButton({ types: "on" }) :""}`}>
                             <span className={`material-symbols-rounded`}>calendar_month</span>
                             <p className={defaultP({ size: "sm", width: "max" })}>일정</p>
                         </a></li>
-                        <li><a href="/activities" className={`${iconDesc} ${iconButton({ types: "nav"})}`}>
+                        <li><a href="/activities" className={`${iconDesc} ${iconButton({ types: "nav"})} ${path === "/activities" ? iconButton({ types: "on" }) :""}`}>
                             <span className={`material-symbols-rounded`}>approval</span>
                             <p className={defaultP({ size: "sm", width: "max" })}>참여 활동</p>
                         </a></li>
-                        <li><a href="/works" className={`${iconDesc} ${iconButton({ types: "nav"})}`}>
+                        <li><a href="/works" className={`${iconDesc} ${iconButton({ types: "nav"})} ${path === "/works" ? iconButton({ types: "on" }) :""}`}>
                             <span className={`material-symbols-rounded`}>architecture</span>
                             <p className={defaultP({ size: "sm", width: "max" })}>작품 찾기</p>
                         </a></li>
-                        <li><a href="/settings" className={`${iconDesc} ${iconButton({ types: "nav"})}`}>
+                        <li><a href="/settings" className={`${iconDesc} ${iconButton({ types: "nav"})} ${path === "/settings" ? iconButton({ types: "on" }) :""}`}>
                             <span className={`material-symbols-rounded`}>settings</span>
                             <p className={defaultP({ size: "sm", width: "max" })}>설정</p>
                         </a></li>
