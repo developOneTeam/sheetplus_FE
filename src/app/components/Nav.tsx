@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { iconButton } from "../styles/buttons.css";
 import { iconDesc, navLayout, navList } from "../styles/layouts.css";
@@ -21,14 +21,13 @@ export default function Nav() {
             </button>
             <AnimatePresence>
             {navDisplayed ? (
-                <motion.div
+                <motion.nav
                     initial={{ x: -1000 }}
                     animate={{ x: 0 }}
                     exit={{ x: -1000 }}
-                    style={{ position: "fixed", bottom: 0 }}
                     transition={{ duration: 0.8 }}
+                    className={navLayout}
                 >
-                <nav className={navLayout}>
                     <ul className={navList}>
                         <li><a href="/" className={`${iconDesc} ${iconButton({ types: "nav"})} ${(path === "/" || path === "/home") ? iconButton({ types: "on" }) :""} `}>
                             <span className={`material-symbols-rounded`}>roofing</span>
@@ -51,8 +50,7 @@ export default function Nav() {
                             <p className={defaultP({ size: "sm", width: "max" })}>설정</p>
                         </a></li>
                     </ul>
-                </nav>
-                </motion.div>
+                </motion.nav>
             ): ""}
             </AnimatePresence>
         </footer>
