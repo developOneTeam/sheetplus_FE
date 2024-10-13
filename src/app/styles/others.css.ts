@@ -7,7 +7,10 @@ import { iconButton } from "./buttons.css";
 export const faqLink = style({
     color: global.color.grey,
     textDecoration: "solid 1.2px underline",
-    fontSize: "0.9rem"
+    fontSize: "0.9rem",
+    border: "none",
+    background: "inherit",
+    cursor: "pointer"
 });
 
 export const defaultH2 = style({
@@ -24,6 +27,7 @@ export const defaultP = recipe({
     base: {
         fontSize: "1.0rem",
         margin: 0,
+        wordBreak: "keep-all",
     },
     variants: {
         error: {
@@ -42,24 +46,41 @@ export const defaultP = recipe({
             max: {
                 width: "max-content"
             }
+        },
+        align: {
+            center: {
+                textAlign: "center"
+            }
         }
     }
 })
 
-export const icon = style({
-    fontVariationSettings: "'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24",
+export const icon = recipe({
+    base : {
+        fontVariationSettings: "'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24",
 
-    selectors: {
-        [`${inputWrapper()} &`]: {
-            fontVariationSettings: "'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 32",
-        },
-        [`${iconDesc} &`]: {
-            color: global.color.secondary,
-            fontSize: "4em !important",
-            fontVariationSettings: "'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 48",
-        },
-        [`${iconButton({ types: "navMenu" })}&`]: {
-            fontVariationSettings: "'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 48"    
-        } 
+        selectors: {
+            [`${inputWrapper()} &`]: {
+                fontVariationSettings: "'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 32",
+            },
+            [`${iconDesc} &`]: {
+                fontSize: "6em !important",
+                fontVariationSettings: "'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 48",
+            },
+            [`${iconButton({ types: "navMenu" })}&`]: {
+                fontVariationSettings: "'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 48"    
+            } 
+        }    
+    },
+
+    variants: {
+        color: {
+            error: {
+                color: global.color.error
+            },
+            notice: {
+                color: global.color.secondary
+            }
+        }
     }
 })

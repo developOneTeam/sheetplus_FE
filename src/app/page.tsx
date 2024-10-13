@@ -1,17 +1,17 @@
+import DialogLink from "./components/DialogLink";
 import LoginForm from "./components/LoginForm";
-
-import { accentArea, formLayout, iconDesc, main, mainSection } from "./styles/layouts.css";
-import { defaultH2, defaultP, faqLink, icon } from "./styles/others.css";
+import { button } from "./styles/buttons.css";
+import { accentArea, iconDesc, main, mainSection } from "./styles/layouts.css";
+import { defaultH2, defaultP, icon } from "./styles/others.css";
 
 export default function Home() {
-
 
   return (
     <>
       <main className={main({ center: true })}>
         <section className={mainSection}>
           <div className={iconDesc}>
-            <span className={`${icon} material-symbols-rounded`}>
+            <span className={`${icon({ color: "notice" })} material-symbols-rounded`}>
               forward_to_inbox
             </span>
             <h2 className={defaultH2}>이메일로 입장하기</h2>
@@ -21,7 +21,13 @@ export default function Home() {
           <div className={accentArea({ center: true })}>
             <p className={defaultP({ size: "sm" })}>이메일 주소를 입력하시면 <br /> 로그인 혹은 가입할 수 있는 링크를 보내드려요.</p>
           </div>
-          <a className={faqLink} href="/">이메일 주소가 기억나지 않나요?</a>
+          <DialogLink icon="help" type="error" message="이메일 주소가 기억나지 않나요?">
+              <p className={defaultP({ align: "center" })}>
+              사전에 연동해두셨다면 포털 로그인 후 &#39;웹메일&#39; - &#39;환경설정&#39;에서 아이디를 찾을 수 있어요. 찾을 수 없다면 계정 삭제 가능성이 있으니 전산팀에 문의해보세요.
+              </p>
+              <a href="https://portal.sch.ac.kr" className={button()}>순천향대 포털에서 확인하기</a>
+              <a href="tel:041-530-1411" className={button({ types: "secondary" })}>전산팀에 전화하기</a>
+          </DialogLink>
         </section>
       </main>
     </>

@@ -2,7 +2,7 @@
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { formLayout, inputLayout, inputWrapper } from "../styles/layouts.css";
 import { button } from "../styles/buttons.css";
-import { defaultP } from "../styles/others.css";
+import { defaultP, icon } from "../styles/others.css";
 import { Login } from "../actions/login";
 
 export default function LoginForm() {
@@ -41,7 +41,7 @@ export default function LoginForm() {
     return (
         <form className={formLayout} action={Login} onSubmit={() => {disableForm(true); return true;}}>
             <div className={inputWrapper({ active: !formDisabled })}>
-                <span className="material-symbols-rounded">mail</span>
+                <span className={`${icon({ color: "notice" })} material-symbols-rounded`}>mail</span>
                 <input className={inputLayout} type="text" name="email" placeholder="Email" onChange={enableButton} autoFocus required />
                 <label htmlFor="email">@sch.ac.kr</label>
             </div>

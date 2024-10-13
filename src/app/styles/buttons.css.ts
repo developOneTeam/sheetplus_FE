@@ -7,14 +7,17 @@ export const button = recipe({
         background: global.color.primary,
         border: "none",
         borderRadius: "5px",
-        padding: "0.4em",
+        padding: "0.5rem",
 
         width: "100%",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        boxSizing: "border-box",
         textAlign: "center",
         fontSize: "1.2rem",
+        textDecoration: "none",
+        cursor: "pointer",
 
         selectors: {
             "&:hover": {
@@ -32,6 +35,7 @@ export const button = recipe({
             disabled: {
                 color: global.color.disabled,
                 background: global.bg.disabled,
+                cursor: "auto",
                 
                 selectors: {
                     "&:hover": {
@@ -44,9 +48,7 @@ export const button = recipe({
 
                 selectors: {
                     "&:hover": {
-                        background: global.bg.secondary,
-                        outline: "solid 2px",
-                        outlineColor: global.bg.secondary
+                        background: global.bg.secondary
                     }    
                 }
             }

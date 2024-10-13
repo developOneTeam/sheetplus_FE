@@ -30,7 +30,7 @@ export default function Nav() {
                 >
                 <nav className={navLayout}>
                     <ul className={navList}>
-                        <li><a href="/" className={`${iconDesc} ${iconButton({ types: "nav"})} ${path === "/" ? iconButton({ types: "on" }) :""} `}>
+                        <li><a href="/" className={`${iconDesc} ${iconButton({ types: "nav"})} ${(path === "/" || path === "/home") ? iconButton({ types: "on" }) :""} `}>
                             <span className={`material-symbols-rounded`}>roofing</span>
                             <p className={defaultP({ size: "sm", width: "max" })}>홈</p>
                         </a></li>

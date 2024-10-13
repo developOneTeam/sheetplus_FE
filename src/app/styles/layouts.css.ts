@@ -131,10 +131,26 @@ export const navToast = style({
     textAlign: "center",
 });
 
-export const dialogLayout = style({
-    borderRadius: "10px",
+export const dialogOutline = style({
     boxShadow: `3px 3px 5px ${colorByMode.color.shadow}`,
+    padding: "0.5em",
+    borderRadius: "10px",
+    width: "25rem",
+    border: "none",
+})
+
+export const dialogLayout = style({
+    display: "flex",
+    flexDirection: "column",
+    gap: "0.5rem",
 });
+
+export const dialogClose = style({
+    display: "flex",
+    justifyContent: "flex-end",
+    width: "100%",
+    marginBottom: "-1em"
+})
 
 export const iconDesc = style({
     display: "flex",
