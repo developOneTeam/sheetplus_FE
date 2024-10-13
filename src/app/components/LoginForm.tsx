@@ -1,6 +1,8 @@
 "use client";
-import { InputWrapper, Input, Button } from "../styles/ui";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
+import { inputLayout, inputWrapper } from "../styles/layouts.css";
+import { button } from "../styles/buttons.css";
+import { defaultP } from "../styles/others.css";
 
 export default function LoginForm() {
     const [formDisabled, disableForm] = useState<boolean>(true);
@@ -20,24 +22,33 @@ export default function LoginForm() {
 
         if (isFullAddress) {
             setFormMessage("순천향대 메일 주소를 아이디만 입력해주세요.");
+        } else {
+            setFormMessage("");
         }
     }
 
     useEffect(() => {
-        if (!formDisabled && submitButton.current) {
-            submitButton.current.removeAttribute("disabled");
+        if (submitButton.current) {
+            if (!formDisabled) {
+                submitButton.current.removeAttribute("disabled");
+            } else {
+                submitButton.current?.setAttribute("disabled", "");
+            }    
         }
     }, [formDisabled]);
     
     return (
         <>
-          <InputWrapper>
-            <span className="material-symbols-rounded">mail</span>
-            <Input type="text" name="email" placeholder="Email" onChange={enableButton} autoFocus />
-            <label htmlFor="email">@sch.ac.kr</label>
-          </InputWrapper>
-          <Button ref={submitButton} type="submit" types={formDisabled ? "disabled": undefined} onClick={() => {console.log("a"); disableForm(true)}} disabled>메일 보내기</Button>
-          <p>{formMessage}</p>
+            <div className={inputWrapper({ active: !formDisabled })}>
+                <span className="material-symbols-rounded">mail</span>
+                <input className={inputLayout} type="text" name="email" placeholder="Email" onChange={enableButton} autoFocus required />
+                <label htmlFor="email">@sch.ac.kr</label>
+            </div>
+            <button className={button({types: formDisabled ? "disabled": undefined})} ref={submitButton} type="submit"
+                onSubmit={() => {console.log("a"); disableForm(true); return true;}} disabled>
+                메일 보내기
+            </button>
+            <p className={defaultP({error: formMessage.length > 0 ? true : undefined})}>{formMessage}</p>
         </>
     );
 }
