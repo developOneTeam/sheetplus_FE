@@ -130,6 +130,16 @@ export const iconButton = recipe({
                     "screen and (min-width: 768px)": {
                         display: "flex",
                     }
+                },
+
+                selectors: {
+                    "&:hover": {
+                        backdropFilter: "blur(10px)"
+                    },
+                    "&:focus": {
+                        backdropFilter: "blur(10px)"    
+                    }
+
                 }
             }
         }

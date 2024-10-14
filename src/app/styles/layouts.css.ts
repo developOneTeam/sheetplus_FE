@@ -91,7 +91,7 @@ export const subtitle = style({
 
 export const iconNav = style({
     selectors: {
-        [`${title} &`]: {
+        [`${header()} &`]: {
             display: "flex",
             alignItems: "center",
             gap: "0.5em",

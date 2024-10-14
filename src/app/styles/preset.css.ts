@@ -1,4 +1,4 @@
-import { createGlobalTheme, createTheme, createThemeContract } from "@vanilla-extract/css";
+import { createGlobalTheme } from "@vanilla-extract/css";
 
 export const global = createGlobalTheme(":root", {
     color: {
@@ -33,18 +33,8 @@ export const global = createGlobalTheme(":root", {
     }
 });
 
-export const colorByMode = createThemeContract({
-    color: {
-        text: null,
-        shadow: null
-    },
-    bg: {
-        nav: null,
-        main: null
-    }
-});
-
-export const light = createTheme(colorByMode, {
+// export const colorByMode = createThemeContract({
+export const colorByMode = createGlobalTheme(":root", {
     color: {
         text: "#1C1B1F",
         shadow: "#C9C9C9"
@@ -55,15 +45,15 @@ export const light = createTheme(colorByMode, {
     }
 });
 
-export const dark = createTheme(colorByMode, {
-    color: {
-        text: "#FCFFFC",
-        shadow: "#D4D4D4"
-    },
-    bg: {
-        nav: "#5C5C5C",
-        main: "#1C1B1F"
-    }
-});
+// export const dark = createTheme(colorByMode, {
+//     color: {
+//         text: "#FCFFFC",
+//         shadow: "#D4D4D4"
+//     },
+//     bg: {
+//         nav: "#5C5C5C",
+//         main: "#1C1B1F"
+//     }
+// });
 
 export const vars = { global, colorByMode };
