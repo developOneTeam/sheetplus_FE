@@ -65,8 +65,15 @@ export const header = recipe({
 export const title = style({
     fontSize: "1.4rem",
     fontWeight: "900",
-    margin: 0,
-    color: global.color.primary
+    color: global.color.primary,
+    textDecoration: "none",
+
+    selectors: {
+        "&:visited": {
+            color: global.color.primary,
+            textDecoration: "none"
+        }
+    }
 });
 
 export const sheet = style({
