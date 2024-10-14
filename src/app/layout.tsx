@@ -5,6 +5,8 @@ import Nav from "./components/Nav";
 import { iconButton } from "./styles/buttons.css";
 import { header, title, sheet, subtitle, iconNav } from "./styles/layouts.css";
 import { icon } from "./styles/others.css";
+import Link from "next/link";
+import { auth, signOut } from "@/auth";
 
 const suiteV = localFont({
   src: "./fonts/SUITE-Variable.woff2",
@@ -17,11 +19,13 @@ export const metadata: Metadata = {
   description: "순천향대학교 학부생을 위한 학술제 서비스",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
+
   return (
     <html lang="ko">
       <body className={suiteV.className}>
@@ -31,9 +35,19 @@ export default function RootLayout({
             <span className={subtitle}>제1회 SW융합대학 학술제</span>
           </h1>
           <section className={iconNav}>
-            <a href="/notifications" className={`${iconButton()} ${icon} material-symbols-rounded`}>
+            {session && session.user ? <form action={
+              async () => {
+                "use server"
+                await signOut();
+              }
+            }>
+              <button type="submit" className={`${iconButton()} ${icon} material-symbols-rounded`}>
+                logout
+              </button>
+            </form>:""}
+            <Link href="/notifications" className={`${iconButton()} ${icon} material-symbols-rounded`}>
               notifications
-            </a>
+            </Link>
           </section>
         </header>
         {children}
