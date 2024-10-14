@@ -6,7 +6,7 @@ import { iconButton } from "./styles/buttons.css";
 import { header, title, sheet, subtitle, iconNav } from "./styles/layouts.css";
 import { icon } from "./styles/others.css";
 import Link from "next/link";
-import { auth, signOut } from "@/auth";
+import Logout from "./components/Logout";
 
 const suiteV = localFont({
   src: "./fonts/SUITE-Variable.woff2",
@@ -24,7 +24,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await auth();
 
   return (
     <html lang="ko">
@@ -37,16 +36,7 @@ export default async function RootLayout({
             </Link>
           </h1>
           <section className={iconNav}>
-            {session && session.user ? <form action={
-              async () => {
-                "use server"
-                await signOut();
-              }
-            }>
-              <button type="submit" className={`${iconButton()} ${icon} material-symbols-rounded`}>
-                logout
-              </button>
-            </form>:""}
+            <Logout />
             <Link href="/notifications" className={`${iconButton()} ${icon} material-symbols-rounded`}>
               notifications
             </Link>
