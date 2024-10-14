@@ -60,7 +60,7 @@ export const iconButton = recipe({
     base: {
         borderRadius: "50%",
         border: "none",
-        display: "flex",
+        display: "flex !important",
         alignItems: "center",
         justifyContent: "center",
         width: "1.5em",
