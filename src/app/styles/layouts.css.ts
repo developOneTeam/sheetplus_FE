@@ -233,7 +233,7 @@ export const stampList = style({
     display: "flex",
     alignItems: "center",
     gap: "0.5em",
-    marginTop: "0.5em",
+    margin: "0.5em 0",
     minWidth: 0,
     boxSizing: "border-box",
     width: "100%"
@@ -249,3 +249,55 @@ export const stamp = style({
     width: "4em",
     background: global.bg.primary60
 });
+
+export const stamped = style({
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: "50%",
+    aspectRatio: "1/1",
+    padding: "0.5em",
+    background: global.bg.primary10,
+    color: global.color.white,
+});
+
+export const scheduleTable = style({
+    listStyle: "none",
+    color: colorByMode.color.text,
+    padding: 0
+})
+
+export const scheduleLine = style({
+    display: "flex",
+    justifyContent: "space-between",
+    gap: "0.5em",
+
+    padding: "0.5em",
+    textDecoration: "none",
+    color: colorByMode.color.text,
+    borderBottom: `2px solid ${global.color.grey}`,
+});
+
+export const scheduleContentBlock = style({
+    display: "flex",
+    alignItems: "center",
+    gap: "0.5em"
+})
+
+export const schedulePlace = style({
+    background: global.bg.secondary30,
+    overflow: "ellipse",
+    height: "2.5rem",
+    width: "5rem",
+    margin: "0.5rem",
+    borderRadius: "10px",
+    padding: "0.5em",
+
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+})
+
+
+

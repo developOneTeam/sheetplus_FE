@@ -8,12 +8,14 @@ export const global = createGlobalTheme(":root", {
         error: "#EF4136",
         grey: "#959595",
         greyRing: "#9595951A",
+        white: "#FAFAFA"
     },
     bg: {
         primary10: "#26539C1A",
         primary60: "#26539C99",
         primary90: "#26539CE6",
         secondary: "#1C9AD6E6",
+        secondary30: "rgba(114, 198, 239, 0.30)",
         disabled: "#D9D9D9"
     },
     iconSize: {

@@ -1,4 +1,3 @@
-import { style } from "@vanilla-extract/css";
 import { iconDesc, inputWrapper } from "./layouts.css";
 import { global } from "./preset.css";
 import { recipe } from "@vanilla-extract/recipes";
@@ -83,6 +82,12 @@ export const defaultP = recipe({
         size: {
             sm: {
                 fontSize: "0.9rem"
+            },
+            l: {
+                fontSize: "1.1rem"
+            },
+            lg: {
+                fontSize: "1.2rem"
             }
         },
         width: {
@@ -91,6 +96,9 @@ export const defaultP = recipe({
             },
             block: {
                 display: "block"
+            },
+            time: {
+                width: "3rem"
             }
         },
         align: {

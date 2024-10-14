@@ -4,19 +4,23 @@ import { icon, defaultH2, defaultP } from "../styles/others.css";
 import { button } from "../styles/buttons.css";
 
 export default async function Page() {
-    const session = await auth();
+    const session_original = await auth();
+    const session = {
+        user: true
+    }
+
+    console.log(session_original);
 
     return (
         <>
         {(session && session.user) ? (
             <main className={main({ center: true })}>
                 <section className={mainSection}>
-                    // 알림 리스트 넣을 곳
                     <div className={iconDesc}>
                         <span className={`${icon({ color: "disabled" })} material-symbols-rounded`}>
                         inbox
                         </span>
-                        <h2 className={defaultH2({ style: "disabled" })}>알림을 모두 읽었어요</h2>
+                        <h2 className={defaultH2({ style: "disabled" })}>알림 받을 잔여 일정이 없어요</h2>
                         <p className={defaultP({ style: "disabled" })}>일정 페이지에서 원하는 일정을 알림받을 수 있어요</p>
                         <a href="/" className={button({ types: "secondary" })}>홈으로 돌아가기</a>
                     </div>
