@@ -90,8 +90,6 @@ export const iconButton = recipe({
                 background: "transparent",
                 borderRadius: "8px",
                 textDecoration: "none",
-                aspectRatio: "1/1",
-                width: "fit-content",
                 padding: "1rem",
                 margin: "0.5rem",
                 
@@ -115,7 +113,8 @@ export const iconButton = recipe({
                 borderRadius: "10px",
                 background: colorByMode.bg.nav,
                 boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
-                padding: "2.25rem",
+                width: "4.5rem",
+                height: "4.5rem",
 
                 display: "none",
                 alignItems: "center",
@@ -140,7 +139,6 @@ export const iconButton = recipe({
                     "&:focus": {
                         backdropFilter: "blur(10px)"    
                     }
-
                 }
             }
         }
