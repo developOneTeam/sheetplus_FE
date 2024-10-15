@@ -1,5 +1,6 @@
 import { recipe } from "@vanilla-extract/recipes";
 import { colorByMode, global } from "./preset.css";
+import { style } from "@vanilla-extract/css";
 
 export const button = recipe({
     base: {
@@ -145,3 +146,43 @@ export const iconButton = recipe({
         }
     }
 });
+
+export const toggleSwitch = style({
+    appearance: "none",
+    position: "relative",
+    border: "max(2px, 0.1em) solid gray",
+    borderRadius: "1.25em", 
+    width: "3.5em",
+    height: "1.6em",
+    cursor: "pointer",
+
+    selectors: {
+        "&::before": {
+            content: "",
+            position: "absolute",
+            left: 0,
+            width: "1.2em",
+            height: "1.2em",
+            margin: "0.05em",
+            borderRadius: "50%",
+            backgroundColor: global.color.grey,
+            transition: "left 250ms linear"
+        },
+        "&:checked": {
+            backgroundColor: global.color.secondary,
+            borderColor: global.color.secondary
+        },
+        "&:checked::before": {
+            backgroundColor: colorByMode.bg.main,
+            left: "1.9em"
+        },
+        "&:focus": {
+            outlineOffset: "max(2px, 0.1em)",
+            outline: `max(2px, 0.1em) solid ${global.color.secondary}`
+        },
+        "&:enabled:hover": {
+            backgroundColor: global.bg.secondary30
+        }
+    }
+})
+

@@ -277,6 +277,7 @@ export const scheduleTable = style({
 export const scheduleLine = style({
     display: "flex",
     justifyContent: "space-between",
+    alignItems: "center",
     gap: "0.5em",
 
     padding: "0.5em",

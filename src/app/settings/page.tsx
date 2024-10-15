@@ -1,10 +1,11 @@
 "use client";
 import { initializeApp } from "firebase/app";
 import { getMessaging, getToken, Messaging, onMessage } from "firebase/messaging";
-import { accentArea, main } from "../styles/layouts.css";
-import { defaultP } from "../styles/others.css";
-import { button } from "../styles/buttons.css";
-import { useEffect, useState } from "react";
+import { accentArea, main, scheduleContentBlock, scheduleLine } from "../styles/layouts.css";
+import { defaultP, icon } from "../styles/others.css";
+import { toggleSwitch } from "../styles/buttons.css";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY ?? "",
@@ -15,69 +16,82 @@ const firebaseConfig = {
 
 export default function Page() {
     const [push, setPushObject] = useState<Messaging|undefined>(undefined);
-    const [pushOn, setPush] = useState<boolean>(false);
+    const [inProgress, setWorkingState] = useState<boolean>(false);
+    const notiToggle = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
         const app = initializeApp(firebaseConfig);
         const push = getMessaging(app);
         setPushObject(push);
 
-        if (pushOn) {
-            onMessage(push, (payload) => {
-                console.log("[Foreground] Message Received", payload)
-            });    
+        if (localStorage.getItem("fcm") && notiToggle.current 
+            && !notiToggle.current.checked) {
+            notiToggle.current.click();
         }
-    }, [pushOn])
 
-    async function supportsModuleWorker() {
-        let supports = false;
-        try {
-            const test = await navigator.serviceWorker.register("/sw_import_tester.js", { type: "module" });
-            supports = true;
-            await test.unregister();
-            
-            console.log(supports);
-            return supports;
-        } catch {
-            return supports;
-        }
-      }
-      
+        onMessage(push, (payload) => {
+            console.log("[Foreground] Message Received", payload)
+        });
+    }, []);      
 
     async function getServiceWorker() {
-        if (await supportsModuleWorker()) {
+        try {
             return await navigator.serviceWorker.register(`/push_sw.js?${new URLSearchParams(firebaseConfig).toString()}`, { type: "module" });
-        } else {
+        } catch {
             return await navigator.serviceWorker.register(`/push_sw_mozilla.js?${new URLSearchParams(firebaseConfig).toString()}`);
         }
     }
 
-    function requestPushPerm() {
-        Notification.requestPermission().then(async (permission) => {
-            if (permission === "granted" && push) {
-                await getToken(push, {
-                    vapidKey: process.env.NEXT_PUBLIC_FIREBASE_VAPID_PUBLIC_KEY,
-                    serviceWorkerRegistration: await getServiceWorker()
-                }).then((currentToken) => {
-                    if (currentToken) {
-                        setPush(true);
-                        console.log(`[Foreground] Push Token ${currentToken}`);
-                    } else {
-                        console.log("error");
-                    }
-                });
+    async function requestPushPerm(e: ChangeEvent<HTMLInputElement>) {
+        if (!e.target.checked) {
+            const activeWorker = await navigator.serviceWorker.getRegistration("push_sw");
+
+            if (activeWorker) {
+                activeWorker.unregister();
+                localStorage.removeItem("fcm");
             }
-        })
+        } else {
+            e.target.checked = false;
+            setWorkingState(true);
+
+            Notification.requestPermission().then(async (permission) => {
+                if (permission === "granted" && push) {
+                    await getToken(push, {
+                        vapidKey: process.env.NEXT_PUBLIC_FIREBASE_VAPID_PUBLIC_KEY,
+                        serviceWorkerRegistration: await getServiceWorker()
+                    }).then((currentToken) => {
+                        if (currentToken) {
+                            localStorage.setItem("fcm", currentToken);
+                            e.target.checked = true;
+                            setWorkingState(false);
+                        } else {
+                            console.log("error");
+                        }
+                    });
+                }
+            })
+        };
     }
 
     return (
-        <main className={main({ center: true })}>
+        <main className={main({ center: false })}>
             <section className={accentArea()}>
                 <p className={defaultP()}>
                     설정 값은 이 기기에서만 적용되어요.
                 </p>
             </section>
-            <button className={button({ types: pushOn ? "disabled" : undefined })} onClick={requestPushPerm}>알림 켜기</button>
+            <div className={scheduleLine}>
+                <label htmlFor="noti" className={defaultP({ size: "l" })}>푸시 알림 켜기</label>
+                <div className={scheduleContentBlock}>
+                    {inProgress ? (
+                        <motion.div className={`${icon({ color: "notice"})} material-symbols-rounded`}
+                            animate={{ rotate: [0, 360] }} transition={{ repeat: Infinity, duration: 0.5 }}>
+                            progress_activity
+                        </motion.div>
+                    ):""}
+                    <input ref={notiToggle} type="checkbox" id="noti" className={toggleSwitch} onChange={requestPushPerm}/>
+                </div>
+            </div>
         </main>
     )
 };
