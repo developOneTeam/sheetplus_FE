@@ -1,9 +1,9 @@
 import Link from "next/link";
-import DialogLink from "./components/DialogLink";
-import LoginForm from "./components/LoginForm";
-import { button } from "./styles/buttons.css";
-import { accentArea, iconDesc, main, mainSection } from "./styles/layouts.css";
-import { defaultH2, defaultP, icon } from "./styles/others.css";
+import DialogLink from "../components/DialogLink";
+import LoginForm from "../components/LoginForm";
+import { button } from "../styles/buttons.css";
+import { accentArea, iconDesc, main, mainSection } from "../styles/layouts.css";
+import { defaultH2, defaultP, icon } from "../styles/others.css";
 
 export default function Home() {
 

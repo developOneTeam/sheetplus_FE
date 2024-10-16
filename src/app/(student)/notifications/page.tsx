@@ -1,7 +1,7 @@
 import { auth } from "@/auth";
-import { iconDesc, main, mainSection } from "../styles/layouts.css";
-import { icon, defaultH2, defaultP } from "../styles/others.css";
-import { button } from "../styles/buttons.css";
+import { iconDesc, main, mainSection } from "../../styles/layouts.css";
+import { icon, defaultH2, defaultP } from "../../styles/others.css";
+import { button } from "../../styles/buttons.css";
 
 export default async function Page() {
     const session_original = await auth();

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Nav from "./components/Nav";
+import Nav from "@/app/components/Nav";
 import { iconButton } from "./styles/buttons.css";
 import { header, title, sheet, subtitle, iconNav } from "./styles/layouts.css";
 import { icon } from "./styles/others.css";
