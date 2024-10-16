@@ -5,7 +5,7 @@ import { dialogClose, dialogLayout, dialogOutline, iconDesc } from "../styles/la
 import { defaultH2, icon } from "../styles/others.css";
 import { animate } from "framer-motion/dom";
 
-export default function Dialog(props: { children: React.ReactNode, open: boolean, setOpen: Dispatch<SetStateAction<boolean>>, icon: string, title: string, type: "error"|"notice"|undefined }) {
+export default function Dialog(props: { children: React.ReactNode, open: boolean, setOpen?: Dispatch<SetStateAction<boolean>>, icon: string, title: string, type: "error"|"notice"|undefined }) {
     const dialog = useRef<HTMLDialogElement>(null);
 
     useEffect(() => {
@@ -19,10 +19,11 @@ export default function Dialog(props: { children: React.ReactNode, open: boolean
         <dialog ref={dialog} className={dialogOutline}>
             <div className={dialogLayout}>
                 <form method="dialog" className={dialogClose} onSubmit={() => {
-                        if (dialog.current) {
+                        if (dialog.current)
                             animate(dialog.current, { opacity: 0 } , { duration: 0.5 });
-                        }
-                        props.setOpen(false);
+
+                        if(props.setOpen)
+                            props.setOpen(false);
                     }}>
                     <button className={`${iconButton()} material-symbols-rounded`} type="submit">close</button>
                 </form>

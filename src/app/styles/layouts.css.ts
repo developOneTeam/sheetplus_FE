@@ -124,6 +124,7 @@ export const inputWrapper = recipe({
         gap: "2px",
         marginBottom: "0.5em",
         fontSize: "1.2em",
+        alignItems: "center",
     },
     
     variants: {
@@ -139,11 +140,19 @@ export const inputLayout = style({
     border: "none",
     fontSize: "1.2rem",
     flexShrink: 1,
+    flexGrow: 1,
     minWidth: 0,
+    textAlign: "right",
+    color: global.color.secondary,
 
-    ":focus": {
-        border: "none",
-        outline: "none"
+    selectors: {
+        "&:focus": {
+            border: "none",
+            outline: "none"
+        },
+        "&::placeholder": {
+            color: global.color.grey
+        }
     }
 })
 
