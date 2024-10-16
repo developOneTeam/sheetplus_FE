@@ -20,6 +20,8 @@ export const button = recipe({
         textDecoration: "none",
         cursor: "pointer",
 
+        fontFamily: "inherit",
+
         selectors: {
             "&:hover": {
                 background: global.bg.primary90,

@@ -132,6 +132,11 @@ export const inputWrapper = recipe({
             true: {
                 color: global.color.secondary
             }
+        },
+        align: {
+            between: {
+                justifyContent: "space-between",
+            }
         }
     }
 });
@@ -143,18 +148,52 @@ export const inputLayout = style({
     flexGrow: 1,
     minWidth: 0,
     textAlign: "right",
-    color: global.color.secondary,
+    color: global.color.grey,
+    fontFamily: "inherit",
 
     selectors: {
         "&:focus": {
             border: "none",
-            outline: "none"
+            outline: "none",
         },
         "&::placeholder": {
             color: global.color.grey
         }
     }
-})
+});
+
+export const selectLayout = style({
+    appearance: "none",
+    fontSize: "1.2rem",
+    fontFamily: "inherit",
+    color: global.color.grey,
+    background: "transparent",
+    border: "none",
+    paddingInlineEnd: "1.2em",
+    textAlign: "end",
+
+    selectors: {
+        "&:focus": {
+            color: global.color.secondary
+        }
+    }
+});
+
+export const selectButton = style({
+    selectors: {
+        "&::after": {
+            content: "↓",
+            display: "inline-block",
+            background: "transparent",
+            color: global.color.grey,
+            marginInlineStart: "-1em",
+            pointerEvents: "none"
+        },
+        "&::after:focus": {
+            color: global.color.secondary
+        }
+    }
+});
 
 export const navToast = style({
     borderRadius: "25px",
