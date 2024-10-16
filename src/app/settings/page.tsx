@@ -21,24 +21,31 @@ export default function Page() {
 
     useEffect(() => {
         const app = initializeApp(firebaseConfig);
-        const push = getMessaging(app);
-        setPushObject(push);
+        setPushObject(getMessaging(app));
 
         if (localStorage.getItem("fcm") && notiToggle.current 
             && !notiToggle.current.checked) {
             notiToggle.current.click();
         }
 
-        onMessage(push, (payload) => {
-            console.log("[Foreground] Message Received", payload)
-        });
-    }, []);      
+        if (push) {
+            onMessage(push, (payload) => {
+                console.log("[Foreground] Message Received", payload)
+            });    
+        }
+    }, [push]);      
 
     async function getServiceWorker() {
         try {
-            return await navigator.serviceWorker.register(`/push_sw.js?${new URLSearchParams(firebaseConfig).toString()}`, { type: "module" });
+            const currentWorker = await navigator.serviceWorker.getRegistration("push_sw");
+            if(currentWorker)
+                return currentWorker;
         } catch {
-            return await navigator.serviceWorker.register(`/push_sw_mozilla.js?${new URLSearchParams(firebaseConfig).toString()}`);
+            try {
+                return await navigator.serviceWorker.register(`/push_sw.js?${new URLSearchParams(firebaseConfig).toString()}`, { type: "module" });
+            } catch {
+                return await navigator.serviceWorker.register(`/push_sw_mozilla.js?${new URLSearchParams(firebaseConfig).toString()}`);
+            }    
         }
     }
 
