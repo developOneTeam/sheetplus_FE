@@ -81,7 +81,7 @@ export default function ContentsTable(props: Props) {
             {props.type === "schedule" && data ? (
                 <>
                 {data.length > 0 ? data.map((event) => (
-                    <li key={event.secureId}><Link href={`/activities/${event.secureId}`} className={scheduleLine}>
+                    <li key={event.secureId}><Link href={`/schedule/${event.secureId}`} className={scheduleLine}>
                         <div className={scheduleContentBlock}>
                             <p className={defaultP({ size: "lg", width: "time", align: "center", flexOptions: "notShrink" })}>
                             {event.startTime instanceof Date ? <>{new Intl.DateTimeFormat("ko-KR", {
