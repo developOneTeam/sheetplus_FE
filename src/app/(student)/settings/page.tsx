@@ -38,11 +38,14 @@ export default function Page() {
     async function getServiceWorker() {
         try {
             const currentWorker = await navigator.serviceWorker.getRegistration("push_sw");
+            console.log(currentWorker);
             if(currentWorker)
                 return currentWorker;
         } catch {
             try {
-                return await navigator.serviceWorker.register(`/push_sw.js?${new URLSearchParams(firebaseConfig).toString()}`, { type: "module" });
+                console.log("trying");
+                const newType = await navigator.serviceWorker.register(`/push_sw.js?${new URLSearchParams(firebaseConfig).toString()}`, { type: "module" });
+                return newType;
             } catch {
                 return await navigator.serviceWorker.register(`/push_sw_mozilla.js?${new URLSearchParams(firebaseConfig).toString()}`);
             }    
