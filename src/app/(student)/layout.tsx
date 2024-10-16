@@ -7,31 +7,30 @@ import Link from "next/link";
 import Logout from "../components/Logout";
 
 export default async function SubRootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-
-  return (
-    <>
-    <header className={header()}>
-      <h1>
-        <Link href="/" className={title}>
-          SCHU<span className={sheet}>sheet<sup>+</sup></span>
-          <span className={subtitle}>제1회 SW융합대학 학술제</span>
-        </Link>
-      </h1>
-      <section className={iconNav}>
-        <Logout />
-        <Link href="/notifications" className={`${iconButton()} ${icon} material-symbols-rounded`}>
-          notifications
-        </Link>
-      </section>
-    </header>
-    {children}
-    <Nav />
-    </>
-  );
+    return (
+        <>
+        <header className={header()}>
+            <h1>
+                <Link href="/" className={title}>
+                    SCHU<span className={sheet}>sheet<sup>+</sup></span>
+                    <span className={subtitle}>제1회 SW융합대학 학술제</span>
+                </Link>
+            </h1>
+            <section className={iconNav}>
+                <Logout />
+                <Link href="/notifications" className={`${iconButton()} ${icon} material-symbols-rounded`}>
+                    notifications
+                </Link>
+            </section>
+        </header>
+        {children}
+        <Nav />
+        </>
+    );
 }
 
 export const runtime = 'edge';
