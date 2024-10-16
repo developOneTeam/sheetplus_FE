@@ -67,6 +67,9 @@ export const defaultP = recipe({
     },
     variants: {
         style: {
+            primary: {
+                color: global.color.primary,
+            },
             error: {
                 color: global.color.error,
                 marginTop: "1em",
@@ -98,7 +101,7 @@ export const defaultP = recipe({
                 display: "block"
             },
             time: {
-                width: "3rem"
+                width: "4rem"
             }
         },
         align: {
@@ -109,6 +112,19 @@ export const defaultP = recipe({
         weight: {
             semiBold: {
                 fontWeight: 500
+            },
+            bold: {
+                fontWeight: 600
+            }
+        },
+        lineHeight: {
+            ui: {
+                lineHeight: 1.6
+            }
+        },
+        flexOptions: {
+            notShrink: {
+                flexShrink: 0
             }
         }
     }

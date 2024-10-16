@@ -61,7 +61,7 @@ export const iconButton = recipe({
     base: {
         borderRadius: "50%",
         border: "none",
-        display: "flex !important",
+        display: "flex",
         alignItems: "center",
         justifyContent: "center",
         width: "1.5em",
@@ -180,6 +180,27 @@ export const toggleSwitch = style({
         },
         "&:enabled:hover": {
             backgroundColor: global.bg.secondary30
+        }
+    }
+});
+
+export const buildingRadio = style({
+    appearance: "none"
+})
+
+export const buildingSwitch = style({
+    position: "relative",
+    borderRadius: 8,
+    padding: "1em",
+    cursor: "pointer",
+    width: "max-content",
+    wordBreak: "keep-all",
+    scrollBehavior: "smooth",
+
+    selectors: {
+        "input[type='radio']:checked + &": {
+            background: colorByMode.bg.nav,
+            boxShadow: `2px 2px 5px ${colorByMode.color.shadow}`
         }
     }
 })

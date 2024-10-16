@@ -186,6 +186,7 @@ export const accentArea = recipe({
     base: {
         background: global.bg.primary10,
         borderRadius: "10px",
+        border: "none",
         padding: "0.5em 1em",
         width: "100%",
         boxSizing: "border-box",
@@ -199,6 +200,16 @@ export const accentArea = recipe({
             true: {
                 alignItems: "center",
                 textAlign: "center"
+            }
+        },
+        direction: {
+            "row": {
+                flexDirection: "row"
+            }
+        },
+        overflow: {
+            "scroll": {
+                overflow: "scroll"
             }
         }
     }
