@@ -36,22 +36,16 @@ export default function Page() {
     }, [push]);      
 
     async function getServiceWorker() {
-        // try {
-        //     const currentWorker = await navigator.serviceWorker.getRegistration("push_sw");
-        //     if(currentWorker)
-        //         return currentWorker;
-        // } catch {
-            try {
-                console.log("trying");
-                const newType = await navigator.serviceWorker.register(`/push_sw.js?${new URLSearchParams(firebaseConfig).toString()}`, { type: "module" });
-                console.log(newType);
-                return newType;
-            } catch {
-                const oldType = await navigator.serviceWorker.register(`/push_sw_mozilla.js?${new URLSearchParams(firebaseConfig).toString()}`);
-                console.log(oldType);
-                return oldType;
-            }    
-        // }
+        try {
+            console.log("trying");
+            const newType = await navigator.serviceWorker.register(`/push_sw.js?${new URLSearchParams(firebaseConfig).toString()}`, { type: "module" });
+            console.log(newType);
+            return newType;
+        } catch {
+            const oldType = await navigator.serviceWorker.register(`/push_sw_mozilla.js?${new URLSearchParams(firebaseConfig).toString()}`);
+            console.log(oldType);
+            return oldType;
+        }    
     }
 
     async function requestPushPerm(e: ChangeEvent<HTMLInputElement>) {
