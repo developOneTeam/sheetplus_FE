@@ -7,8 +7,9 @@ import { Login } from "../actions/login";
 import { useFormState } from "react-dom";
 import Link from "next/link";
 import Dialog from "./Dialog";
+import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 
-export default function LoginForm() {
+export default function LoginForm(props : { rToken: RequestCookie | undefined }) {
     const [formDisabled, disableForm] = useState<boolean>(true);
     const [formMessage, setFormMessage] = useState<string>("");
     const [dialogOpen, setDialogOpen] = useState<boolean>(false);
@@ -53,6 +54,7 @@ export default function LoginForm() {
     return (
         <>
         <form className={formLayout} action={submitAction} onSubmit={() => {disableForm(true); return true;}}>
+            <input type="hidden" name="refreshToken" value={props.rToken ? props.rToken.toString() : ""} />
             <div className={inputWrapper({ active: !formDisabled })}>
                 <span className={`${icon({ color: "notice" })} material-symbols-rounded`}>mail</span>
                 <input className={inputLayout} type="text" id="email" name="email" placeholder="순천향대 메일 아이디" onChange={enableButton} autoFocus required />

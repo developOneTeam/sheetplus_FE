@@ -1,24 +1,55 @@
 "use server"
 
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+
 export async function Login(status: { ok: boolean, try: number }, formData:FormData) {
-    formData.set("email", `${formData.get("email")}@sch.ac.kr`);
+    const rToken = formData.get("refreshToken");
 
-    const result = await fetch(`${process.env.API_ENDPOINT}/public/mail/auth`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            "receiver": formData.get("email")
-        })
-    });
+    if (rToken) {
+        const cookieBox = cookies();
 
-    if (result.ok)
-        status.ok = true;
-    else
-        status.ok = false;
+        const getNewToken = await fetch(`${process.env.API_ENDPOINT}/public/refresh`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                "refresh-token": rToken
+            })
+        });
 
-    status.try += 1
+        if (getNewToken.ok) {
+            const tokens: {
+                data: {
+                    accessToken: string,
+                    refreshToken: string
+                }
+            } = await getNewToken.json();
+            cookieBox.set("access", tokens.data.accessToken);
+            cookieBox.set("refresh", tokens.data.refreshToken);
+        }
+        redirect("/home");
+    } else {
+        formData.set("email", `${formData.get("email")}@sch.ac.kr`);
 
-    return status;
+        const result = await fetch(`${process.env.API_ENDPOINT}/public/mail/auth`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                "receiver": formData.get("email")
+            })
+        });
+    
+        if (result.ok)
+            status.ok = true;
+        else
+            status.ok = false;
+    
+        status.try += 1
+    
+        return status;    
+    }
 }

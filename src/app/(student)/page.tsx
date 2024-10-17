@@ -4,8 +4,10 @@ import LoginForm from "../components/LoginForm";
 import { button } from "../styles/buttons.css";
 import { accentArea, iconDesc, main, mainSection } from "../styles/layouts.css";
 import { defaultH2, defaultP, icon } from "../styles/others.css";
+import { cookies } from "next/headers";
 
 export default function Home() {
+    const cookieBox = cookies();
 
     return (
         <>
@@ -18,7 +20,7 @@ export default function Home() {
                         <h2 className={defaultH2()}>이메일로 입장하기</h2>
                         <p className={defaultP()}>SW융합대학 학부생만 참여할 수 있어요</p>
                     </div>
-                    <LoginForm />
+                    <LoginForm rToken={cookieBox.get("refresh")} />
                     <div className={accentArea({ center: true })}>
                         <p className={defaultP({ size: "sm" })}>이메일 주소를 입력하시면 <br /> 로그인 혹은 가입할 수 있는 링크를 보내드려요.</p>
                     </div>
