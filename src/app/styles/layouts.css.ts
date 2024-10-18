@@ -351,7 +351,8 @@ export const stamped = style({
 export const scheduleTable = style({
     listStyle: "none",
     color: colorByMode.color.text,
-    padding: 0
+    padding: 0,
+    marginBottom: "6rem"
 })
 
 export const scheduleLine = style({
