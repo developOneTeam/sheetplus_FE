@@ -2135,6 +2135,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@toast-ui/chart@npm:^4.6.1":
+  version: 4.6.1
+  resolution: "@toast-ui/chart@npm:4.6.1"
+  checksum: 10c0/7755f5ee99318cb9f455d71d455b18aa43d921901d4c296204fb7569bfd3dd35bb9d57149049333cc7b8bbdffc27ced55a2470b0763d999c5e23008f661a65e0
+  languageName: node
+  linkType: hard
+
+"@toast-ui/react-chart@npm:^4.7.1":
+  version: 4.7.1
+  resolution: "@toast-ui/react-chart@npm:4.7.1"
+  dependencies:
+    "@toast-ui/chart": "npm:^4.6.1"
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0
+  checksum: 10c0/90ba9bbde3ff36e3546acd8ab98378d7d1d2efdd5afd8cac17f746228f04991b70139db7391dadea76c83faf4def797fbf5a07583cb3adf0624db1bbb73e2b53
+  languageName: node
+  linkType: hard
+
 "@tootallnate/once@npm:2.0.0":
   version: 2.0.0
   resolution: "@tootallnate/once@npm:2.0.0"
@@ -8166,6 +8184,8 @@ __metadata:
     "@cloudflare/next-on-pages": "npm:^1.13.5"
     "@cloudflare/workers-types": "npm:^4.20241004.0"
     "@serwist/next": "npm:^9.0.9"
+    "@toast-ui/chart": "npm:^4.6.1"
+    "@toast-ui/react-chart": "npm:^4.7.1"
     "@types/node": "npm:^20"
     "@types/react": "npm:^18"
     "@types/react-dom": "npm:^18"

@@ -106,7 +106,7 @@ export default function SignUpForm(props :
                 }
             </p>
             {state.ok ? (
-                <Link href="/home" className={button()}>홈으로 이동하기</Link>
+                <Link href="/home" className={button()}>시작하기</Link>
             ):<p></p>}
             </Dialog>
         ):""}

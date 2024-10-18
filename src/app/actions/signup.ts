@@ -1,6 +1,4 @@
 "use server"
-
-import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 
 export async function Login(status: { ok: boolean, try: number }, formData:FormData) {
@@ -30,8 +28,6 @@ export async function Login(status: { ok: boolean, try: number }, formData:FormD
         } = await result.json();
         cookieBox.set("access", tokens.data.accessToken);
         cookieBox.set("refresh", tokens.data.refreshToken);
-
-        redirect("/")
     } else
         status.ok = false;
 

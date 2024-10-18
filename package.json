@@ -14,6 +14,8 @@
   "dependencies": {
     "@auth/d1-adapter": "^1.6.0",
     "@serwist/next": "^9.0.9",
+    "@toast-ui/chart": "^4.6.1",
+    "@toast-ui/react-chart": "^4.7.1",
     "@vanilla-extract/css": "^1.16.0",
     "@vanilla-extract/dynamic": "^2.1.2",
     "@vanilla-extract/recipes": "^0.5.5",

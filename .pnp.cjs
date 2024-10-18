@@ -31,6 +31,8 @@ const RAW_RUNTIME_STATE =
           ["@cloudflare/next-on-pages", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:1.13.5"],\
           ["@cloudflare/workers-types", "npm:4.20241004.0"],\
           ["@serwist/next", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:9.0.9"],\
+          ["@toast-ui/chart", "npm:4.6.1"],\
+          ["@toast-ui/react-chart", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:4.7.1"],\
           ["@types/node", "npm:20.16.11"],\
           ["@types/react", "npm:18.3.11"],\
           ["@types/react-dom", "npm:18.3.0"],\
@@ -3088,6 +3090,38 @@ const RAW_RUNTIME_STATE =
           ["@swc/helpers", "npm:0.5.5"],\
           ["@swc/counter", "npm:0.1.3"],\
           ["tslib", "npm:2.7.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@toast-ui/chart", [\
+      ["npm:4.6.1", {\
+        "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/@toast-ui-chart-npm-4.6.1-56c23792d9-10c0.zip/node_modules/@toast-ui/chart/",\
+        "packageDependencies": [\
+          ["@toast-ui/chart", "npm:4.6.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@toast-ui/react-chart", [\
+      ["npm:4.7.1", {\
+        "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/@toast-ui-react-chart-npm-4.7.1-50029921ff-10c0.zip/node_modules/@toast-ui/react-chart/",\
+        "packageDependencies": [\
+          ["@toast-ui/react-chart", "npm:4.7.1"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:4.7.1", {\
+        "packageLocation": "./.yarn/__virtual__/@toast-ui-react-chart-virtual-0a78912fac/5/home/paperbox/.yarn/berry/cache/@toast-ui-react-chart-npm-4.7.1-50029921ff-10c0.zip/node_modules/@toast-ui/react-chart/",\
+        "packageDependencies": [\
+          ["@toast-ui/react-chart", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:4.7.1"],\
+          ["@toast-ui/chart", "npm:4.6.1"],\
+          ["@types/react", "npm:18.3.11"],\
+          ["react", "npm:18.3.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/react",\
+          "react"\
         ],\
         "linkType": "HARD"\
       }]\
@@ -9815,6 +9849,8 @@ const RAW_RUNTIME_STATE =
           ["@cloudflare/next-on-pages", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:1.13.5"],\
           ["@cloudflare/workers-types", "npm:4.20241004.0"],\
           ["@serwist/next", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:9.0.9"],\
+          ["@toast-ui/chart", "npm:4.6.1"],\
+          ["@toast-ui/react-chart", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:4.7.1"],\
           ["@types/node", "npm:20.16.11"],\
           ["@types/react", "npm:18.3.11"],\
           ["@types/react-dom", "npm:18.3.0"],\
