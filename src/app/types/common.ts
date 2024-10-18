@@ -15,3 +15,12 @@ export type Festival = {
     max_stamp: number,
     schedule: Schedule[]
 }
+
+export type Member = {
+    id: number,
+    name: string,
+    studentId: string,
+    major: string,
+    email: string,
+    memberType: "STUDENT"
+}

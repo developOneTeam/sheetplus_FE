@@ -91,8 +91,6 @@ export default async function Page() {
         return total;
     }
 
-    
-
     const rEvent = randomNextSchedule(user.event.stamp, festival.schedule);
 
     return (

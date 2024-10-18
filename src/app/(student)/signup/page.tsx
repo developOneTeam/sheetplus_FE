@@ -6,7 +6,7 @@ export default function Page({ searchParams } : {
     searchParams: { email: string|undefined, code: string|undefined }
 } ) {
     return (
-        <main className={main({ center: true })}>
+        <main className={main({ center: true, verticalCenter: true })}>
         <section className={mainSection}>
           <div className={iconDesc}>
             <span className={`${icon({ color: "notice" })} material-symbols-rounded`}>

@@ -27,7 +27,7 @@ export default async function Page() {
                 </section>
             </main>
         ):(
-            <main className={main({ center: true })}>
+            <main className={main({ center: true, verticalCenter: true })}>
                 <section className={mainSection}>
                     <div className={iconDesc}>
                         <span className={`${icon({ color: "disabled" })} material-symbols-rounded`}>

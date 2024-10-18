@@ -12,12 +12,33 @@ export const main = recipe({
             true: {
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "center",
-                marginTop: "12rem"
+                alignItems: "center"
             },
             false: {
                 margin: "1rem",
                 width: "calc(100% - 2rem)"
+            }
+        },
+        verticalCenter: {
+            true: {
+                height: "calc(100vh - 6rem)",
+                justifyContent: "center",
+                marginTop: "-2rem"
+            }
+        },
+        grid: {
+            true: {
+                display: "grid",
+                gridTemplateRows: "1fr",
+                width: "100%",
+                justifyContent: "center",
+
+                "@media": {
+                    "screen and (max-width: 519px)": {
+                        margin: "0 1rem",
+                        width: "calc(100% - 2rem)"
+                    }
+                }
             }
         }
     }
@@ -364,7 +385,63 @@ export const schedulePlace = style({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-})
+});
 
+export const pickArea = style({
+    background: global.bg.primary10,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "3em 1em",
+    borderRadius: "10px",
+    width: "max-content",
+    height: "max-content",
+    textAlign: "center",
 
+    "@media": {
+        "screen and (max-width: 519px)": {
+            width: "100%",
+            maxWidth: "calc(100% - 2rem)"
+        }
+    }
+});
 
+export const pickButtonSet = style({
+    display: "flex",
+    justifyContent: "center",
+    gap: "1em",
+    
+    position: "fixed",
+    bottom: "2em",
+    left: "50%",
+    right: "50%",
+    marginInlineStart: "-29rem",
+    width: "58rem",
+
+    "@media":{
+        "screen and (max-width: 963px)": {
+            width: "calc(100% - 2em)",
+            left: 0,
+            right: 0,
+            bottom: 0,
+            margin: "1em",
+        },
+        "screen and (max-width: 605px)": {
+            flexDirection: "column",
+            gap: "0.5em"
+        }
+    }
+});
+
+export const pickOptionSet = style({
+    display: "flex",
+    gap: "2em",
+    flexWrap: "wrap",
+    alignItems: "center",
+});
+
+export const checkBoxSet = style({
+    display: "flex",
+    alignItems: "center",
+    flexWrap: "nowrap" 
+});

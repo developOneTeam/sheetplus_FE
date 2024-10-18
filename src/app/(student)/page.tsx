@@ -11,7 +11,7 @@ export default function Home() {
 
     return (
         <>
-            <main className={main({ center: true })}>
+            <main className={main({ center: true, verticalCenter: true })}>
                 <section className={mainSection}>
                     <div className={iconDesc}>
                         <span className={`${icon({ color: "notice" })} material-symbols-rounded`}>

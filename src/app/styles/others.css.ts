@@ -2,6 +2,7 @@ import { iconDesc, inputWrapper } from "./layouts.css";
 import { global } from "./preset.css";
 import { recipe } from "@vanilla-extract/recipes";
 import { iconButton } from "./buttons.css";
+import { style } from "@vanilla-extract/css";
 
 export const faqLink = recipe({
     base: {
@@ -91,6 +92,9 @@ export const defaultP = recipe({
             },
             lg: {
                 fontSize: "1.2rem"
+            },
+            max: {
+                fontSize: "8rem"
             }
         },
         width: {
@@ -102,6 +106,22 @@ export const defaultP = recipe({
             },
             time: {
                 width: "4rem"
+            },
+            pick: {
+                width: "56rem",
+                textOverflow: "ellipsis",
+                overflow: "hidden",
+                textWrap: "nowrap",
+
+                "@media": {
+                    "screen and (max-width: 963px)": {
+                        width: "calc(100vw - 4rem)",
+                        fontSize: "4rem"
+                    },
+                    "screen and (max-width: 519px)": {
+                        width: "100%"
+                    },
+                }
             }
         },
         align: {
@@ -158,7 +178,43 @@ export const icon = recipe({
             },
             disabled: {
                 color: global.color.grey
+            },
+            primary: {
+                color: global.color.primary
             }
         }
     }
-})
+});
+
+export const checkbox = style({
+    WebkitAppearance: "none",
+    MozAppearance: "none",
+    appearance: "none",
+    backgroundColor: "transparent",
+    margin: "0 0.5em 0 0",
+
+    borderRadius: "50%",
+    color: global.color.secondary,
+    border: `0.15em solid ${global.color.secondary}`,
+    width: "2em",
+    height: "2em",
+
+    selectors: {
+        "&:checked": {
+            background: global.color.secondary
+        },
+        "&:checked::before": {
+            background: "url('/checkbox_check.png') no-repeat 0.01em 0.01em/cover",
+            content: "       ",
+            whiteSpace: "pre",
+            display: "block",
+            width: "2em",
+            height: "2em",
+            margin: "-0.15em"
+        }
+    }
+});
+
+export const input = style({
+    
+});
