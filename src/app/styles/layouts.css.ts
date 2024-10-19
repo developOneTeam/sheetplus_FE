@@ -118,14 +118,10 @@ export const subtitle = style({
 });
 
 export const iconNav = style({
-    selectors: {
-        [`${header()} &`]: {
-            display: "flex",
-            alignItems: "center",
-            gap: "0.5em",
-            color: colorByMode.color.text
-        }
-    }
+    display: "flex",
+    alignItems: "center",
+    gap: "0.5em",
+    color: colorByMode.color.text
 })
 
 export const formLayout = style({
