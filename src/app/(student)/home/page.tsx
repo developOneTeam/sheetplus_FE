@@ -1,20 +1,19 @@
-import { auth } from "@/auth";
 import { accentArea, header, iconDesc, main, stamp, stamped, stampList } from "../../styles/layouts.css";
 import { icon, defaultH2, defaultP, faqLink } from "../../styles/others.css";
 import { button } from "../../styles/buttons.css";
 import Link from "next/link";
 import { displayedDate, randomNextSchedule } from "../../utils/schedule";
 import ContentsTable from "../../components/ContentsTable";
+import { cookies } from "next/headers";
 
 export default async function Page() {
-    
+    const accessToken = cookies().get("access");
 
-    const session_original = await auth();
+    console.log(accessToken);
+
     const session = {
         user: true
     }
-
-    console.log(session_original);
 
     const user = {
         studentMajor: "의료IT공학과",

@@ -12,7 +12,6 @@
     "deploy": "yarn run pages:build && wrangler pages deploy"
   },
   "dependencies": {
-    "@auth/d1-adapter": "^1.6.0",
     "@serwist/next": "^9.0.9",
     "@toast-ui/chart": "^4.6.1",
     "@toast-ui/react-chart": "^4.7.1",
@@ -24,7 +23,6 @@
     "framer-motion": "^11.11.1",
     "html5-qrcode": "^2.3.8",
     "next": "^14.2.14",
-    "next-auth": "^5.0.0-beta.22",
     "react": "^18",
     "react-dom": "^18"
   },

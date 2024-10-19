@@ -27,7 +27,6 @@ const RAW_RUNTIME_STATE =
       [null, {\
         "packageLocation": "./",\
         "packageDependencies": [\
-          ["@auth/d1-adapter", "npm:1.7.0"],\
           ["@cloudflare/next-on-pages", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:1.13.5"],\
           ["@cloudflare/workers-types", "npm:4.20241004.0"],\
           ["@serwist/next", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:9.0.9"],\
@@ -48,7 +47,6 @@ const RAW_RUNTIME_STATE =
           ["framer-motion", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:11.11.4"],\
           ["html5-qrcode", "npm:2.3.8"],\
           ["next", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:14.2.15"],\
-          ["next-auth", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:5.0.0-beta.22"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:18.3.1"],\
           ["typescript", "patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"]\
@@ -63,88 +61,6 @@ const RAW_RUNTIME_STATE =
           ["@ampproject/remapping", "npm:2.3.0"],\
           ["@jridgewell/gen-mapping", "npm:0.3.5"],\
           ["@jridgewell/trace-mapping", "npm:0.3.25"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["@auth/core", [\
-      ["npm:0.35.3", {\
-        "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/@auth-core-npm-0.35.3-91359613a2-10c0.zip/node_modules/@auth/core/",\
-        "packageDependencies": [\
-          ["@auth/core", "npm:0.35.3"]\
-        ],\
-        "linkType": "SOFT"\
-      }],\
-      ["npm:0.37.0", {\
-        "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/@auth-core-npm-0.37.0-b2d5e40f7f-10c0.zip/node_modules/@auth/core/",\
-        "packageDependencies": [\
-          ["@auth/core", "npm:0.37.0"]\
-        ],\
-        "linkType": "SOFT"\
-      }],\
-      ["virtual:8c82c8979111b72b86480681a4f6e8de579d653e765c3fe6211182783bba13415e437ac6eece1e447eb70783e13905e821223d67f40242b495ce9b7a4991b715#npm:0.37.0", {\
-        "packageLocation": "./.yarn/__virtual__/@auth-core-virtual-e4d8382af6/5/home/paperbox/.yarn/berry/cache/@auth-core-npm-0.37.0-b2d5e40f7f-10c0.zip/node_modules/@auth/core/",\
-        "packageDependencies": [\
-          ["@auth/core", "virtual:8c82c8979111b72b86480681a4f6e8de579d653e765c3fe6211182783bba13415e437ac6eece1e447eb70783e13905e821223d67f40242b495ce9b7a4991b715#npm:0.37.0"],\
-          ["@panva/hkdf", "npm:1.2.1"],\
-          ["@simplewebauthn/browser", null],\
-          ["@simplewebauthn/server", null],\
-          ["@types/cookie", "npm:0.6.0"],\
-          ["@types/nodemailer", null],\
-          ["@types/simplewebauthn__browser", null],\
-          ["@types/simplewebauthn__server", null],\
-          ["cookie", "npm:0.7.1"],\
-          ["jose", "npm:5.9.3"],\
-          ["nodemailer", null],\
-          ["oauth4webapi", "npm:3.0.0"],\
-          ["preact", "npm:10.11.3"],\
-          ["preact-render-to-string", "virtual:e4d8382af6b50aef6a0ecfae3d6e5ad55762b04f85d937f0c1d04a71bf69aaf06301e09716a3ec294025f64526941a6cf828a28a9409daf2f4374009de2c6bd2#npm:5.2.3"]\
-        ],\
-        "packagePeers": [\
-          "@simplewebauthn/browser",\
-          "@simplewebauthn/server",\
-          "@types/nodemailer",\
-          "@types/simplewebauthn__browser",\
-          "@types/simplewebauthn__server",\
-          "nodemailer"\
-        ],\
-        "linkType": "HARD"\
-      }],\
-      ["virtual:fd8d4ecfab48bf628b006330cf860183ec69607d1e915c1d14e09ab6f245136d7f3c4cd845999ef077f7c44c31bbe9d4784486cdd3becfc807f70287d1c1b325#npm:0.35.3", {\
-        "packageLocation": "./.yarn/__virtual__/@auth-core-virtual-ac6a06d8b4/5/home/paperbox/.yarn/berry/cache/@auth-core-npm-0.35.3-91359613a2-10c0.zip/node_modules/@auth/core/",\
-        "packageDependencies": [\
-          ["@auth/core", "virtual:fd8d4ecfab48bf628b006330cf860183ec69607d1e915c1d14e09ab6f245136d7f3c4cd845999ef077f7c44c31bbe9d4784486cdd3becfc807f70287d1c1b325#npm:0.35.3"],\
-          ["@panva/hkdf", "npm:1.2.1"],\
-          ["@simplewebauthn/browser", null],\
-          ["@simplewebauthn/server", null],\
-          ["@types/cookie", "npm:0.6.0"],\
-          ["@types/nodemailer", null],\
-          ["@types/simplewebauthn__browser", null],\
-          ["@types/simplewebauthn__server", null],\
-          ["cookie", "npm:0.6.0"],\
-          ["jose", "npm:5.9.3"],\
-          ["nodemailer", null],\
-          ["oauth4webapi", "npm:2.17.0"],\
-          ["preact", "npm:10.11.3"],\
-          ["preact-render-to-string", "virtual:e4d8382af6b50aef6a0ecfae3d6e5ad55762b04f85d937f0c1d04a71bf69aaf06301e09716a3ec294025f64526941a6cf828a28a9409daf2f4374009de2c6bd2#npm:5.2.3"]\
-        ],\
-        "packagePeers": [\
-          "@simplewebauthn/browser",\
-          "@simplewebauthn/server",\
-          "@types/nodemailer",\
-          "@types/simplewebauthn__browser",\
-          "@types/simplewebauthn__server",\
-          "nodemailer"\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["@auth/d1-adapter", [\
-      ["npm:1.7.0", {\
-        "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/@auth-d1-adapter-npm-1.7.0-8c82c89791-10c0.zip/node_modules/@auth/d1-adapter/",\
-        "packageDependencies": [\
-          ["@auth/d1-adapter", "npm:1.7.0"],\
-          ["@auth/core", "virtual:8c82c8979111b72b86480681a4f6e8de579d653e765c3fe6211182783bba13415e437ac6eece1e447eb70783e13905e821223d67f40242b495ce9b7a4991b715#npm:0.37.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2669,15 +2585,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["@panva/hkdf", [\
-      ["npm:1.2.1", {\
-        "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/@panva-hkdf-npm-1.2.1-0e4816a25a-10c0.zip/node_modules/@panva/hkdf/",\
-        "packageDependencies": [\
-          ["@panva/hkdf", "npm:1.2.1"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["@pkgjs/parseargs", [\
       ["npm:0.11.0", {\
         "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/@pkgjs-parseargs-npm-0.11.0-cd2a3fe948-10c0.zip/node_modules/@pkgjs/parseargs/",\
@@ -3180,15 +3087,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/@tsconfig-node16-npm-1.0.4-b7cb87d859-10c0.zip/node_modules/@tsconfig/node16/",\
         "packageDependencies": [\
           ["@tsconfig/node16", "npm:1.0.4"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["@types/cookie", [\
-      ["npm:0.6.0", {\
-        "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/@types-cookie-npm-0.6.0-1f4c3f48f0-10c0.zip/node_modules/@types/cookie/",\
-        "packageDependencies": [\
-          ["@types/cookie", "npm:0.6.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4830,20 +4728,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/cookie-npm-0.5.0-e2d58a161a-10c0.zip/node_modules/cookie/",\
         "packageDependencies": [\
           ["cookie", "npm:0.5.0"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
-      ["npm:0.6.0", {\
-        "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/cookie-npm-0.6.0-362d6a2e45-10c0.zip/node_modules/cookie/",\
-        "packageDependencies": [\
-          ["cookie", "npm:0.6.0"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
-      ["npm:0.7.1", {\
-        "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/cookie-npm-0.7.1-f01524ff99-10c0.zip/node_modules/cookie/",\
-        "packageDependencies": [\
-          ["cookie", "npm:0.7.1"]\
         ],\
         "linkType": "HARD"\
       }],\
@@ -7722,15 +7606,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["jose", [\
-      ["npm:5.9.3", {\
-        "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/jose-npm-5.9.3-c75201e404-10c0.zip/node_modules/jose/",\
-        "packageDependencies": [\
-          ["jose", "npm:5.9.3"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["js-tokens", [\
       ["npm:4.0.0", {\
         "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/js-tokens-npm-4.0.0-0ac852e9e2-10c0.zip/node_modules/js-tokens/",\
@@ -8421,45 +8296,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["next-auth", [\
-      ["npm:5.0.0-beta.22", {\
-        "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/next-auth-npm-5.0.0-beta.22-c1240a4b84-10c0.zip/node_modules/next-auth/",\
-        "packageDependencies": [\
-          ["next-auth", "npm:5.0.0-beta.22"]\
-        ],\
-        "linkType": "SOFT"\
-      }],\
-      ["virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:5.0.0-beta.22", {\
-        "packageLocation": "./.yarn/__virtual__/next-auth-virtual-fd8d4ecfab/5/home/paperbox/.yarn/berry/cache/next-auth-npm-5.0.0-beta.22-c1240a4b84-10c0.zip/node_modules/next-auth/",\
-        "packageDependencies": [\
-          ["next-auth", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:5.0.0-beta.22"],\
-          ["@auth/core", "virtual:fd8d4ecfab48bf628b006330cf860183ec69607d1e915c1d14e09ab6f245136d7f3c4cd845999ef077f7c44c31bbe9d4784486cdd3becfc807f70287d1c1b325#npm:0.35.3"],\
-          ["@simplewebauthn/browser", null],\
-          ["@simplewebauthn/server", null],\
-          ["@types/next", null],\
-          ["@types/nodemailer", null],\
-          ["@types/react", "npm:18.3.11"],\
-          ["@types/simplewebauthn__browser", null],\
-          ["@types/simplewebauthn__server", null],\
-          ["next", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:14.2.15"],\
-          ["nodemailer", null],\
-          ["react", "npm:18.3.1"]\
-        ],\
-        "packagePeers": [\
-          "@simplewebauthn/browser",\
-          "@simplewebauthn/server",\
-          "@types/next",\
-          "@types/nodemailer",\
-          "@types/react",\
-          "@types/simplewebauthn__browser",\
-          "@types/simplewebauthn__server",\
-          "next",\
-          "nodemailer",\
-          "react"\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["node-fetch", [\
       ["npm:2.6.7", {\
         "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/node-fetch-npm-2.6.7-777aa2a6df-10c0.zip/node_modules/node-fetch/",\
@@ -8617,22 +8453,6 @@ const RAW_RUNTIME_STATE =
           ["console-control-strings", "npm:1.1.0"],\
           ["gauge", "npm:3.0.2"],\
           ["set-blocking", "npm:2.0.0"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["oauth4webapi", [\
-      ["npm:2.17.0", {\
-        "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/oauth4webapi-npm-2.17.0-5a066d55d0-10c0.zip/node_modules/oauth4webapi/",\
-        "packageDependencies": [\
-          ["oauth4webapi", "npm:2.17.0"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
-      ["npm:3.0.0", {\
-        "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/oauth4webapi-npm-3.0.0-b4eeb518b7-10c0.zip/node_modules/oauth4webapi/",\
-        "packageDependencies": [\
-          ["oauth4webapi", "npm:3.0.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -9069,38 +8889,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["preact", [\
-      ["npm:10.11.3", {\
-        "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/preact-npm-10.11.3-4973d2dda6-10c0.zip/node_modules/preact/",\
-        "packageDependencies": [\
-          ["preact", "npm:10.11.3"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["preact-render-to-string", [\
-      ["npm:5.2.3", {\
-        "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/preact-render-to-string-npm-5.2.3-1f72a2f38e-10c0.zip/node_modules/preact-render-to-string/",\
-        "packageDependencies": [\
-          ["preact-render-to-string", "npm:5.2.3"]\
-        ],\
-        "linkType": "SOFT"\
-      }],\
-      ["virtual:e4d8382af6b50aef6a0ecfae3d6e5ad55762b04f85d937f0c1d04a71bf69aaf06301e09716a3ec294025f64526941a6cf828a28a9409daf2f4374009de2c6bd2#npm:5.2.3", {\
-        "packageLocation": "./.yarn/__virtual__/preact-render-to-string-virtual-688e3ddede/5/home/paperbox/.yarn/berry/cache/preact-render-to-string-npm-5.2.3-1f72a2f38e-10c0.zip/node_modules/preact-render-to-string/",\
-        "packageDependencies": [\
-          ["preact-render-to-string", "virtual:e4d8382af6b50aef6a0ecfae3d6e5ad55762b04f85d937f0c1d04a71bf69aaf06301e09716a3ec294025f64526941a6cf828a28a9409daf2f4374009de2c6bd2#npm:5.2.3"],\
-          ["@types/preact", null],\
-          ["preact", "npm:10.11.3"],\
-          ["pretty-format", "npm:3.8.0"]\
-        ],\
-        "packagePeers": [\
-          "@types/preact",\
-          "preact"\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["prelude-ls", [\
       ["npm:1.2.1", {\
         "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/prelude-ls-npm-1.2.1-3e4d272a55-10c0.zip/node_modules/prelude-ls/",\
@@ -9115,15 +8903,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/pretty-bytes-npm-6.1.1-d10304de8f-10c0.zip/node_modules/pretty-bytes/",\
         "packageDependencies": [\
           ["pretty-bytes", "npm:6.1.1"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["pretty-format", [\
-      ["npm:3.8.0", {\
-        "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/pretty-format-npm-3.8.0-293db331d9-10c0.zip/node_modules/pretty-format/",\
-        "packageDependencies": [\
-          ["pretty-format", "npm:3.8.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -9845,7 +9624,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["sp", "workspace:."],\
-          ["@auth/d1-adapter", "npm:1.7.0"],\
           ["@cloudflare/next-on-pages", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:1.13.5"],\
           ["@cloudflare/workers-types", "npm:4.20241004.0"],\
           ["@serwist/next", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:9.0.9"],\
@@ -9866,7 +9644,6 @@ const RAW_RUNTIME_STATE =
           ["framer-motion", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:11.11.4"],\
           ["html5-qrcode", "npm:2.3.8"],\
           ["next", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:14.2.15"],\
-          ["next-auth", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:5.0.0-beta.22"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:18.3.1"],\
           ["typescript", "patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"]\

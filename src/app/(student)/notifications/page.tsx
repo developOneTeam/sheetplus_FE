@@ -1,10 +1,10 @@
-import { auth } from "@/auth";
 import { iconDesc, main, mainSection } from "../../styles/layouts.css";
 import { icon, defaultH2, defaultP } from "../../styles/others.css";
 import { button } from "../../styles/buttons.css";
+import { cookies } from "next/headers";
 
 export default async function Page() {
-    const session_original = await auth();
+    const session_original = cookies().get("access");
     const session = {
         user: true
     }

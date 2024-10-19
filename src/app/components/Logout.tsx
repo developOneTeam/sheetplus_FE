@@ -1,20 +1,19 @@
-import { auth, signOut } from "@/auth";
-// import { signOut } from "@/auth";
+
+import { cookies } from "next/headers";
 import { iconButton } from "../styles/buttons.css";
 import { icon } from "../styles/others.css";
 
 export default async function Logout() {
-    const session = await auth();
-    // const session = {
-    //     user: true
-    // }
+    const aToken = cookies().get("access");
+    const rToken = cookies().get("refresh");
 
     return(
         <>
-            {session && session.user ? <form action={
+            {rToken && aToken ? <form action={
                 async () => {
                 "use server"
-                await signOut();
+                    cookies().delete("access");
+                    cookies().delete("refresh");
                 }
             }>
                 <button type="submit" className={`${iconButton()} ${icon} material-symbols-rounded`}>
