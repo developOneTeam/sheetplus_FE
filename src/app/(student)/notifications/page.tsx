@@ -14,7 +14,7 @@ export default async function Page() {
     return (
         <>
         {(session && session.user) ? (
-            <main className={main({ center: true })}>
+            <main className={main({ center: true, verticalCenter: true })}>
                 <section className={mainSection}>
                     <div className={iconDesc}>
                         <span className={`${icon({ color: "disabled" })} material-symbols-rounded`}>
