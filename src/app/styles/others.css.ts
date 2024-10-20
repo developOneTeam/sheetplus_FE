@@ -4,12 +4,23 @@ import { recipe } from "@vanilla-extract/recipes";
 import { iconButton } from "./buttons.css";
 import { style } from "@vanilla-extract/css";
 
-export const adminMenuLink = style({
-    display: "flex",
-    alignItems: "center",
-    gap: "0.5em",
-    textDecoration: "none",
-    color: colorByMode.color.text
+export const adminMenuLink = recipe({
+    base: {
+        display: "flex",
+        alignItems: "center",
+        gap: "0.5em",
+        textDecoration: "none",
+        color: colorByMode.color.text    
+    },
+    
+    variants: {
+        selected: {
+            true: {
+                borderBottom: `solid 2px ${global.color.secondary}`,
+                color: global.color.secondary
+            }
+        }
+    }
 });
 
 export const adminDashboardLink = style({
