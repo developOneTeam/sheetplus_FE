@@ -17,7 +17,7 @@ export default function QR({ aToken, params }: { aToken?: RequestCookie , params
 
     async function checkCode(code: string) {
         if (!aToken) {
-            router.push("/")
+            router.push("/activities")
         }
 
         const checkReq = await fetch(`${process.env.API_ENDPOINT}/private/student/qrcode/check`,
