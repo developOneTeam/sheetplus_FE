@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export async function middleware(request: NextRequest) {
+    const currentPath = request.nextUrl.pathname;
+
     if (request.cookies.has("access") && request.cookies.has("refresh")) {
         const rToken = request.cookies.get("refresh");
 
@@ -15,7 +17,15 @@ export async function middleware(request: NextRequest) {
         });
 
         console.log("preparing for response");
-        const response = NextResponse.next();
+
+        let response = null;
+        
+        if (currentPath === "/") {
+            response = NextResponse.redirect(new URL("/home", request.url));
+        } else {
+            response = NextResponse.next();
+        }
+        
         if (getNewToken.ok) {
             const tokens = await getNewToken.json();
 
@@ -31,5 +41,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ["/admin/:path*", "/activities/:path", "/home"]
+    matcher: ["/admin/:path*", "/activities/:path", "/home", "/"]
 }
