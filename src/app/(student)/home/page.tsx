@@ -1,6 +1,6 @@
-import { accentArea, header, iconDesc, main, stamp, stamped, stampList } from "../../styles/layouts.css";
+import { accentArea, header, homeHello, iconDesc, main, stamp, stamped, stampList } from "../../styles/layouts.css";
 import { icon, defaultH2, defaultP, faqLink } from "../../styles/others.css";
-import { button } from "../../styles/buttons.css";
+import { button, iconButton } from "../../styles/buttons.css";
 import Link from "next/link";
 import { displayedDate, randomNextSchedule } from "../../utils/schedule";
 import ContentsTable from "../../components/ContentsTable";
@@ -13,7 +13,10 @@ export function stamps(user: { event: { stamps: number } }, festival: { max_stam
     for (let i = 0; i < festival.max_stamp; i++) {
         total.push(
             <div key={i} className={stamp}>
-                {i < user.event.stamps ? <div className={`${stamped} material-symbols-rounded`}>approval</div> : ""}
+                {i < user.event.stamps ? 
+                    <div className={`${stamped} material-symbols-rounded`}>approval</div> :
+                    <div className={`${stamped} material-symbols-rounded`}>hide_source</div>
+                }
             </div>
         )
     }
@@ -36,12 +39,15 @@ export default async function Page() {
         <>
         {(session && session.user) ? (
             <main className={main({ center: false })}>
-                <h2 className={defaultH2()}>
-                    <span className={
-                        defaultP({ size: "sm", style: "disabled", width: "block", weight: "semiBold" })
-                    }>{user.studentMajor}</span>
-                    <span className={defaultH2({ style: "primary" })}>{user.studentName}</span>님 안녕하세요!
-                </h2>
+                <div className={homeHello}>
+                    <h2 className={defaultH2()}>
+                        <span className={
+                            defaultP({ size: "sm", style: "disabled", width: "block", weight: "semiBold" })
+                        }>{user.studentMajor}</span>
+                        <span className={defaultH2({ style: "primary" })}>{user.studentName}</span>님 안녕하세요!
+                    </h2>
+                    <Link href="/check" className={`${icon()} ${iconButton()} material-symbols-rounded`}>qr_code</Link>
+                </div>
                 <section className={accentArea()}>
                     <div className={stampList}>
                         {stamps(user, festival)}
