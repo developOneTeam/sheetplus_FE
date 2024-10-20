@@ -319,7 +319,8 @@ export const stampList = style({
     margin: "0.5em 0",
     minWidth: 0,
     boxSizing: "border-box",
-    width: "100%"
+    width: "100%",
+    overflow: "scroll"
 })
 
 export const stamp = style({
@@ -341,7 +342,7 @@ export const stamped = style({
     aspectRatio: "1/1",
     padding: "0.5em",
     background: global.bg.primary10,
-    color: global.color.white,
+    color: global.color.white
 });
 
 export const scheduleTable = style({
@@ -460,4 +461,24 @@ export const adminMenuList = style({
     display: "flex",
     gap: "0.5em",
     flexDirection: "column"
+});
+
+export const qrBoxLayout = style({
+    width: "15rem",
+    height: "15rem",
+    borderRadius: 10,
+    border: `2px solid ${global.color.secondary}`
+});
+
+export const homeHello = style({
+    display: "flex",
+    gap: "1em",
+    alignItems: "center",
+
+    "@media": {
+        "screen and (max-width: 605px)": {
+            justifyContent: "space-between",
+        }
+    }
+
 })
