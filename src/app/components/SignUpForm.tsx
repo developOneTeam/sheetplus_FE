@@ -3,10 +3,10 @@ import { ChangeEvent, FocusEvent, useEffect, useRef, useState } from "react";
 import { formLayout, inputLayout, inputWrapper, selectButton, selectLayout } from "../styles/layouts.css";
 import { button } from "../styles/buttons.css";
 import { defaultP, icon } from "../styles/others.css";
-import { Login } from "../actions/login";
 import { useFormState } from "react-dom";
 import Link from "next/link";
 import Dialog from "./Dialog";
+import { Signup } from "../actions/signup";
 
 export default function SignUpForm(props : 
     { 
@@ -21,7 +21,7 @@ export default function SignUpForm(props :
     const [dialogOpen, setDialogOpen] = useState<boolean>(false);
     const submitButton = useRef<HTMLButtonElement>(null);
 
-    const [state, submitAction] = useFormState(Login, { ok: true, try: 0, notSelected: false });
+    const [state, submitAction] = useFormState(Signup, { ok: true, try: 0, notSelected: false });
 
     function enableButton(e: ChangeEvent<HTMLInputElement|HTMLSelectElement>) {
         if ((e.target.value.length === 0 ||
@@ -80,12 +80,12 @@ export default function SignUpForm(props :
                     <select id="major" className={selectLayout} onChange={enableButton} required>
                         <option>학과를 선택해주세요</option>
                         <hr />
-                        <option value="csw">컴퓨터소프트웨어공학과</option>
-                        <option value="security">정보보호학과</option>
-                        <option value="iot">사물인터넷학과</option>
-                        <option value="aibigdata">AI빅데이터학과</option>
-                        <option value="mite">의료IT공학과</option>
-                        <option value="metagame">메타버스&게임학과</option>
+                        <option value="컴퓨터소프트웨어공학과">컴퓨터소프트웨어공학과</option>
+                        <option value="정보보호학과">정보보호학과</option>
+                        <option value="사물인터넷학과">사물인터넷학과</option>
+                        <option value="AI빅데이터학과">AI빅데이터학과</option>
+                        <option value="의료IT공학과">의료IT공학과</option>
+                        <option value="메타버스&게임학과">메타버스&게임학과</option>
                     </select>
                 </label>
             </div>
