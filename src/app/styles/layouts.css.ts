@@ -442,3 +442,22 @@ export const checkBoxSet = style({
     alignItems: "center",
     flexWrap: "nowrap" 
 });
+
+export const adminLayout = style({
+    display: "flex",
+    gap: "1em",
+});
+
+export const adminNav = style({
+    margin: "1em",
+});
+
+export const adminMenuList = style({
+    listStyle: "none",
+    color: colorByMode.color.text,
+    padding: 0,
+    fontSize: "1.2rem",
+    display: "flex",
+    gap: "0.5em",
+    flexDirection: "column"
+})

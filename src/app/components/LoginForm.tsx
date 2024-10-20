@@ -9,13 +9,13 @@ import Link from "next/link";
 import Dialog from "./Dialog";
 import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 
-export default function LoginForm(props : { rToken: RequestCookie | undefined }) {
+export default function LoginForm(props : { rToken?: RequestCookie|string, admin?: true, contest?: string }) {
     const [formDisabled, disableForm] = useState<boolean>(true);
     const [formMessage, setFormMessage] = useState<string>("");
     const [dialogOpen, setDialogOpen] = useState<boolean>(false);
     const submitButton = useRef<HTMLButtonElement>(null);
 
-    const [state, submitAction] = useFormState(Login, { ok: true, try: 0});
+    const [state, submitAction] = useFormState(Login, { ok: true, try: 0, notSelected: false });
 
     function enableButton(e: ChangeEvent<HTMLInputElement>) {
         const isFullAddress = e.target.value.includes("@");
@@ -54,7 +54,9 @@ export default function LoginForm(props : { rToken: RequestCookie | undefined })
     return (
         <>
         <form className={formLayout} action={submitAction} onSubmit={() => {disableForm(true); return true;}}>
-            <input type="hidden" name="refreshToken" value={props.rToken ? props.rToken.toString() : ""} />
+            {props.rToken ? <input type="hidden" name="refreshToken" value={props.rToken.toString()} />  : ""}
+            {props.admin ? <input type="hidden" name="admin" value={props.admin.toString()} /> : ""}
+            {props.contest ? <input type="hidden" name="contest" value={props.contest} /> :""}
             <div className={inputWrapper({ active: !formDisabled })}>
                 <span className={`${icon({ color: "notice" })} material-symbols-rounded`}>mail</span>
                 <input className={inputLayout} type="text" id="email" name="email" placeholder="순천향대 메일 아이디" onChange={enableButton} autoFocus required />
@@ -70,10 +72,10 @@ export default function LoginForm(props : { rToken: RequestCookie | undefined })
                 open={dialogOpen} setOpen={setDialogOpen}
                 icon={state.ok ? "mark_email_read" : "help"} 
                 type={state.ok ? "notice" : "error"}
-                title={state.ok ? "이메일 발송 완료!": "이메일 주소를 다시 확인하세요"}>
+                title={state.ok ? "이메일 발송 완료!": (state.notSelected ? "행사를 선택해주세요" : "이메일 주소를 다시 확인하세요")}>
             <p className={defaultP({ align: "center" })}>
                 {state.ok ?
-                    "메일함에서 확인해주세요.":"이메일을 발송하지 못했어요."
+                    "메일함에서 확인해주세요.": (state.notSelected ? "관리할 행사를 선택해야만 계속할 수 있어요" : "이메일을 발송하지 못했어요.")
                 }
             </p>
             {state.ok ? (
@@ -81,12 +83,12 @@ export default function LoginForm(props : { rToken: RequestCookie | undefined })
                     <Link href="https://mail.sch.ac.kr" className={button()} target="_blank">순천향대 메일 열기</Link>
                     <Link href="https://portal.sch.ac.kr" className={button({ types: "secondary" })} target="_blank">순천향대 포털에서 확인하기</Link>
                 </>
-            ):(
+            ): (state.notSelected ? <p></p>: (
                 <>
                     <Link href="https://portal.sch.ac.kr" className={button()} target="_blank">순천향대 포털에서 확인하기</Link>
                     <Link href="tel:041-530-1411" className={button({ types: "secondary" })}>전산팀에 전화하기</Link>
                 </>
-            )}
+            ))}
             </Dialog>
         ):""}
         </>

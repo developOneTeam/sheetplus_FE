@@ -1,13 +1,14 @@
+"use client";
 import Link from "next/link";
 import DialogLink from "../../components/DialogLink";
 import LoginForm from "../../components/LoginForm";
 import { button } from "../../styles/buttons.css";
-import { accentArea, iconDesc, main, mainSection } from "../../styles/layouts.css";
+import { accentArea, iconDesc, main, mainSection, selectButton, selectLayout } from "../../styles/layouts.css";
 import { defaultH2, defaultP, faqLink, icon } from "../../styles/others.css";
-import { cookies } from "next/headers";
+import { useState } from "react";
 
 export default function Home() {
-    const cookieBox = cookies();
+    const [contest, setContest] = useState<string>("");
 
     return (
         <>
@@ -18,11 +19,18 @@ export default function Home() {
                             date_range
                         </span>
                         <h2 className={defaultH2({ style: "primary" })}>관리자 로그인</h2>
+                        <label className={selectButton}>
+                            <select className={selectLayout} onChange={(e) => setContest(e.target.value)} required defaultValue={1}>
+                                <option value="">행사를 선택해주세요</option>
+                                <hr></hr>
+                                <option value={1}>제1회 SW융합대학 학술제 TEST</option>
+                                <option value={"all"}>운영 관리</option>
+                            </select>
+                        </label>
                     </div>
-                    <LoginForm rToken={cookieBox.get("refresh")} />
-                    <a href={`/event/1/pick`} className={button({types: "secondary"})}>참석자 추첨 바로가기</a>
+                    <LoginForm admin={true} contest={contest !== "" ? contest : undefined} />
                     <div className={accentArea({ center: true })}>
-                        <p className={defaultP({ size: "sm" })}>초대받은 이메일 주소로 <br /> 로그인할 수 있는 링크를 보내드려요.</p>
+                        <p className={defaultP({ size: "sm" })}>입력하신 이메일 주소로 <br /> 로그인 혹은 가입할 수 있는 링크를 보내드려요.</p>
                     </div>
                     <DialogLink icon="help" type="error" message="이메일 주소가 기억나지 않나요?">
                         <p className={defaultP({ align: "center" })}>

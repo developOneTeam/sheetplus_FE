@@ -3,8 +3,17 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-export async function Login(status: { ok: boolean, try: number }, formData:FormData) {
-    const rToken = formData.get("refreshToken");
+export async function Login(status: { ok: boolean, try: number, notSelected: boolean }, formData:FormData) {
+    const rToken = formData.get("refreshToken") || cookies().get("refresh");
+    const admin = formData.get("admin");
+    const contest = formData.get("contest");
+
+    if (admin === "true" && !contest) {
+        status.ok = false;
+        status.notSelected = true;
+
+        return status;    
+    }
 
     if (rToken) {
         const cookieBox = cookies();
@@ -29,7 +38,11 @@ export async function Login(status: { ok: boolean, try: number }, formData:FormD
             cookieBox.set("access", tokens.data.accessToken);
             cookieBox.set("refresh", tokens.data.refreshToken);
         }
-        redirect("/home");
+        if (admin === "true" && contest) {
+            redirect(`/admin/${contest}/dashboard`);
+        } else {
+            redirect("/home");
+        }
     } else {
         formData.set("email", `${formData.get("email")}@sch.ac.kr`);
 

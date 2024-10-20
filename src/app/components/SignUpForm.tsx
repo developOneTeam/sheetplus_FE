@@ -21,7 +21,7 @@ export default function SignUpForm(props :
     const [dialogOpen, setDialogOpen] = useState<boolean>(false);
     const submitButton = useRef<HTMLButtonElement>(null);
 
-    const [state, submitAction] = useFormState(Login, { ok: true, try: 0});
+    const [state, submitAction] = useFormState(Login, { ok: true, try: 0, notSelected: false });
 
     function enableButton(e: ChangeEvent<HTMLInputElement|HTMLSelectElement>) {
         if ((e.target.value.length === 0 ||

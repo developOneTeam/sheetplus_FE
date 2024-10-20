@@ -1,8 +1,21 @@
 import { iconDesc, inputWrapper } from "./layouts.css";
-import { global } from "./preset.css";
+import { colorByMode, global } from "./preset.css";
 import { recipe } from "@vanilla-extract/recipes";
 import { iconButton } from "./buttons.css";
 import { style } from "@vanilla-extract/css";
+
+export const adminMenuLink = style({
+    display: "flex",
+    alignItems: "center",
+    gap: "0.5em",
+    textDecoration: "none",
+    color: colorByMode.color.text
+});
+
+export const adminDashboardLink = style({
+    textDecoration: "none",
+    color: colorByMode.color.text
+})
 
 export const faqLink = recipe({
     base: {
@@ -11,12 +24,17 @@ export const faqLink = recipe({
         fontSize: "0.9rem",
         border: "none",
         background: "inherit",
-        cursor: "pointer",    
+        cursor: "pointer",
+        fontFamily: "inherit",
+        padding: 0,
     },
     variants: {
         style: {
             nonButton: {
                 background: "none",
+            },
+            pSameSize: {
+                fontSize: "1.0rem",
             }
         },
         underline: {
@@ -58,6 +76,12 @@ export const defaultH2 = recipe({
         }
     }
 });
+
+export const defaultH3 = style({
+    fontSize: "1.3rem",
+    fontWeight: 500,
+    margin: "0.5em 0"
+})
 
 export const defaultP = recipe({
     base: {
@@ -146,6 +170,11 @@ export const defaultP = recipe({
             notShrink: {
                 flexShrink: 0
             }
+        },
+        margin: {
+            false: {
+                margin: 0
+            }
         }
     }
 })
@@ -181,6 +210,11 @@ export const icon = recipe({
             },
             primary: {
                 color: global.color.primary
+            }
+        },
+        size: {
+            "lg": {
+                fontSize: "3rem"
             }
         }
     }

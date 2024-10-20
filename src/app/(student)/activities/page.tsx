@@ -1,5 +1,5 @@
 import { mainSection, iconDesc, accentArea, stampList, scheduleTable, scheduleContentBlock, scheduleLine, schedulePlace, iconNav } from "@/app/styles/layouts.css";
-import { icon, defaultH2, defaultP } from "@/app/styles/others.css";
+import { icon, defaultH2, defaultP, defaultH3 } from "@/app/styles/others.css";
 import { main } from "@/app/styles/layouts.css";
 import { button, iconButton } from "@/app/styles/buttons.css";
 import { cookies } from "next/headers";
@@ -22,8 +22,8 @@ export default function Page() {
         {(session && session.user) ? (
             <main className={main({ center: false })}>
                 <section>
-                    <h2 className={defaultH2()}>참여 활동</h2>
-                    <p className={iconNav}>
+                    <h2 className={defaultH2({ style: "nomargin" })}>참여 활동</h2>
+                    <p className={`${iconNav} ${defaultP({ margin: false })}`}>
                         <span>
                             모은 스탬프 <span className={defaultP({ style: "secondary" })}>{user.event.stamps}</span>/{festival.max_stamp}
                         </span>
@@ -57,18 +57,18 @@ export default function Page() {
                     </p>
                 </section>
                 <section>
-                    <h3>참여 이력</h3>
-                    <p>
-                        QR코드로 인증할 수 없는 활동과 중복 참여한 활동은 집계되지 않아요.
-                        <DialogLink icon="help" type="error" message="참여 후에도 이력이 보이지 않나요?">
-                            <p className={defaultP({ align: "center" })}>
-                            동일 성격의 행사는 다른 학과더라도 1개의 스탬프만 인정하고 있어요. 또한, 폐회식은 스탬프에 포함되지 않으니 유의하세요.
-                            <br /><br />
-                            더 궁금한 사항이 있다면 SW융합대학 학사지원팀이나 각 학과 학사지원팀에 문의할 수 있어요.
-                            </p>
-                            <Link href="tel:041-530-1472" className={button()} target="_blank">단과대 학사지원팀 문의</Link>
-                        </DialogLink>
+                    <h3 className={defaultH3}>참여 이력</h3>
+                    <p className={defaultP()}>
+                        QR코드로 인증할 수 없는 활동과 중복 참여한 활동은 집계되지 않아요
                     </p>
+                    <DialogLink icon="help" type="error" message="그래도 이력이 보이지 않나요?">
+                        <p>
+                        동일 성격의 행사는 다른 학과더라도 1개의 스탬프만 인정하고 있어요. 또한, 폐회식은 스탬프에 포함되지 않으니 유의하세요.
+                        <br /><br />
+                        더 궁금한 사항이 있다면 SW융합대학 학사지원팀이나 각 학과 학사지원팀에 문의할 수 있어요.
+                        </p>
+                        <Link href="tel:041-530-1472" className={button()} target="_blank">단과대 학사지원팀 문의</Link>
+                    </DialogLink>
                     <ul className={scheduleTable}>
                         {festival.schedule.filter((event) => user.event.stamp.includes(event.secureId)).map((event) => (
                             <li key={event.secureId}><Link href={`/schedule/${event.secureId}`} className={scheduleLine}>
