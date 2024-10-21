@@ -46,6 +46,8 @@ export async function Login(status: { ok: boolean, try: number, notSelected: boo
     } else {
         formData.set("email", `${formData.get("email")}@sch.ac.kr`);
 
+        console.log(process.env.API_ENDPOINT);
+
         const result = await fetch(`${process.env.API_ENDPOINT}/public/mail/auth`, {
             method: "POST",
             headers: {
