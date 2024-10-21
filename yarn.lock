@@ -7849,7 +7849,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"serwist@npm:9.0.9":
+"serwist@npm:9.0.9, serwist@npm:^9.0.9":
   version: 9.0.9
   resolution: "serwist@npm:9.0.9"
   dependencies:
@@ -8045,6 +8045,7 @@ __metadata:
     next: "npm:^14.2.14"
     react: "npm:^18"
     react-dom: "npm:^18"
+    serwist: "npm:^9.0.9"
     typescript: "npm:^5"
   languageName: unknown
   linkType: soft

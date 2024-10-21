@@ -58,10 +58,10 @@ export async function Login(status: { ok: boolean, try: number, notSelected: boo
     
         if (result.ok)
             status.ok = true;
-        else
+        else {
             status.ok = false;
-    
-        console.log(await result.text());
+            console.log(await result.text());
+        }
 
         status.try += 1
     
