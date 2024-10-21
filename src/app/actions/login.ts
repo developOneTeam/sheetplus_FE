@@ -46,8 +46,6 @@ export async function Login(status: { ok: boolean, try: number, notSelected: boo
     } else {
         formData.set("email", `${formData.get("email")}@sch.ac.kr`);
 
-        console.log(process.env.API_ENDPOINT);
-
         const result = await fetch(`${process.env.API_ENDPOINT}/public/mail/auth`, {
             method: "POST",
             headers: {
@@ -57,6 +55,9 @@ export async function Login(status: { ok: boolean, try: number, notSelected: boo
                 "receiver": formData.get("email")
             })
         });
+
+        console.log(result);
+        console.log(await result.json());
     
         if (result.ok)
             status.ok = true;
