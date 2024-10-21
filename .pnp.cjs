@@ -49,6 +49,7 @@ const RAW_RUNTIME_STATE =
           ["next", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:14.2.15"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:18.3.1"],\
+          ["serwist", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:9.0.9"],\
           ["typescript", "patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"]\
         ],\
         "linkType": "SOFT"\
@@ -2906,7 +2907,7 @@ const RAW_RUNTIME_STATE =
           ["chalk", "npm:5.3.0"],\
           ["glob", "npm:10.4.5"],\
           ["next", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:14.2.15"],\
-          ["serwist", "virtual:8349987034c41a241170c04671847bb2750b61bdbad8d7a27f501fe83809c27c0c09042df331e70f854c731be568e89bbc73c65cd8cc46c86a849915c06f2fda#npm:9.0.9"],\
+          ["serwist", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:9.0.9"],\
           ["typescript", "patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"],\
           ["zod", "npm:3.23.8"]\
         ],\
@@ -2962,7 +2963,7 @@ const RAW_RUNTIME_STATE =
           ["@serwist/window", "virtual:8349987034c41a241170c04671847bb2750b61bdbad8d7a27f501fe83809c27c0c09042df331e70f854c731be568e89bbc73c65cd8cc46c86a849915c06f2fda#npm:9.0.9"],\
           ["@types/trusted-types", "npm:2.0.7"],\
           ["@types/typescript", null],\
-          ["serwist", "virtual:8349987034c41a241170c04671847bb2750b61bdbad8d7a27f501fe83809c27c0c09042df331e70f854c731be568e89bbc73c65cd8cc46c86a849915c06f2fda#npm:9.0.9"],\
+          ["serwist", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:9.0.9"],\
           ["typescript", "patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"]\
         ],\
         "packagePeers": [\
@@ -9426,10 +9427,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:8349987034c41a241170c04671847bb2750b61bdbad8d7a27f501fe83809c27c0c09042df331e70f854c731be568e89bbc73c65cd8cc46c86a849915c06f2fda#npm:9.0.9", {\
-        "packageLocation": "./.yarn/__virtual__/serwist-virtual-fcfff20e83/5/home/paperbox/.yarn/berry/cache/serwist-npm-9.0.9-45f2661533-10c0.zip/node_modules/serwist/",\
+      ["virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:9.0.9", {\
+        "packageLocation": "./.yarn/__virtual__/serwist-virtual-4bedc451aa/5/home/paperbox/.yarn/berry/cache/serwist-npm-9.0.9-45f2661533-10c0.zip/node_modules/serwist/",\
         "packageDependencies": [\
-          ["serwist", "virtual:8349987034c41a241170c04671847bb2750b61bdbad8d7a27f501fe83809c27c0c09042df331e70f854c731be568e89bbc73c65cd8cc46c86a849915c06f2fda#npm:9.0.9"],\
+          ["serwist", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:9.0.9"],\
           ["@types/typescript", null],\
           ["idb", "npm:8.0.0"],\
           ["typescript", "patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"]\
@@ -9646,6 +9647,7 @@ const RAW_RUNTIME_STATE =
           ["next", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:14.2.15"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:18.3.1"],\
+          ["serwist", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:9.0.9"],\
           ["typescript", "patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"]\
         ],\
         "linkType": "SOFT"\
