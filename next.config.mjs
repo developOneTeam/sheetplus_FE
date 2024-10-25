@@ -6,7 +6,7 @@ import withSerwistInit from "@serwist/next";
 const withVanillaExtract = createVanillaExtractPlugin();
 
 const withSerwist = withSerwistInit({
-    swSrc: "app/sw.ts",
+    swSrc: "src/sw.ts",
     swDest: "public/sw.js"
 });
 
