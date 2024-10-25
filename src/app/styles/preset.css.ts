@@ -8,14 +8,15 @@ export const global = createGlobalTheme(":root", {
         error: "#EF4136",
         grey: "#959595",
         greyRing: "#9595951A",
-        white: "#FAFAFA"
+        white: "#FAFAFA",
+        linearSecondary: "linear-gradient(90deg, #1C9AD6E6, #1C9AD600)"
     },
     bg: {
         primary10: "#26539C1A",
         primary60: "#26539C99",
         primary90: "#26539CE6",
         secondary: "#1C9AD6E6",
-        secondary30: "rgba(114, 198, 239, 0.30)",
+        secondary30: "#1C9AD699",
         disabled: "#D9D9D9"
     },
     iconSize: {
@@ -37,7 +38,8 @@ export const global = createGlobalTheme(":root", {
 export const colorByMode = createGlobalTheme(":root", {
     color: {
         text: "#1C1B1F",
-        shadow: "#C9C9C9"
+        shadow: "#C9C9C9",
+        linearText: "linear-gradient(90deg, #1C1B1F, #1C1B1F00)",
     },
     bg: {
         nav: "#FAFAFA",

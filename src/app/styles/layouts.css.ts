@@ -238,13 +238,36 @@ export const dialogClose = style({
     justifyContent: "flex-end",
     width: "100%",
     marginBottom: "-1em"
-})
+});
+
+export const loginMenu = style({
+    display: "flex",
+    alignItems: "center",
+    overflow: "scroll",
+    width: "100%"
+});
 
 export const iconDesc = style({
     display: "flex",
     alignItems: "center",
     flexDirection: "column",
     gap: "0.5rem",
+
+    selectors: {
+        [`${loginMenu} &`] : {
+            marginInlineStart: "5em"
+        }
+    }
+});
+
+export const unselectedIconDesc = style({
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "column",
+    gap: "0.5rem",
+    textDecoration: "none",
+    textWrap: "nowrap",
+    marginInlineStart: "-1.5em"
 });
 
 export const accentArea = recipe({
@@ -480,5 +503,5 @@ export const homeHello = style({
             justifyContent: "space-between",
         }
     }
+});
 
-})

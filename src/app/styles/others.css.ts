@@ -1,4 +1,4 @@
-import { iconDesc, inputWrapper } from "./layouts.css";
+import { iconDesc, inputWrapper, unselectedIconDesc } from "./layouts.css";
 import { colorByMode, global } from "./preset.css";
 import { recipe } from "@vanilla-extract/recipes";
 import { iconButton } from "./buttons.css";
@@ -70,6 +70,13 @@ export const defaultH2 = recipe({
             [`${iconDesc} &`]: {
                 fontWeight: 400,
                 margin: 0
+            },
+            [`${unselectedIconDesc} &`]: {
+                fontWeight: 400,
+                margin: 0,
+                background: colorByMode.color.linearText,
+                backgroundClip: "text",
+                color: "transparent"
             }
         }    
     },
@@ -83,6 +90,11 @@ export const defaultH2 = recipe({
             },
             nomargin: {
                 margin: 0
+            }
+        },
+        size: {
+            smaller: {
+                fontSize: "1.2rem"
             }
         }
     }
@@ -99,6 +111,7 @@ export const defaultP = recipe({
         fontSize: "1.0rem",
         margin: 0,
         wordBreak: "keep-all",
+        textWrap: "nowrap",
         fontWeight: 400,
     },
     variants: {
@@ -202,6 +215,10 @@ export const icon = recipe({
                 fontSize: "6em !important",
                 fontVariationSettings: "'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 48",
             },
+            [`${unselectedIconDesc} &`]: {
+                fontSize: "4em !important",
+                fontVariationSettings: "'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 48",
+            },
             [`${iconButton({ types: "navMenu" })}&`]: {
                 fontVariationSettings: "'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 48"    
             } 
@@ -221,6 +238,11 @@ export const icon = recipe({
             },
             primary: {
                 color: global.color.primary
+            },
+            unselectedNotice: {
+                background: global.color.linearSecondary,
+                backgroundClip: "text",
+                color: "transparent",
             }
         },
         size: {
