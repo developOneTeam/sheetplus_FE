@@ -3,7 +3,7 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-export async function Login(status: { ok: boolean, try: number, notSelected: boolean }, formData:FormData) {
+export async function Sendmail(status: { ok: boolean, try: number, notSelected: boolean }, formData:FormData) {
     const rToken = formData.get("refreshToken") || cookies().get("refresh");
     const admin = formData.get("admin");
     const contest = formData.get("contest");

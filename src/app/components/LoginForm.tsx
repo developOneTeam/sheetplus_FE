@@ -3,7 +3,7 @@ import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { formLayout, inputLayout, inputWrapper } from "../styles/layouts.css";
 import { button } from "../styles/buttons.css";
 import { defaultP, icon } from "../styles/others.css";
-import { Login } from "../actions/login";
+import { Sendmail } from "../actions/sendmail";
 import { useFormState } from "react-dom";
 import Link from "next/link";
 import Dialog from "./Dialog";
@@ -17,7 +17,7 @@ export default function LoginForm(props : { rToken?: RequestCookie|string, admin
 
     localStorage.setItem("member_type", props.admin ? `admin_${props.admin}` : "student");
 
-    const [state, submitAction] = useFormState(Login, { ok: true, try: 0, notSelected: false });
+    const [state, submitAction] = useFormState(Sendmail, { ok: true, try: 0, notSelected: false });
 
     function enableButton(e: ChangeEvent<HTMLInputElement>) {
         const isFullAddress = e.target.value.includes("@");

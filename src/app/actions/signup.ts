@@ -10,7 +10,7 @@ export async function Signup(status: { ok: boolean, try: number, notSelected: bo
 
     const cookieBox = cookies();
 
-    if (admin === "true" && !contest) {
+    if (admin !== "" && contest === "") {
         status.ok = false;
         status.notSelected = true;
 
@@ -39,46 +39,39 @@ export async function Signup(status: { ok: boolean, try: number, notSelected: bo
             cookieBox.set("access", tokens.data.accessToken);
             cookieBox.set("refresh", tokens.data.refreshToken);
         }
-        if (admin === "true" && contest) {
+        if (admin !== "" && contest) {
             redirect(`/admin/${contest}/dashboard`);
         } else {
             redirect("/home");
         }
     } else {
-        const mailAuth = await fetch(`${process.env.API_ENDPOINT}/public/mail/auth/check`, {
+        const registerReq = await fetch(`${process.env.API_ENDPOINT}/public/register`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                "email": formData.get("email"),
+                "studentId": formData.get("studentId"),
+                "name": formData.get("name"),
+                "major": formData.get("major"),
+                "universityEmail": formData.get("email"),
+                "memberType": admin === "super" ? 
+                    "SUPER_ADMIN" : admin === "" ? "ADMIN":"STUDENT",
                 "code": formData.get("code")
             })
         });
-    
-        if (mailAuth.ok) {
-            const registerReq = await fetch(`${process.env.API_ENDPOINT}/public/register`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    "email": formData.get("email"),
-                    "name": formData.get("name"),
-                    "major": formData.get("major"),
-                    "universityEmail": formData.get("email"),
-                    "memberType": admin ? "ADMIN":"STUDENT"
-                })
-            });
 
-            if (registerReq.ok) {
-                status.ok = true;
-                const tokens = await registerReq.json();
-                cookieBox.set("access", tokens.data.accessToken);
-                cookieBox.set("refresh", tokens.data.refreshToken);
-            }
+        console.log(registerReq.status);
+
+        if (registerReq.ok) {
+            status.ok = true;
+            const tokens = await registerReq.json();
+            cookieBox.set("access", tokens.data.accessToken);
+            cookieBox.set("refresh", tokens.data.refreshToken);
+
         } else {
             status.ok = false;
+            console.log(await registerReq.text());
         }
     
         status.try += 1
