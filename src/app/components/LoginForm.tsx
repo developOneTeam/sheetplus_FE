@@ -9,13 +9,11 @@ import Link from "next/link";
 import Dialog from "./Dialog";
 import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 
-export default function LoginForm(props : { rToken?: RequestCookie|string, admin?: "normal" | "super", contest?: string }) {
+export default function LoginForm(props : { rToken?: RequestCookie|string, admin?: "admin" | "super", contest?: string }) {
     const [formDisabled, disableForm] = useState<boolean>(true);
     const [formMessage, setFormMessage] = useState<string>("");
     const [dialogOpen, setDialogOpen] = useState<boolean>(false);
     const submitButton = useRef<HTMLButtonElement>(null);
-
-    localStorage.setItem("member_type", props.admin ? `admin_${props.admin}` : "student");
 
     const [state, submitAction] = useFormState(Sendmail, { ok: true, try: 0, notSelected: false });
 
@@ -52,6 +50,10 @@ export default function LoginForm(props : { rToken?: RequestCookie|string, admin
             setDialogOpen(true);
         }
     }, [state]);
+
+    useEffect(() => {
+        localStorage.setItem("member_type", props.admin ? `${props.admin}` : "student");
+    }, [props.admin]);
     
     return (
         <>

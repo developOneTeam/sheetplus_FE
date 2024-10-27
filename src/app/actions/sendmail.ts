@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 export async function Sendmail(status: { ok: boolean, try: number, notSelected: boolean }, formData:FormData) {
-    const rToken = formData.get("refreshToken") || cookies().get("refresh");
+    const rToken = formData.get("refreshToken") || cookies().get("refreshToken");
     const admin = formData.get("admin");
     const contest = formData.get("contest");
 
@@ -31,12 +31,10 @@ export async function Sendmail(status: { ok: boolean, try: number, notSelected: 
         if (getNewToken.ok) {
             const tokens: {
                 data: {
-                    accessToken: string,
-                    refreshToken: string
+                    accessToken: string
                 }
             } = await getNewToken.json();
             cookieBox.set("access", tokens.data.accessToken);
-            cookieBox.set("refresh", tokens.data.refreshToken);
         }
         if (admin && contest) {
             redirect(`/admin/${contest}/dashboard`);
@@ -55,9 +53,6 @@ export async function Sendmail(status: { ok: boolean, try: number, notSelected: 
                 "receiver": formData.get("email")
             })
         });
-
-        console.log(result);
-        console.log(await result.json());
     
         if (result.ok)
             status.ok = true;

@@ -4,12 +4,17 @@ import { adminMenuList, adminNav } from "@/app/styles/layouts.css";
 import { adminMenuLink, icon } from "@/app/styles/others.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function AdminMenu() {
     const path = usePathname();
     const pathList = path.split("/");
 
-    const adminType = localStorage.getItem("member_type");
+    const [adminType, setAdminType] = useState<string|null>(null);
+
+    useEffect(() => {
+        setAdminType(localStorage.getItem("member_type"));
+    }, []);
 
     return (
         <nav className={adminNav}>

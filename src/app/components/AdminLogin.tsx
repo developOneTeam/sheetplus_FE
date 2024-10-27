@@ -33,7 +33,7 @@ export default function AdminLogin(props: {
                 </select>
             </label>
         </div>
-        <LoginForm admin={contest === "all" ? "super" : "normal"} contest={contest !== "" ? contest : undefined} />
+        <LoginForm admin={contest === "all" ? "super" : "admin"} contest={contest !== "" ? contest : undefined} />
         <div className={accentArea({ center: true })}>
             <p className={defaultP({ size: "sm" })}>입력하신 이메일 주소로 <br /> 로그인 혹은 가입할 수 있는 링크를 보내드려요.</p>
         </div>

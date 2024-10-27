@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 export async function Signup(status: { ok: boolean, try: number, notSelected: boolean }, formData:FormData) {
-    const rToken = formData.get("refreshToken") || cookies().get("refresh");
+    const rToken = formData.get("refreshToken") || cookies().get("refreshToken");
     const admin = formData.get("admin");
     const contest = formData.get("contest");
 
@@ -32,12 +32,10 @@ export async function Signup(status: { ok: boolean, try: number, notSelected: bo
         if (getNewToken.ok) {
             const tokens: {
                 data: {
-                    accessToken: string,
-                    refreshToken: string
+                    accessToken: string
                 }
             } = await getNewToken.json();
             cookieBox.set("access", tokens.data.accessToken);
-            cookieBox.set("refresh", tokens.data.refreshToken);
         }
         if (admin !== "" && contest) {
             redirect(`/admin/${contest}/dashboard`);
@@ -61,17 +59,24 @@ export async function Signup(status: { ok: boolean, try: number, notSelected: bo
             })
         });
 
-        console.log(registerReq.status);
+        console.log(JSON.stringify({
+            "studentId": formData.get("studentId"),
+            "name": formData.get("name"),
+            "major": formData.get("major"),
+            "universityEmail": formData.get("email"),
+            "memberType": admin === "super" ? 
+                "SUPER_ADMIN" : admin === "" ? "ADMIN":"STUDENT",
+            "code": formData.get("code")
+        }));
 
         if (registerReq.ok) {
             status.ok = true;
             const tokens = await registerReq.json();
             cookieBox.set("access", tokens.data.accessToken);
-            cookieBox.set("refresh", tokens.data.refreshToken);
 
         } else {
             status.ok = false;
-            console.log(await registerReq.text());
+            console.log(registerReq.status);
         }
     
         status.try += 1

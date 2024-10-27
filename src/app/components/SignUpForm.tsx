@@ -16,12 +16,11 @@ export default function SignUpForm(props :
     const authEmail = props.mail;
     const authCode = props.code;
 
-    const memberType = localStorage.getItem("member_type");
-    const contest = localStorage.getItem("contest");
-
     const [formDisabled, disableForm] = useState<boolean>(true);
     const [formMessage, setFormMessage] = useState<string>("");
     const [dialogOpen, setDialogOpen] = useState<boolean>(false);
+    const [memberType, setMemberType] = useState<string|null>(null);
+    const [contest, setContest] = useState<string|null>(null);
     const submitButton = useRef<HTMLButtonElement>(null);
 
     const [state, submitAction] = useFormState(Signup, { ok: true, try: 0, notSelected: false });
@@ -44,6 +43,11 @@ export default function SignUpForm(props :
     }
 
     useEffect(() => {
+        setMemberType(localStorage.getItem("member_type"));
+        setContest(localStorage.getItem("contest"));
+    }, [])
+
+    useEffect(() => {
         if (submitButton.current) {
             if (!formDisabled) {
                 submitButton.current.removeAttribute("disabled");
@@ -63,6 +67,8 @@ export default function SignUpForm(props :
         <>
         <form className={formLayout} action={submitAction} onSubmit={() => {disableForm(true); return true;}}>
             <input type="hidden" name="code" value={authCode ?? ""} readOnly />
+            <input type="hidden" name="admin" value={memberType ?? "STUDENT"} readOnly />
+            <input type="hidden" name="contest" value={contest ?? ""} readOnly />
             <div className={inputWrapper({ active: !formDisabled })}>
                 <span className={`${icon({ color: "notice" })} material-symbols-rounded`}>mail</span>
                 <input className={inputLayout} type="text" name="email" placeholder="순천향대 메일 아이디"
@@ -81,7 +87,7 @@ export default function SignUpForm(props :
             <div className={inputWrapper({ active: !formDisabled, align: "between" })}>
                 <span className={`${icon({ color: "notice" })} material-symbols-rounded`}>manufacturing</span>
                 <label className={selectButton}>
-                    <select id="major" className={selectLayout} onChange={enableButton} required>
+                    <select name="major" className={selectLayout} onChange={enableButton} required>
                         <option>학과{memberType === "student" ? "" : "/부서"}를 선택해주세요</option>
                         <hr />
                         <option value="컴퓨터소프트웨어공학과">컴퓨터소프트웨어공학과</option>
