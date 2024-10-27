@@ -44,7 +44,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-config-next", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:14.2.14"],\
           ["eslint-plugin-next-on-pages", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:1.13.5"],\
           ["firebase", "npm:10.14.1"],\
-          ["framer-motion", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:11.11.4"],\
+          ["framer-motion", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:12.0.0-alpha.0"],\
           ["html5-qrcode", "npm:2.3.8"],\
           ["next", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:14.2.15"],\
           ["react", "npm:18.3.1"],\
@@ -6563,17 +6563,17 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["framer-motion", [\
-      ["npm:11.11.4", {\
-        "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/framer-motion-npm-11.11.4-5480945223-10c0.zip/node_modules/framer-motion/",\
+      ["npm:12.0.0-alpha.0", {\
+        "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/framer-motion-npm-12.0.0-alpha.0-9f26b99f93-10c0.zip/node_modules/framer-motion/",\
         "packageDependencies": [\
-          ["framer-motion", "npm:11.11.4"]\
+          ["framer-motion", "npm:12.0.0-alpha.0"]\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:11.11.4", {\
-        "packageLocation": "./.yarn/__virtual__/framer-motion-virtual-56208a6d05/5/home/paperbox/.yarn/berry/cache/framer-motion-npm-11.11.4-5480945223-10c0.zip/node_modules/framer-motion/",\
+      ["virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:12.0.0-alpha.0", {\
+        "packageLocation": "./.yarn/__virtual__/framer-motion-virtual-14b8580dbf/5/home/paperbox/.yarn/berry/cache/framer-motion-npm-12.0.0-alpha.0-9f26b99f93-10c0.zip/node_modules/framer-motion/",\
         "packageDependencies": [\
-          ["framer-motion", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:11.11.4"],\
+          ["framer-motion", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:12.0.0-alpha.0"],\
           ["@emotion/is-prop-valid", null],\
           ["@types/emotion__is-prop-valid", null],\
           ["@types/react", "npm:18.3.11"],\
@@ -9642,7 +9642,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-config-next", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:14.2.14"],\
           ["eslint-plugin-next-on-pages", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:1.13.5"],\
           ["firebase", "npm:10.14.1"],\
-          ["framer-motion", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:11.11.4"],\
+          ["framer-motion", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:12.0.0-alpha.0"],\
           ["html5-qrcode", "npm:2.3.8"],\
           ["next", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:14.2.15"],\
           ["react", "npm:18.3.1"],\

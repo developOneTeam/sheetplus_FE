@@ -8,7 +8,7 @@ export async function Login(status: { ok: boolean, try: number, notSelected: boo
     const admin = formData.get("admin");
     const contest = formData.get("contest");
 
-    if (admin === "true" && !contest) {
+    if (admin && !contest) {
         status.ok = false;
         status.notSelected = true;
 
@@ -38,7 +38,7 @@ export async function Login(status: { ok: boolean, try: number, notSelected: boo
             cookieBox.set("access", tokens.data.accessToken);
             cookieBox.set("refresh", tokens.data.refreshToken);
         }
-        if (admin === "true" && contest) {
+        if (admin && contest) {
             redirect(`/admin/${contest}/dashboard`);
         } else {
             redirect("/home");

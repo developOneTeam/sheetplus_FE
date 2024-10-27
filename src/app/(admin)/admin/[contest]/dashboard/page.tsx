@@ -7,15 +7,29 @@ import Link from "next/link";
 
 export default async function AdminDashboard({ params } : { params: { contest : string } }) {
     let data = undefined;
-    const dataReq = await fetch(`${process.env.API_ENDPOINT}/private/admin/${params.contest}/home`, {
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${cookies().get("access")}`
-        }
-    });
 
-    if (dataReq.ok) {
-        data = await dataReq.json();
+    if (params.contest !== "all") {
+        const dataReq = await fetch(`${process.env.API_ENDPOINT}/private/admin/${params.contest}/home`, {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${cookies().get("access")}`
+            }
+        });
+    
+        if (dataReq.ok) {
+            data = await dataReq.json();
+        }    
+    } else {
+        const dataReq = await fetch(`${process.env.API_ENDPOINT}/public/contest/read`, {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${cookies().get("access")}`
+            }
+        });
+
+        if (dataReq.ok) {
+            data = await dataReq.json();
+        }
     }
 
     return (

@@ -16,6 +16,9 @@ export default function SignUpForm(props :
     const authEmail = props.mail;
     const authCode = props.code;
 
+    const memberType = localStorage.getItem("member_type");
+    const contest = localStorage.getItem("contest");
+
     const [formDisabled, disableForm] = useState<boolean>(true);
     const [formMessage, setFormMessage] = useState<string>("");
     const [dialogOpen, setDialogOpen] = useState<boolean>(false);
@@ -67,7 +70,8 @@ export default function SignUpForm(props :
             </div>
             <div className={inputWrapper({ active: !formDisabled })}>
                 <span className={`${icon({ color: "notice" })} material-symbols-rounded`}>beenhere</span>
-                <input className={inputLayout} type="text" inputMode="numeric" name="studentId" placeholder="학번을 입력해주세요 (8자리)"
+                <input className={inputLayout} type="text" inputMode="numeric" name="studentId" 
+                    placeholder={memberType === "student" ? "학번을 입력해주세요 (8자리)" : "사번(교번)을 입력해주세요 (8자리)"}
                     onChange={enableButton} onBlur={studentIdValidation} required />
             </div>
             <div className={inputWrapper({ active: !formDisabled })}>
@@ -78,7 +82,7 @@ export default function SignUpForm(props :
                 <span className={`${icon({ color: "notice" })} material-symbols-rounded`}>manufacturing</span>
                 <label className={selectButton}>
                     <select id="major" className={selectLayout} onChange={enableButton} required>
-                        <option>학과를 선택해주세요</option>
+                        <option>학과{memberType === "student" ? "" : "/부서"}를 선택해주세요</option>
                         <hr />
                         <option value="컴퓨터소프트웨어공학과">컴퓨터소프트웨어공학과</option>
                         <option value="정보보호학과">정보보호학과</option>
@@ -86,6 +90,10 @@ export default function SignUpForm(props :
                         <option value="AI빅데이터학과">AI빅데이터학과</option>
                         <option value="의료IT공학과">의료IT공학과</option>
                         <option value="메타버스&게임학과">메타버스&게임학과</option>
+                        {memberType !== "student" ? <>
+                            <option value="SW중심대학 사업운영팀">SW중심대학 사업운영팀</option>
+                            <option value="SW융합대학">SW융합대학</option>
+                        </> : ""}
                     </select>
                 </label>
             </div>
@@ -102,11 +110,14 @@ export default function SignUpForm(props :
                 title={state.ok ? "가입 완료!": "등록에 실패했어요"}>
             <p className={defaultP({ align: "center" })}>
                 {state.ok ?
-                    "이제 행사에 참여할 수 있어요":"입력한 정보를 확인하시거나 잠시 후 다시 시도해주세요"
+                    "이제 참여할 수 있어요":"입력한 정보를 확인하시거나 잠시 후 다시 시도해주세요"
                 }
             </p>
             {state.ok ? (
-                <Link href="/home" className={button()}>시작하기</Link>
+                <Link href={memberType === "student" ? "/home" : `/admin/${contest}/dashboard`} 
+                    className={button()}>
+                    시작하기
+                </Link>
             ):<p></p>}
             </Dialog>
         ):""}

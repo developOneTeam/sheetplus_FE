@@ -20,7 +20,10 @@ export default function Home() {
                         </span>
                         <h2 className={defaultH2({ style: "primary" })}>관리자 로그인</h2>
                         <label className={selectButton}>
-                            <select className={selectLayout} onChange={(e) => setContest(e.target.value)} required defaultValue={1}>
+                            <select className={selectLayout} onChange={(e) => {
+                                setContest(e.target.value);
+                                localStorage.setItem("contest", e.target.value);
+                            }} required defaultValue={1}>
                                 <option value="">행사를 선택해주세요</option>
                                 <hr></hr>
                                 <option value={1}>제1회 SW융합대학 학술제 TEST</option>
@@ -28,7 +31,7 @@ export default function Home() {
                             </select>
                         </label>
                     </div>
-                    <LoginForm admin={true} contest={contest !== "" ? contest : undefined} />
+                    <LoginForm admin={contest === "all" ? "super" : "normal"} contest={contest !== "" ? contest : undefined} />
                     <div className={accentArea({ center: true })}>
                         <p className={defaultP({ size: "sm" })}>입력하신 이메일 주소로 <br /> 로그인 혹은 가입할 수 있는 링크를 보내드려요.</p>
                     </div>
