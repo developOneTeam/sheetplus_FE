@@ -36,12 +36,18 @@ export async function Login(email: string, code: string, type: string, contest: 
     } else {
         const dataReq = await fetch(`${process.env.API_ENDPOINT}/public/login`, {
             method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
             body: JSON.stringify({
                 email: email,
                 code: code,
-                memberType: type
+                memberType: type === "super" ? "SUPER_ADMIN" : type === "admin" ? "ADMIN" : "STUDENT"
             })
         });
+
+        console.log(email, code, type);
+        console.log(dataReq.status);
     
         if (dataReq.ok) {
             const tokens: {
@@ -54,6 +60,8 @@ export async function Login(email: string, code: string, type: string, contest: 
 
             redirect(`/admin/${contest}/dashboard`);
         } else {
+            console.log(await dataReq.text());
+
             return {
                 error: "로그인에 실패했어요."
             }

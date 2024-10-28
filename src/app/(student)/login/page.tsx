@@ -34,12 +34,12 @@ export default function Page({ searchParams } : {
 
     return (
         <section>
-            {request ? 
+            {request && request.error ? 
                 <div className={iconDesc}>
                     <span className={`${icon({ color: "error" })} material-symbols-rounded`}>
                         live_help
                     </span>
-                    <h2 className={defaultH2()}>로그인에 실패했어요</h2>
+                    <h2 className={defaultH2()}>{request.error}</h2>
                     <p className={defaultP()}>메일 수신 후 너무 오랜 시간이 지났을 수 있어요. 다시 돌아가서 시도해보세요.</p>
                     <Link href={memberType ? "/admin" : "/"} className={button({ types: "secondary" })}>홈으로 돌아가기</Link>
                 </div>
