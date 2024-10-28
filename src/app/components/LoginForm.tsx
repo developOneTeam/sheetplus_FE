@@ -9,7 +9,7 @@ import Link from "next/link";
 import Dialog from "./Dialog";
 import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 
-export default function LoginForm(props : { rToken?: RequestCookie|string, admin?: "admin" | "super", contest?: string }) {
+export default function LoginForm(props : { rToken?: RequestCookie, admin?: "admin" | "super", contest?: string }) {
     const [formDisabled, disableForm] = useState<boolean>(true);
     const [formMessage, setFormMessage] = useState<string>("");
     const [dialogOpen, setDialogOpen] = useState<boolean>(false);
@@ -58,7 +58,7 @@ export default function LoginForm(props : { rToken?: RequestCookie|string, admin
     return (
         <>
         <form className={formLayout} action={submitAction} onSubmit={() => {disableForm(true); return true;}}>
-            {props.rToken ? <input type="hidden" name="refreshToken" value={props.rToken.toString()} />  : ""}
+            {props.rToken ? <input type="hidden" name="refreshToken" value={props.rToken.value} />  : ""}
             {props.admin ? <input type="hidden" name="admin" value={props.admin} /> : ""}
             {props.contest ? <input type="hidden" name="contest" value={props.contest} /> :""}
             <div className={inputWrapper({ active: !formDisabled })}>

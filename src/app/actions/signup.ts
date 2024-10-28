@@ -4,7 +4,8 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 export async function Signup(status: { ok: boolean, try: number, notSelected: boolean }, formData:FormData) {
-    const rToken = formData.get("refreshToken") || cookies().get("refreshToken");
+    const rToken = cookies().get("refreshToken");
+    const rTokenOnForm = formData.get("refreshToken");
     const admin = formData.get("admin");
     const contest = formData.get("contest");
 
@@ -17,16 +18,14 @@ export async function Signup(status: { ok: boolean, try: number, notSelected: bo
         return status;    
     }
 
-    if (rToken) {
+    if ((rToken && rToken.value !== "") || rTokenOnForm) {
 
         const getNewToken = await fetch(`${process.env.API_ENDPOINT}/public/refresh`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                "refresh-token": rToken
-            })
+                "refreshToken": rToken ? rToken.value : rTokenOnForm?.toString() ?? ""
+            }
         });
 
         if (getNewToken.ok) {
@@ -35,7 +34,11 @@ export async function Signup(status: { ok: boolean, try: number, notSelected: bo
                     accessToken: string
                 }
             } = await getNewToken.json();
-            cookieBox.set("access", tokens.data.accessToken);
+            cookieBox.set("access", tokens.data.accessToken, {
+                secure: true,
+                httpOnly: true,
+                sameSite: true
+            });
         }
         if (admin !== "" && contest) {
             redirect(`/admin/${contest}/dashboard`);
@@ -72,7 +75,16 @@ export async function Signup(status: { ok: boolean, try: number, notSelected: bo
         if (registerReq.ok) {
             status.ok = true;
             const tokens = await registerReq.json();
-            cookieBox.set("access", tokens.data.accessToken);
+            cookieBox.set("access", tokens.data.accessToken, {
+                secure: true,
+                httpOnly: true,
+                sameSite: true
+            });
+            cookieBox.set("refreshToken", tokens.data.refreshToken, {
+                secure: true,
+                httpOnly: true,
+                sameSite: true
+            });
 
         } else {
             status.ok = false;

@@ -3,41 +3,59 @@ import { NextRequest, NextResponse } from "next/server";
 export async function middleware(request: NextRequest) {
     const currentPath = request.nextUrl.pathname;
 
-    if (request.cookies.has("access") && request.cookies.has("refresh")) {
-        const rToken = request.cookies.get("refresh");
+    console.log("requesting service");
 
-        const getNewToken = await fetch(`${process.env.API_ENDPOINT}/public/refresh`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                "refresh-token": rToken
-            })
-        });
+    if (request.cookies.has("access")) {
+        const rToken = request.cookies.get("refreshToken");
 
-        console.log("preparing for response");
+        if (rToken && rToken.value !== "") {
 
-        let response = null;
-        
-        if (currentPath === "/") {
-            response = NextResponse.redirect(new URL("/home", request.url));
+            const getNewToken = await fetch(`${process.env.API_ENDPOINT}/public/refresh`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "refreshToken": rToken.value
+                }
+            });
+            
+            let response = null;
+
+            if (getNewToken.ok) {
+                if (currentPath === "/") {
+                    response = NextResponse.redirect(new URL("/home", request.url));
+                } else {
+                    response = NextResponse.next();
+                }
+
+                const tokens = await getNewToken.json();
+
+                response.cookies.set("access", tokens.data.accessToken, {
+                    secure: true,
+                    httpOnly: true,
+                    sameSite: true
+                });
+            } else {
+                if (currentPath.includes("admin")) {
+                    response = NextResponse.redirect(new URL("/admin", request.url))
+                } else {
+                    response = NextResponse.redirect(new URL("/", request.url))
+                }
+                
+                response.cookies.delete("access");
+                response.cookies.delete("refreshToken");
+            }
+    
+            return response;
         } else {
-            response = NextResponse.next();
+            if (currentPath.includes("admin")) {
+                return NextResponse.redirect(new URL("/admin", request.url))
+            } else {
+                return NextResponse.redirect(new URL("/", request.url))
+            }
         }
-        
-        if (getNewToken.ok) {
-            const tokens = await getNewToken.json();
-
-            response.cookies.set("access", tokens.data.accessToken);
-            response.cookies.set("refresh", tokens.data.refreshToken);
-        } else {
-            response.cookies.delete("access");
-            response.cookies.delete("refresh");
-        }
-
-        return response;
-    }
+    } else {
+        return NextResponse.next();
+    }    
 }
 
 export const config = {
