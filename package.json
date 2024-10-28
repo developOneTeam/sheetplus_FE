@@ -24,7 +24,9 @@
     "html5-qrcode": "^2.3.8",
     "next": "^14.2.14",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "tui-date-picker": "^4.3.3",
+    "tui-time-picker": "^2.1.6"
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.5",

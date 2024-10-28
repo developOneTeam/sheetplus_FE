@@ -6,28 +6,36 @@ import { redirect } from "next/navigation";
 export async function Login(email: string, code: string, type: string, contest: string) {
     const rToken = cookies().get("refreshToken");
 
-    if (rToken) {
+    if (rToken && rToken.value !== "") {
         const dataReq = await fetch(`${process.env.API_ENDPOINT}/public/refresh`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                "refresh-token": rToken
-            })
+                "refreshToken": rToken.value
+            }
         });
 
         if (dataReq.ok) {
             const tokens: {
                 data: {
-                    accessToken: string
+                    accessToken: string,
+                    refreshToken: string
                 }
             } = await dataReq.json();
-            cookies().set("access", tokens.data.accessToken);
+            cookies().set("access", tokens.data.accessToken, {
+                secure: true,
+                httpOnly: true,
+                sameSite: true
+            });
+            cookies().set("refreshToken", tokens.data.refreshToken, {
+                secure: true,
+                httpOnly: true,
+                sameSite: true
+            });
 
             redirect("/home");
         } else {
-            if (type.endsWith("ADMIN")) {
+            if (type === "super" || type === "admin") {
                 redirect("/admin");
             } else {
                 redirect("/");
@@ -45,18 +53,25 @@ export async function Login(email: string, code: string, type: string, contest: 
                 memberType: type === "super" ? "SUPER_ADMIN" : type === "admin" ? "ADMIN" : "STUDENT"
             })
         });
-
-        console.log(email, code, type);
-        console.log(dataReq.status);
     
         if (dataReq.ok) {
             const tokens: {
                 data: {
-                    accessToken: string
+                    accessToken: string,
+                    refreshToken: string
                 }
             } = await dataReq.json();
             
-            cookies().set("access", tokens.data.accessToken);
+            cookies().set("access", tokens.data.accessToken, {
+                secure: true,
+                httpOnly: true,
+                sameSite: true
+            });
+            cookies().set("refreshToken", tokens.data.refreshToken, {
+                secure: true,
+                httpOnly: true,
+                sameSite: true
+            });
 
             redirect(`/admin/${contest}/dashboard`);
         } else {

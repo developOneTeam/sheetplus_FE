@@ -50,6 +50,8 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:18.3.1"],\
           ["serwist", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:9.0.9"],\
+          ["tui-date-picker", "npm:4.3.3"],\
+          ["tui-time-picker", "npm:2.1.6"],\
           ["typescript", "patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"]\
         ],\
         "linkType": "SOFT"\
@@ -9648,6 +9650,8 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:18.3.1"],\
           ["serwist", "virtual:48f664caa555f3a23e2e5258b635b183f227a2323d34e4dbae57fc83428eb0c6fa43361215d7209466b4ac4dfdf4a80cb9e2709ca0ae6d183617bcc15fd06cfd#npm:9.0.9"],\
+          ["tui-date-picker", "npm:4.3.3"],\
+          ["tui-time-picker", "npm:2.1.6"],\
           ["typescript", "patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"]\
         ],\
         "linkType": "SOFT"\
@@ -10195,6 +10199,25 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/tslib-npm-2.7.0-21668f5c21-10c0.zip/node_modules/tslib/",\
         "packageDependencies": [\
           ["tslib", "npm:2.7.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["tui-date-picker", [\
+      ["npm:4.3.3", {\
+        "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/tui-date-picker-npm-4.3.3-745c1932c1-10c0.zip/node_modules/tui-date-picker/",\
+        "packageDependencies": [\
+          ["tui-date-picker", "npm:4.3.3"],\
+          ["tui-time-picker", "npm:2.1.6"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["tui-time-picker", [\
+      ["npm:2.1.6", {\
+        "packageLocation": "../../../../home/paperbox/.yarn/berry/cache/tui-time-picker-npm-2.1.6-6c8b30d4c9-10c0.zip/node_modules/tui-time-picker/",\
+        "packageDependencies": [\
+          ["tui-time-picker", "npm:2.1.6"]\
         ],\
         "linkType": "HARD"\
       }]\

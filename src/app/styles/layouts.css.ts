@@ -154,6 +154,11 @@ export const inputWrapper = recipe({
             between: {
                 justifyContent: "space-between",
             }
+        },
+        size: {
+            limited: {
+                width: "10em"
+            }
         }
     }
 });
@@ -504,4 +509,10 @@ export const homeHello = style({
         }
     }
 });
+
+export const simpleInput = style({
+    display: "flex",
+    gap: "0.5em",
+    alignItems: "center"
+})
 
