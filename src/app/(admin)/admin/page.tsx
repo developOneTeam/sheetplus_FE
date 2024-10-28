@@ -7,7 +7,11 @@ import AdminLogin from "@/app/components/AdminLogin";
 
 export default async function Home() {
     let list = null;
-    const dataReq = await fetch(`${process.env.API_ENDPOINT}/public/contest/read`);
+    const dataReq = await fetch(`${process.env.API_ENDPOINT}/public/contest/read`, {
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
 
     if (dataReq.ok) {
         list = await dataReq.json();
