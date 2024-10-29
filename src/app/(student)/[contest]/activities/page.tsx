@@ -3,29 +3,39 @@ import { icon, defaultH2, defaultP, defaultH3 } from "@/app/styles/others.css";
 import { main } from "@/app/styles/layouts.css";
 import { button, iconButton } from "@/app/styles/buttons.css";
 import { cookies } from "next/headers";
-// import { stamps } from "../home/page";
-import { user, festival } from "@/app/data/dummy";
 import Link from "next/link";
 import DialogLink from "@/app/components/DialogLink";
+import stamps from "@/app/components/Stamps";
+import { Schedule } from "@/app/types/common";
 
-export default function Page() {
-    const session_original = cookies().get("access");
+export default async function Page({ params } : { params: { contest : string } }) {
+    const accessToken = cookies().get("access");
 
-    console.log(session_original)
+    let festival = null;
 
-    const session = {
-        user : true
+    if (accessToken) {
+        const dataReqHome = await fetch(`${process.env.API_ENDPOINT}/private/student/${params.contest}/activities`, {
+            headers: {
+                "Content-Type" : "application/json",
+                "Authorization" : `Bearer ${accessToken.value}`
+            }
+        });
+    
+        if (dataReqHome.ok) {
+            const dataHome = await dataReqHome.json();
+            festival = dataHome.data;
+        }
     }
 
     return (
         <>
-        {(session && session.user) ? (
+        {(accessToken && festival) ? (
             <main className={main({ center: false })}>
                 <section>
                     <h2 className={defaultH2({ style: "nomargin" })}>참여 활동</h2>
                     <p className={`${iconNav} ${defaultP({ margin: false })}`}>
                         <span>
-                            모은 스탬프 <span className={defaultP({ style: "secondary" })}>{user.event.stamps}</span>/{festival.max_stamp}
+                            모은 스탬프 <span className={defaultP({ style: "secondary" })}>{festival.eventCounts}</span>/5
                         </span>
                         <button type="button" className={`${iconButton()} ${icon({ color: "disabled" })} material-symbols-rounded`}>
                             autorenew
@@ -33,19 +43,19 @@ export default function Page() {
                     </p>
                     <div className={accentArea()}>
                         <div className={stampList}>
-                            {/* stamps(user, festival) */}
+                            {stamps(festival)}
                         </div>
                     </div>
                     <p className={iconNav}>
                         <span className={`${
-                            icon({ color: user.event.stamps === festival.max_stamp ? "notice" : "disabled" })
+                            icon({ color: festival.eventCounts === 5 ? "notice" : "disabled" })
                             } material-symbols-rounded`}>
-                            {user.event.stamps === festival.max_stamp ? "check_circle" : "circle"}
+                            {festival.eventCounts === 5 ? "check_circle" : "circle"}
                         </span>
-                        {user.event.stamps < festival.max_stamp ? (
+                        {festival.eventCounts < 5 ? (
                             <span>
                                 <span className={defaultP({ style: "secondary", weight: "semiBold" })}>
-                                    {festival.max_stamp - user.event.stamps}
+                                    {5 - festival.eventCounts}
                                 </span>
                                 개 더 모으면 폐회식 상품 추첨 대상이에요
                             </span>
@@ -70,14 +80,11 @@ export default function Page() {
                         <Link href="tel:041-530-1472" className={button()} target="_blank">단과대 학사지원팀 문의</Link>
                     </DialogLink>
                     <ul className={scheduleTable()}>
-                        {festival.schedule.filter((event) => user.event.stamp.includes(event.secureId)).map((event) => (
+                        {festival.events.filter((event:Schedule) => (
                             <li key={event.secureId}><Link href={`/schedule/${event.secureId}`} className={scheduleLine}>
                             <div className={scheduleContentBlock}>
                                 <p className={defaultP({ size: "lg", width: "time", align: "center", flexOptions: "notShrink" })}>
-                                {event.startTime instanceof Date ? <>{new Intl.DateTimeFormat("ko-KR", {
-                                    timeStyle: "short",
-                                    hourCycle: "h23"
-                                }).format(event.startTime)}</> : event.startTime}
+                                    {event.startTime.split(" ")[1].split(":")[0]}:{event.startTime.split(" ")[1].split(":")[1]}
                                 </p>
                                 <p className={defaultP({ size: "lg" })}>
                                     <span className={defaultP({ size: "sm", style: "disabled", width: "block" })}>
