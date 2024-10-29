@@ -1,7 +1,8 @@
 import Chart from "@/app/components/Chart";
 import ContestList from "@/app/components/SuperAdmin/ContestList";
 import { accentArea, adminDashboard, adminDashboardItem, scheduleContentBlock, scheduleLine, schedulePlace, scheduleTable } from "@/app/styles/layouts.css";
-import { adminDashboardLink, defaultH2, defaultH3, defaultP, faqLink } from "@/app/styles/others.css";
+import { adminDashboardLink, defaultH2, defaultH3, defaultP, faqLink, icon } from "@/app/styles/others.css";
+import { Schedule } from "@/app/types/common";
 import "@toast-ui/chart/dist/toastui-chart.min.css";
 import { cookies } from "next/headers";
 import Link from "next/link";
@@ -117,10 +118,55 @@ export default async function AdminDashboard({ params } : { params: { contest : 
                 
             </section>
             <section className={adminDashboardItem}>
-
+                <h2 className={defaultH2()}>
+                    <Link href="../manageEvents" className={adminDashboardLink}>
+                        일정 →
+                    </Link>
+                </h2>
+                <h3 className={defaultH3}>
+                    총 <span>{data.data.allEvents.length}</span>
+                    개 작품이 등록되어 있어요.
+                </h3>
+                <ul className={scheduleTable({ nomargin: true })}>
+                    {data.data.allEvents.length > 0 ? data.data.allEvents.slice(0,5).map((event:Schedule) => {
+                        <li key={event.secureId}>
+                            <div className={scheduleContentBlock}>
+                                <p className={defaultP({ size: "lg", width: "time", align: "center", flexOptions: "notShrink" })}>
+                                {event.startTime}
+                                </p>
+                                <p className={defaultP({ size: "lg" })}>
+                                    <span className={defaultP({ size: "sm", style: "disabled", width: "block" })}>
+                                        {event.major} {event.categoryMessage}
+                                    </span>
+                                    {event.name}
+                                </p>
+                            </div>
+                            <div className={scheduleContentBlock}>
+                                <div className={`${icon({color: "notice"})} material-symbols-rounded`}>
+                                    {event.eventTypeMessage === "CHECKING" ? "approval" : ""}
+                                </div>
+                                <p className={`${schedulePlace} ${defaultP({ size: "lg", style: "disabled" })}`}>
+                                    <span className={defaultP({ size: "sm", style: "disabled" })}>{event.building}</span>
+                                    {event.location}
+                                </p>
+                            </div>
+                        </li>
+                    }): <li>일정이 없어요.</li>}
+                </ul>
             </section>
             <section className={adminDashboardItem}>
-
+                <h2 className={defaultH2()}>
+                    <Link href="../manageWorks" className={adminDashboardLink}>
+                        작품 →
+                    </Link>
+                </h2>
+                <h3 className={defaultH3}>
+                    총 <span>{data.data.entryCounts}</span>
+                    개 작품이 등록되어 있어요.
+                </h3>
+                <ul className={scheduleTable({ nomargin: true })}>
+                    <li>기능 준비 중이에요</li>
+                </ul>
             </section>
             </div>
         :

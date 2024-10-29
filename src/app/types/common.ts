@@ -1,12 +1,15 @@
 export type Schedule = {
-    secureId: string,
-    name: string,
-    major: string,
-    categoryMessage: string,
-    building: string,
-    location: string|number,
-    eventTypeMessage: string,
-    startTime: Date|string
+    "secureId": string,
+    "name": string,
+    "startTime": string,
+    "endTime": string,
+    "location": string,
+    "building": string,
+    "speakerName": string,
+    "major": string,
+    "conditionMessage": string,
+    "eventTypeMessage": string,
+    "categoryMessage": string
 }
 
 export type Festival = {

@@ -18,7 +18,7 @@ export const festival = {
         categoryMessage: "",
         building: "인문과학관",
         location: "대강당",
-        eventTypeMessage: "stamp",
+        eventTypeMessage: "CHECKING",
         startTime: new Date("2024-11-05 10:00")
     }, {
         secureId: "baca",
@@ -27,7 +27,7 @@ export const festival = {
         categoryMessage: "졸업생 토크콘서트",
         building: "멀티미디어관",
         location: "M502",
-        eventTypeMessage: "stamp",
+        eventTypeMessage: "CHECKING",
         startTime: new Date("2024-11-05 12:00")
     }, {
         secureId: "aacd",
@@ -45,7 +45,7 @@ export const festival = {
         categoryMessage: "",
         building: "인문과학관",
         location: "6125",
-        eventTypeMessage: "stamp",
+        eventTypeMessage: "CHECKING",
         startTime: "오후" 
     }, {
         secureId: "bbbe",
@@ -54,7 +54,7 @@ export const festival = {
         categoryMessage: "졸업생 토크콘서트",
         building: "미디어랩스관",
         location: "ML313",
-        eventTypeMessage: "stamp",
+        eventTypeMessage: "CHECKING",
         startTime: new Date("2024-11-05 14:00")
     }]
 }

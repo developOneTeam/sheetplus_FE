@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link";
-import { scheduleTable(), scheduleLine, scheduleContentBlock, schedulePlace, accentArea, iconDesc } from "../styles/layouts.css";
+import { scheduleTable, scheduleLine, scheduleContentBlock, schedulePlace, accentArea, iconDesc } from "../styles/layouts.css";
 import { defaultH2, defaultP, icon } from "../styles/others.css";
 import { Festival, Schedule } from "../types/common";
 import { filterScheduleByTime } from "../utils/schedule";
@@ -84,10 +84,7 @@ export default function ContentsTable(props: Props) {
                     <li key={event.secureId}><Link href={`/schedule/${event.secureId}`} className={scheduleLine}>
                         <div className={scheduleContentBlock}>
                             <p className={defaultP({ size: "lg", width: "time", align: "center", flexOptions: "notShrink" })}>
-                            {event.startTime instanceof Date ? <>{new Intl.DateTimeFormat("ko-KR", {
-                                timeStyle: "short",
-                                hourCycle: "h23"
-                            }).format(event.startTime)}</> : event.startTime}
+                            {event.startTime}
                             </p>
                             <p className={defaultP({ size: "lg" })}>
                                 <span className={defaultP({ size: "sm", style: "disabled", width: "block" })}>
@@ -97,7 +94,7 @@ export default function ContentsTable(props: Props) {
                             </p>
                         </div>
                         <div className={scheduleContentBlock}>
-                            <div className={`${icon({color: "notice"})} material-symbols-rounded`}>{event.eventTypeMessage === "stamp" ? (
+                            <div className={`${icon({color: "notice"})} material-symbols-rounded`}>{event.eventTypeMessage === "CHECKING" ? (
                                 (props.stamp ? props.stamp.includes(event.secureId):false) 
                                 ? "check_circle" :"approval") : ""}</div>
                             <p className={`${schedulePlace} ${defaultP({ size: "lg", style: "disabled" })}`}>

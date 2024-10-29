@@ -535,6 +535,6 @@ export const adminDashboard = style({
 export const adminDashboardItem = style({
     border: `2px solid ${global.bg.secondary30}`,
     borderRadius: "10px",
-    padding: "1em"
+    padding: "0.5em 1em"
 })
 

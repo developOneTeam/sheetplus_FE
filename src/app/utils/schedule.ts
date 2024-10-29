@@ -18,7 +18,7 @@ export function filterScheduleByTime(array:Schedule[]) {
 }
 
 export function randomNextSchedule(stamp: string[], schedule: Schedule[]) {
-    const array = filterScheduleByTime(schedule).filter((event) => !stamp.includes(event.secureId) && event.eventTypeMessage === "stamp");
+    const array = filterScheduleByTime(schedule).filter((event) => !stamp.includes(event.secureId) && event.eventTypeMessage === "CHECKING");
     return array[Math.floor(Math.random() * array.length)];
 }
 
