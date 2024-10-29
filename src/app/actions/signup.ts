@@ -11,7 +11,7 @@ export async function Signup(status: { ok: boolean, try: number, notSelected: bo
 
     const cookieBox = cookies();
 
-    if (admin !== "" && contest === "") {
+    if (admin !== "student" && contest === "") {
         status.ok = false;
         status.notSelected = true;
 
@@ -31,7 +31,8 @@ export async function Signup(status: { ok: boolean, try: number, notSelected: bo
         if (getNewToken.ok) {
             const tokens: {
                 data: {
-                    accessToken: string
+                    accessToken: string,
+                    refreshToken: string
                 }
             } = await getNewToken.json();
             cookieBox.set("access", tokens.data.accessToken, {
@@ -39,11 +40,16 @@ export async function Signup(status: { ok: boolean, try: number, notSelected: bo
                 httpOnly: true,
                 sameSite: true
             });
+            cookieBox.set("refreshToken", tokens.data.refreshToken, {
+                secure: true,
+                httpOnly: true,
+                sameSite: true
+            });
         }
-        if (admin !== "" && contest) {
+        if (admin !== "STUDENT" && contest) {
             redirect(`/admin/${contest}/dashboard`);
         } else {
-            redirect("/home");
+            redirect("/2/home");
         }
     } else {
         const registerReq = await fetch(`${process.env.API_ENDPOINT}/public/register`, {
@@ -57,7 +63,7 @@ export async function Signup(status: { ok: boolean, try: number, notSelected: bo
                 "major": formData.get("major"),
                 "universityEmail": formData.get("email"),
                 "memberType": admin === "super" ? 
-                    "SUPER_ADMIN" : admin === "" ? "ADMIN":"STUDENT",
+                    "SUPER_ADMIN" : admin === "admin" ? "ADMIN":"STUDENT",
                 "code": formData.get("code")
             })
         });
@@ -68,7 +74,7 @@ export async function Signup(status: { ok: boolean, try: number, notSelected: bo
             "major": formData.get("major"),
             "universityEmail": formData.get("email"),
             "memberType": admin === "super" ? 
-                "SUPER_ADMIN" : admin === "" ? "ADMIN":"STUDENT",
+                "SUPER_ADMIN" : admin === "admin" ? "ADMIN":"STUDENT",
             "code": formData.get("code")
         }));
 

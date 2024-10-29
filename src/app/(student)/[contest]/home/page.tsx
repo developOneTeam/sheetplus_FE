@@ -24,7 +24,7 @@ export function stamps(festival: { eventCounts: string }) {
     return total;
 }
 
-export default async function Page(params : { contest : string }) {
+export default async function Page({ params } : { params: { contest : string } }) {
     const accessToken = cookies().get("access");
 
     let festival = null;
@@ -34,7 +34,7 @@ export default async function Page(params : { contest : string }) {
         const [dataReqHome, dataReqSchedule] = await Promise.all([fetch(`${process.env.API_ENDPOINT}/private/student/${params.contest}/home`, {
             headers: {
                 "Content-Type" : "application/json",
-                "Authorization" : `Bearer ${accessToken}`
+                "Authorization" : `Bearer ${accessToken.value}`
             }
         }), fetch(`${process.env.API_ENDPOINT}/public/${params.contest}/schedule`, {
             headers: {
@@ -48,6 +48,7 @@ export default async function Page(params : { contest : string }) {
 
             const dataSchedule = await dataReqSchedule.json();
             schedule = dataSchedule.data;
+
         }
     }
 

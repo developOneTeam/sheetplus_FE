@@ -22,7 +22,7 @@ export async function middleware(request: NextRequest) {
 
             if (getNewToken.ok) {
                 if (currentPath === "/") {
-                    response = NextResponse.redirect(new URL("/home", request.url));
+                    response = NextResponse.redirect(new URL("/2/home", request.url));
                 } else {
                     response = NextResponse.next();
                 }

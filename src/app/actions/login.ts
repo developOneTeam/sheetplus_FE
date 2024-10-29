@@ -33,7 +33,11 @@ export async function Login(email: string, code: string, type: string, contest: 
                 sameSite: true
             });
 
-            redirect("/home");
+            if (type !== "student") {
+                redirect(`/admin/${contest}/dashboard`);
+            } else {
+                redirect("/2/home");
+            }
         } else {
             if (type === "super" || type === "admin") {
                 redirect("/admin");
@@ -58,7 +62,10 @@ export async function Login(email: string, code: string, type: string, contest: 
             const tokens: {
                 data: {
                     accessToken: string,
-                    refreshToken: string
+                    refreshToken: string,
+                    memberInfo: {
+                        memberType: string
+                    }
                 }
             } = await dataReq.json();
             
@@ -73,9 +80,15 @@ export async function Login(email: string, code: string, type: string, contest: 
                 sameSite: true
             });
 
-            redirect(`/admin/${contest}/dashboard`);
+            console.log(tokens);
+
+            if (tokens.data.memberInfo.memberType === "STUDENT") {
+                redirect(`/2/home`);
+            } else {
+                redirect(`/admin/${contest}/dashboard`);
+            }
         } else {
-            console.log(await dataReq.text());
+            console.log(dataReq.status);
 
             return {
                 error: "로그인에 실패했어요."

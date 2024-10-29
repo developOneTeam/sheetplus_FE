@@ -6,10 +6,10 @@ import { redirect } from "next/navigation";
 export async function Sendmail(status: { ok: boolean, try: number, notSelected: boolean }, formData:FormData) {
     const rToken = cookies().get("refreshToken");
     const rTokenOnForm = formData.get("refreshToken");
-    const admin = formData.get("admin");
+    const memberType = formData.get("memberType");
     const contest = formData.get("contest");
 
-    if ((admin && !contest)) {
+    if ((memberType !== "student" && !contest)) {
         status.ok = false;
         status.notSelected = true;
         status.try += 1
@@ -46,7 +46,7 @@ export async function Sendmail(status: { ok: boolean, try: number, notSelected: 
                 httpOnly: true,
                 sameSite: true
             });
-            if (admin && contest) {
+            if (memberType && contest) {
                 redirect(`/admin/${contest}/dashboard`);
             } else {
                 redirect("/home");
@@ -60,7 +60,11 @@ export async function Sendmail(status: { ok: boolean, try: number, notSelected: 
             return status;
         }
     } else {
-        formData.set("email", `${formData.get("email")}@sch.ac.kr`);
+        if (memberType === "student") {
+            formData.set("email", `${formData.get("email")}@asan.sch.ac.kr`);
+        } else {
+            formData.set("email", `${formData.get("email")}@sch.ac.kr`);
+        }
 
         const result = await fetch(`${process.env.API_ENDPOINT}/public/mail/auth`, {
             method: "POST",

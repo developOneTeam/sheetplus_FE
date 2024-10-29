@@ -67,7 +67,7 @@ export default function SignUpForm(props :
         <>
         <form className={formLayout} action={submitAction} onSubmit={() => {disableForm(true); return true;}}>
             <input type="hidden" name="code" value={authCode ?? ""} readOnly />
-            <input type="hidden" name="admin" value={memberType ?? "STUDENT"} readOnly />
+            <input type="hidden" name="admin" value={memberType ?? "student"} readOnly />
             <input type="hidden" name="contest" value={contest ?? ""} readOnly />
             <div className={inputWrapper({ active: !formDisabled })}>
                 <span className={`${icon({ color: "notice" })} material-symbols-rounded`}>mail</span>

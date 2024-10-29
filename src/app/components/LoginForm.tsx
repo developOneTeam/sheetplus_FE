@@ -50,12 +50,19 @@ export default function LoginForm(props : { rToken?: RequestCookie, admin?: "adm
             setDialogOpen(true);
         }
     }, [state]);
+
+    useEffect(() => {
+        if (!props.admin) {
+            localStorage.setItem("member_type", "student");
+            localStorage.setItem("contest", "2");
+        }
+    }, [props.admin])
     
     return (
         <>
         <form className={formLayout} action={submitAction} onSubmit={() => {disableForm(true); return true;}}>
             {props.rToken ? <input type="hidden" name="refreshToken" value={props.rToken.value} />  : ""}
-            {props.admin ? <input type="hidden" name="admin" value={props.admin} /> : ""}
+            <input type="hidden" name="memberType" value={props.admin ?? "student"} />
             {props.contest ? <input type="hidden" name="contest" value={props.contest} /> :""}
             <div className={inputWrapper({ active: !formDisabled })}>
                 <span className={`${icon({ color: "notice" })} material-symbols-rounded`}>mail</span>

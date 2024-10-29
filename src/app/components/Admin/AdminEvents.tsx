@@ -1,5 +1,5 @@
 "use client";
-import { ManageSchedule } from "@/app/actions/mange_schedule";
+import { ManageSchedule } from "@/app/actions/manage_schedule";
 import { button } from "@/app/styles/buttons.css";
 import { scheduleTable, scheduleContentBlock, schedulePlace, simpleInput, inputLayout, inputWrapper, selectButton, selectLayout, scheduleLine } from "@/app/styles/layouts.css";
 import { defaultP, icon } from "@/app/styles/others.css";
