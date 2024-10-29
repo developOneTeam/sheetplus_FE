@@ -10,6 +10,8 @@ export async function middleware(request: NextRequest) {
 
         if (rToken && rToken.value !== "") {
 
+            console.log(rToken.value);
+
             const getNewToken = await fetch(`${process.env.API_ENDPOINT}/public/refresh`, {
                 method: "POST",
                 headers: {
@@ -34,7 +36,14 @@ export async function middleware(request: NextRequest) {
                     httpOnly: true,
                     sameSite: true
                 });
+                response.cookies.set("refreshToken", tokens.data.refreshToken, {
+                    secure: true,
+                    httpOnly: true,
+                    sameSite: true
+                });
             } else {
+
+                console.log(await getNewToken.json());
                 if (currentPath.includes("admin")) {
                     response = NextResponse.redirect(new URL("/admin", request.url))
                 } else {
