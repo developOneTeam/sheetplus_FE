@@ -373,11 +373,21 @@ export const stamped = style({
     color: global.color.white
 });
 
-export const scheduleTable = style({
-    listStyle: "none",
-    color: colorByMode.color.text,
-    padding: 0,
-    marginBottom: "6rem"
+export const scheduleTable = recipe({
+    base: {
+        listStyle: "none",
+        color: colorByMode.color.text,
+        padding: 0,
+        marginBottom: "6rem",    
+    },
+
+    variants: {
+        nomargin: {
+            true: {
+                marginBottom: "auto"          
+            }
+        }
+    }
 })
 
 export const scheduleLine = style({
@@ -514,5 +524,17 @@ export const simpleInput = style({
     display: "flex",
     gap: "0.5em",
     alignItems: "center"
+});
+
+export const adminDashboard = style({
+    display: "grid",
+    gridTemplateColumns: "1fr 2fr",
+    gap: "0.5em"
+});
+
+export const adminDashboardItem = style({
+    border: `2px solid ${global.bg.secondary30}`,
+    borderRadius: "10px",
+    padding: "1em"
 })
 

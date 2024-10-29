@@ -1,7 +1,7 @@
 "use client";
 import { useState, ChangeEvent } from "react";
 import { button } from "../styles/buttons.css";
-import { checkBoxSet, pickArea, pickButtonSet, pickOptionSet, scheduleContentBlock, scheduleLine, scheduleTable } from "../styles/layouts.css";
+import { checkBoxSet, pickArea, pickButtonSet, pickOptionSet, scheduleContentBlock, scheduleLine, scheduleTable() } from "../styles/layouts.css";
 import { defaultP, defaultH2, checkbox } from "../styles/others.css";
 import { Member } from "../types/common"
 import { motion } from "framer-motion";
@@ -103,7 +103,7 @@ export default function Draw( props: Props ) {
         </section>
         <section>
             <h2 className={defaultH2({ style: "disabled" })}>추첨 이력</h2>
-            <ul className={scheduleTable}>
+            <ul className={scheduleTable()}>
             {pickedHistory.map((drawHistory) => (
                 <li key={drawHistory.id} className={scheduleLine}>
                     <p className={scheduleContentBlock}>

@@ -69,7 +69,7 @@ export default function Page() {
                         </p>
                         <Link href="tel:041-530-1472" className={button()} target="_blank">단과대 학사지원팀 문의</Link>
                     </DialogLink>
-                    <ul className={scheduleTable}>
+                    <ul className={scheduleTable()}>
                         {festival.schedule.filter((event) => user.event.stamp.includes(event.secureId)).map((event) => (
                             <li key={event.secureId}><Link href={`/schedule/${event.secureId}`} className={scheduleLine}>
                             <div className={scheduleContentBlock}>

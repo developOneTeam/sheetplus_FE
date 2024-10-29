@@ -50,10 +50,6 @@ export default function LoginForm(props : { rToken?: RequestCookie, admin?: "adm
             setDialogOpen(true);
         }
     }, [state]);
-
-    useEffect(() => {
-        localStorage.setItem("member_type", props.admin ? `${props.admin}` : "student");
-    }, [props.admin]);
     
     return (
         <>

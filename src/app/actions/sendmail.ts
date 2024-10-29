@@ -9,7 +9,7 @@ export async function Sendmail(status: { ok: boolean, try: number, notSelected: 
     const admin = formData.get("admin");
     const contest = formData.get("contest");
 
-    if (admin && !contest) {
+    if ((admin && !contest)) {
         status.ok = false;
         status.notSelected = true;
         status.try += 1
@@ -31,12 +31,21 @@ export async function Sendmail(status: { ok: boolean, try: number, notSelected: 
         if (getNewToken.ok) {
             const tokens: {
                 data: {
-                    accessToken: string
+                    accessToken: string,
+                    refreshToken: string
                 }
             } = await getNewToken.json();
 
-            cookieBox.set("access", tokens.data.accessToken);
-
+            cookieBox.set("access", tokens.data.accessToken, {
+                secure: true,
+                httpOnly: true,
+                sameSite: true
+            });
+            cookieBox.set("refreshToken", tokens.data.refreshToken, {
+                secure: true,
+                httpOnly: true,
+                sameSite: true
+            });
             if (admin && contest) {
                 redirect(`/admin/${contest}/dashboard`);
             } else {

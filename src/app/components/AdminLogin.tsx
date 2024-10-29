@@ -9,8 +9,7 @@ export default function AdminLogin(props: {
         { contestId: number, contestName: string }[] | null
 }) {
     const [contest, setContest] = useState<string>("");
-
-    console.log(props.list);
+    const [memberType, setMemberType] = useState<"super"|"admin">("super");
 
     return (
         <>
@@ -32,8 +31,20 @@ export default function AdminLogin(props: {
                     <option value={"all"}>운영 관리</option>
                 </select>
             </label>
+            <label className={selectButton}>
+                <select className={selectLayout} onChange={(e) => {
+                    if (e.target.value === "super" || e.target.value === "admin")
+                        setMemberType(e.target.value);
+                    localStorage.setItem("member_type", e.target.value);
+                }} required defaultValue={"admin"}>
+                    <option value="">회원 유형을 선택해주세요</option>
+                    <hr></hr>
+                    <option value={"super"}>최고 관리자</option>
+                    <option value={"admin"}>일반 관리자</option>
+                </select>
+            </label>
         </div>
-        <LoginForm admin={contest === "all" ? "super" : "admin"} contest={contest !== "" ? contest : undefined} />
+        <LoginForm admin={memberType} contest={contest !== "" ? contest : undefined} />
         <div className={accentArea({ center: true })}>
             <p className={defaultP({ size: "sm" })}>입력하신 이메일 주소로 <br /> 로그인 혹은 가입할 수 있는 링크를 보내드려요.</p>
         </div>

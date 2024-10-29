@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link";
-import { scheduleTable, scheduleLine, scheduleContentBlock, schedulePlace, accentArea, iconDesc } from "../styles/layouts.css";
+import { scheduleTable(), scheduleLine, scheduleContentBlock, schedulePlace, accentArea, iconDesc } from "../styles/layouts.css";
 import { defaultH2, defaultP, icon } from "../styles/others.css";
 import { Festival, Schedule } from "../types/common";
 import { filterScheduleByTime } from "../utils/schedule";
@@ -77,7 +77,7 @@ export default function ContentsTable(props: Props) {
                     의료과학관
                 </label>
             </fieldset>
-            <ul className={scheduleTable}>
+            <ul className={scheduleTable()}>
             {props.type === "schedule" && data ? (
                 <>
                 {data.length > 0 ? data.map((event) => (
