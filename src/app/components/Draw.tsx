@@ -1,7 +1,7 @@
 "use client";
 import { useState, ChangeEvent } from "react";
 import { button } from "../styles/buttons.css";
-import { checkBoxSet, pickArea, pickButtonSet, pickOptionSet, scheduleContentBlock, scheduleLine, scheduleTable() } from "../styles/layouts.css";
+import { checkBoxSet, pickArea, pickButtonSet, pickOptionSet, scheduleContentBlock, scheduleLine, scheduleTable } from "../styles/layouts.css";
 import { defaultP, defaultH2, checkbox } from "../styles/others.css";
 import { Member } from "../types/common"
 import { motion } from "framer-motion";
