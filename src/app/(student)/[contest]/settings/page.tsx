@@ -1,9 +1,9 @@
 "use client";
 import { initializeApp } from "firebase/app";
 import { getMessaging, getToken, Messaging, onMessage } from "firebase/messaging";
-import { accentArea, main, scheduleContentBlock, scheduleLine } from "../../styles/layouts.css";
-import { defaultP, icon } from "../../styles/others.css";
-import { toggleSwitch } from "../../styles/buttons.css";
+import { accentArea, main, scheduleContentBlock, scheduleLine } from "@/app/styles/layouts.css";
+import { defaultP, icon } from "@/app/styles/others.css";
+import { toggleSwitch } from "@/app/styles/buttons.css";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 

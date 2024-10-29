@@ -1,6 +1,6 @@
 "use client";
-import { iconDesc, selectButton, selectLayout, accentArea } from "../../styles/layouts.css";
-import { icon, defaultH2, defaultP } from "../../styles/others.css";
+import { iconDesc, selectButton, selectLayout, accentArea } from "@/app/styles/layouts.css";
+import { icon, defaultH2, defaultP } from "@/app/styles/others.css";
 import LoginForm from "../LoginForm";
 import { useState } from "react";
 

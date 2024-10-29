@@ -1,5 +1,5 @@
-import { iconDesc, main, mainSection } from "../../styles/layouts.css";
-import { icon, defaultH2, defaultP } from "../../styles/others.css";
+import { iconDesc, main, mainSection } from "@/app/styles/layouts.css";
+import { icon, defaultH2, defaultP } from "@/app/styles/others.css";
 
 export default function Page() {
     return (

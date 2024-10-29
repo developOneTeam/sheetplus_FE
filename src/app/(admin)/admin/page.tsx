@@ -1,8 +1,8 @@
 import Link from "next/link";
 import DialogLink from "../../components/DialogLink";
-import { button } from "../../styles/buttons.css";
-import { main, mainSection } from "../../styles/layouts.css";
-import { defaultP, faqLink } from "../../styles/others.css";
+import { button } from "@/app/styles/buttons.css";
+import { main, mainSection } from "@/app/styles/layouts.css";
+import { defaultP, faqLink } from "@/app/styles/others.css";
 import AdminLogin from "@/app/components/Admin/AdminLogin";
 
 export default async function Home() {
