@@ -1,4 +1,4 @@
-import AdminMenu from "@/app/components/AdminMenu";
+import AdminMenu from "@/app/components/Admin/AdminMenu";
 import { adminLayout } from "@/app/styles/layouts.css";
 import React from "react";
 

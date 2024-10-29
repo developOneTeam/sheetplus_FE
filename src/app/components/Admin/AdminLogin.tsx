@@ -1,7 +1,7 @@
 "use client";
-import { iconDesc, selectButton, selectLayout, accentArea } from "../styles/layouts.css";
-import { icon, defaultH2, defaultP } from "../styles/others.css";
-import LoginForm from "./LoginForm";
+import { iconDesc, selectButton, selectLayout, accentArea } from "../../styles/layouts.css";
+import { icon, defaultH2, defaultP } from "../../styles/others.css";
+import LoginForm from "../LoginForm";
 import { useState } from "react";
 
 export default function AdminLogin(props: { 

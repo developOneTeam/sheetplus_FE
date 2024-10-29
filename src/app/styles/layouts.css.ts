@@ -521,9 +521,11 @@ export const homeHello = style({
 });
 
 export const simpleInput = style({
-    display: "flex",
+    display: "grid",
     gap: "0.5em",
-    alignItems: "center"
+    alignItems: "center",
+    gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
+    width: "max-content"
 });
 
 export const adminDashboard = style({

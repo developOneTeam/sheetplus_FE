@@ -112,28 +112,15 @@ export default function ContestList() {
             :<li>예정된 행사가 없습니다.</li>}
         </ul>
 
-        {state.ok ? 
+        {!state.ok ? 
         <Dialog
             open={dialogOpen} setOpen={setDialogOpen}
-            icon={state.ok ? "mark_email_read" : "help"} 
-            type={state.ok ? "notice" : "error"}
-            title={state.ok ? "이메일 발송 완료!": (state.notSelected ? "행사를 선택해주세요" : "이메일 주소를 다시 확인하세요")}>
+            icon={"help"} 
+            type={"error"}
+            title={"입력한 정보를 다시 확인하세요"}>
             <p className={defaultP({ align: "center" })}>
-                {state.ok ?
-                    "메일함에서 확인해주세요.": (state.notSelected ? "관리할 행사를 선택해야만 계속할 수 있어요" : "이메일을 발송하지 못했어요.")
-                }
+                입력된 정보가 잘못되었어요.
             </p>
-            {state.ok ? (
-                <>
-                    <Link href="https://mail.sch.ac.kr" className={button()} target="_blank">순천향대 메일 열기</Link>
-                    <Link href="https://portal.sch.ac.kr" className={button({ types: "secondary" })} target="_blank">순천향대 포털에서 확인하기</Link>
-                </>
-            ): (state.notSelected ? <p></p>: (
-                <>
-                    <Link href="https://portal.sch.ac.kr" className={button()} target="_blank">순천향대 포털에서 확인하기</Link>
-                    <Link href="tel:041-530-1411" className={button({ types: "secondary" })}>전산팀에 전화하기</Link>
-                </>
-            ))}
         </Dialog>
         :""}
         

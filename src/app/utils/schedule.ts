@@ -4,21 +4,26 @@ const now = new Date(Date.now());
 
 export function filterScheduleByTime(array:Schedule[]) {
     return array.filter((event) => {
+
         if (event.startTime === "종일")
             return true;
         else if (event.startTime === "오전" && now.getHours() < 12)
             return true;
         else if (event.startTime === "오후" && now.getHours() < 18)
             return true;
-        else if (event.startTime instanceof Date && event.startTime.getHours() >= now.getHours())
-            return true;
-        else
-            return false;
+        else {
+            const date = new Date(event.startTime)
+            
+            if (date.getHours() >= now.getHours())
+                return true;
+            else
+                return false;
+        }
     });
 }
 
-export function randomNextSchedule(stamp: string[], schedule: Schedule[]) {
-    const array = filterScheduleByTime(schedule).filter((event) => !stamp.includes(event.secureId) && event.eventTypeMessage === "CHECKING");
+export function randomNextSchedule(stamp: Schedule[], schedule: Schedule[]) {
+    const array = filterScheduleByTime(schedule).filter((event) => stamp.some((stampedItem) => stampedItem.secureId === event.secureId));
     return array[Math.floor(Math.random() * array.length)];
 }
 

@@ -10,8 +10,6 @@ export async function middleware(request: NextRequest) {
 
         if (rToken && rToken.value !== "") {
 
-            console.log(rToken.value);
-
             const getNewToken = await fetch(`${process.env.API_ENDPOINT}/public/refresh`, {
                 method: "POST",
                 headers: {
@@ -53,7 +51,7 @@ export async function middleware(request: NextRequest) {
                 response.cookies.delete("access");
                 response.cookies.delete("refreshToken");
             }
-    
+
             return response;
         } else {
             if (currentPath.includes("admin")) {

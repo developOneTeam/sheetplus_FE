@@ -1,4 +1,4 @@
-import Chart from "@/app/components/Chart";
+import Chart from "@/app/components/Admin/Chart";
 import ContestList from "@/app/components/SuperAdmin/ContestList";
 import { accentArea, adminDashboard, adminDashboardItem, scheduleContentBlock, scheduleLine, schedulePlace, scheduleTable } from "@/app/styles/layouts.css";
 import { adminDashboardLink, defaultH2, defaultH3, defaultP, faqLink, icon } from "@/app/styles/others.css";
@@ -20,8 +20,7 @@ export default async function AdminDashboard({ params } : { params: { contest : 
     
         if (dataReq.ok) {
             data = await dataReq.json();
-            console.log(data);
-        }    
+        }
     }
 
     function contestDate(start: string, end: string) {
@@ -125,10 +124,10 @@ export default async function AdminDashboard({ params } : { params: { contest : 
                 </h2>
                 <h3 className={defaultH3}>
                     총 <span>{data.data.allEvents.length}</span>
-                    개 작품이 등록되어 있어요.
+                    개 일정이 등록되어 있어요.
                 </h3>
                 <ul className={scheduleTable({ nomargin: true })}>
-                    {data.data.allEvents.length > 0 ? data.data.allEvents.slice(0,5).map((event:Schedule) => {
+                    {data.data.allEvents.length > 0 ? data.data.allEvents.slice(0,5).map((event:Schedule) => (
                         <li key={event.secureId}>
                             <div className={scheduleContentBlock}>
                                 <p className={defaultP({ size: "lg", width: "time", align: "center", flexOptions: "notShrink" })}>
@@ -151,7 +150,7 @@ export default async function AdminDashboard({ params } : { params: { contest : 
                                 </p>
                             </div>
                         </li>
-                    }): <li>일정이 없어요.</li>}
+                    )): <li>일정이 없어요.</li>}
                 </ul>
             </section>
             <section className={adminDashboardItem}>

@@ -5,15 +5,15 @@ import Link from "next/link";
 import { displayedDate, randomNextSchedule } from "../../utils/schedule";
 import ContentsTable from "../../components/ContentsTable";
 import { cookies } from "next/headers";
-import { user, festival } from "@/app/data/dummy";
+import { user } from "@/app/data/dummy";
 
-export function stamps(user: { event: { stamps: number } }, festival: { max_stamp: number }) {
+export function stamps(festival: { eventCounts: string }) {
     const total = [];
 
-    for (let i = 0; i < festival.max_stamp; i++) {
+    for (let i = 0; i < 5; i++) {
         total.push(
             <div key={i} className={stamp}>
-                {i < user.event.stamps ? 
+                {i < parseInt(festival.eventCounts) ? 
                     <div className={`${stamped} material-symbols-rounded`}>approval</div> :
                     <div className={`${stamped} material-symbols-rounded`}>hide_source</div>
                 }
@@ -24,47 +24,63 @@ export function stamps(user: { event: { stamps: number } }, festival: { max_stam
     return total;
 }
 
-export default async function Page() {
+export default async function Page(params : { contest : string }) {
     const accessToken = cookies().get("access");
 
-    console.log(accessToken);
+    let festival = null;
+    let schedule = null;
 
-    const session = {
-        user: true
+    if (accessToken) {
+        const [dataReqHome, dataReqSchedule] = await Promise.all([fetch(`${process.env.API_ENDPOINT}/private/student/${params.contest}/home`, {
+            headers: {
+                "Content-Type" : "application/json",
+                "Authorization" : `Bearer ${accessToken}`
+            }
+        }), fetch(`${process.env.API_ENDPOINT}/public/${params.contest}/schedule`, {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })]);
+    
+        if (dataReqHome.ok && dataReqSchedule.ok) {
+            const dataHome = await dataReqHome.json();
+            festival = dataHome.data;
+
+            const dataSchedule = await dataReqSchedule.json();
+            schedule = dataSchedule.data;
+        }
     }
 
-    const rEvent = randomNextSchedule(user.event.stamp, festival.schedule);
+    const rEvent = randomNextSchedule(festival.events, schedule);
 
     return (
         <>
-        {(session && session.user) ? (
+        {(accessToken && festival) ? (
             <main className={main({ center: false })}>
                 <div className={homeHello}>
                     <h2 className={defaultH2()}>
                         <span className={
                             defaultP({ size: "sm", style: "disabled", width: "block", weight: "semiBold" })
-                        }>{user.studentMajor}</span>
-                        <span className={defaultH2({ style: "primary" })}>{user.studentName}</span>님 안녕하세요!
+                        }>{festival.studentMajor}</span>
+                        <span className={defaultH2({ style: "primary" })}>{festival.studentName}</span>님 안녕하세요!
                     </h2>
                     <Link href="/check" className={`${icon()} ${iconButton()} material-symbols-rounded`}>qr_code</Link>
                 </div>
                 <section className={accentArea()}>
                     <div className={stampList}>
-                        {stamps(user, festival)}
+                        {stamps(festival)}
                     </div>
                     <div>
                         <p className={defaultP({ size: "l", lineHeight: "ui" })}>
-                            {user.event.stamps === 0 ? (rEvent ? "" : "활동 참여로 스탬프를 획득해보세요!") :
+                            {festival.eventCounts === 0 ? (rEvent ? "" : "활동 참여로 스탬프를 획득해보세요!") :
                             <>스탬프&nbsp;
-                                <span className={defaultP({ style: "secondary", weight: "semiBold" })}>{user.event.stamps}</span>
+                                <span className={defaultP({ style: "secondary", weight: "semiBold" })}>{festival.eventCounts}</span>
                             개 획득!</>}
                         </p>
                         <p className={defaultP({ size: "l", lineHeight: "ui" })}>
                         {user.event.stamps < festival.max_stamp && rEvent ? 
                             <><span className={defaultP({ style: "primary", size: "l" })}>
-                                {rEvent.startTime instanceof Date ? (
-                                    rEvent.startTime.toLocaleString("ko-KR", {hour: "2-digit", hourCycle: "h23"})
-                                ) : rEvent.startTime}
+                                {rEvent.startTime}
                                 &nbsp;{rEvent.building} {rEvent.location}</span>에서 열리는
                             <br />
                             <span className={defaultP({ weight: "bold", size: "l" })}>
@@ -95,7 +111,7 @@ export default async function Page() {
                     priority_high
                     </span>
                     <h2 className={defaultH2({ style: "disabled" })}>로그인 부탁드려요</h2>
-                    <p className={defaultP({ style: "disabled" })}>로그인한 사용자는 이벤트에 참여할 수 있어요</p>
+                    <p className={defaultP({ style: "disabled" })}>로그인한 사용자는 이벤트에 참여할 수 있어요. <br /> 이미 로그인했다면, 새로고침해보세요.</p>
                     <a href="/" className={button({ types: "secondary" })}>로그인으로 돌아가기</a>
                 </div>
             </main>

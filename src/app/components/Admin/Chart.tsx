@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { global } from "../styles/preset.css";
+import { global } from "../../styles/preset.css";
 const PieChart = dynamic(() => import("@toast-ui/react-chart").then((lib) => lib.PieChart), { ssr: false });
 
 export default function Chart( props: { data : { name: string, data: number }[] } ) {
