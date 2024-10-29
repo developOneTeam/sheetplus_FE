@@ -1,4 +1,4 @@
-import { stamp, stamped } from "../styles/layouts.css";
+import { stamp, stamped } from "@/app/styles/layouts.css";
 
 export default function stamps(festival: { eventCounts: string }) {
     const total = [];

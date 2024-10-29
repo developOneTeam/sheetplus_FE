@@ -40,8 +40,6 @@ export async function middleware(request: NextRequest) {
                     sameSite: true
                 });
             } else {
-
-                console.log(await getNewToken.json());
                 if (currentPath.includes("admin")) {
                     response = NextResponse.redirect(new URL("/admin", request.url))
                 } else {
@@ -66,5 +64,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ["/admin/:path*", "/activities/:path", "/home", "/"]
+    matcher: ["/admin/:path*", "/:path/activities/:path", "/:path/home", "/"]
 }

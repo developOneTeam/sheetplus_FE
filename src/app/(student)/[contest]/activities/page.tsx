@@ -14,7 +14,7 @@ export default async function Page({ params } : { params: { contest : string } }
     let festival = null;
 
     if (accessToken) {
-        const dataReqHome = await fetch(`${process.env.API_ENDPOINT}/private/student/${params.contest}/activities`, {
+        const dataReqHome = await fetch(`${process.env.API_ENDPOINT}/private/student/${params.contest}/home`, {
             headers: {
                 "Content-Type" : "application/json",
                 "Authorization" : `Bearer ${accessToken.value}`
@@ -26,6 +26,8 @@ export default async function Page({ params } : { params: { contest : string } }
             festival = dataHome.data;
         }
     }
+
+    console.log(accessToken, festival);
 
     return (
         <>
