@@ -64,7 +64,7 @@ export default async function Page(params : { contest : string }) {
                         }>{festival.studentMajor}</span>
                         <span className={defaultH2({ style: "primary" })}>{festival.studentName}</span>님 안녕하세요!
                     </h2>
-                    <Link href="/check" className={`${icon()} ${iconButton()} material-symbols-rounded`}>qr_code</Link>
+                    <Link href="/2/check" className={`${icon()} ${iconButton()} material-symbols-rounded`}>qr_code</Link>
                 </div>
                 <section className={accentArea()}>
                     <div className={stampList}>
