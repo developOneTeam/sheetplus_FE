@@ -1,6 +1,6 @@
 import QR from "@/app/components/QR";
-import { accentArea, iconDesc, main, mainSection } from "../../styles/layouts.css";
-import { defaultH2, defaultP, icon } from "../../styles/others.css";
+import { accentArea, iconDesc, main, mainSection } from "@/app/styles/layouts.css";
+import { defaultH2, defaultP, icon } from "@/app/styles/others.css";
 import { cookies } from "next/headers";
 
 export default function Home() {
