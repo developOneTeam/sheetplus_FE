@@ -1,9 +1,9 @@
-import { accentArea, header, homeHello, iconDesc, main, stamp, stamped, stampList } from "../../styles/layouts.css";
-import { icon, defaultH2, defaultP, faqLink } from "../../styles/others.css";
-import { button, iconButton } from "../../styles/buttons.css";
+import { accentArea, header, homeHello, iconDesc, main, stamp, stamped, stampList } from "../../../styles/layouts.css";
+import { icon, defaultH2, defaultP, faqLink } from "../../../styles/others.css";
+import { button, iconButton } from "../../../styles/buttons.css";
 import Link from "next/link";
-import { displayedDate, randomNextSchedule } from "../../utils/schedule";
-import ContentsTable from "../../components/ContentsTable";
+import { displayedDate, randomNextSchedule } from "../../../utils/schedule";
+import ContentsTable from "../../../components/ContentsTable";
 import { cookies } from "next/headers";
 import { user } from "@/app/data/dummy";
 

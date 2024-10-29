@@ -3,7 +3,7 @@ import { icon, defaultH2, defaultP, defaultH3 } from "@/app/styles/others.css";
 import { main } from "@/app/styles/layouts.css";
 import { button, iconButton } from "@/app/styles/buttons.css";
 import { cookies } from "next/headers";
-import { stamps } from "../home/page";
+// import { stamps } from "../home/page";
 import { user, festival } from "@/app/data/dummy";
 import Link from "next/link";
 import DialogLink from "@/app/components/DialogLink";
@@ -33,7 +33,7 @@ export default function Page() {
                     </p>
                     <div className={accentArea()}>
                         <div className={stampList}>
-                            {stamps(user, festival)}
+                            {/* stamps(user, festival) */}
                         </div>
                     </div>
                     <p className={iconNav}>

@@ -34,19 +34,19 @@ export default function Nav() {
                             <span className={`material-symbols-rounded`}>roofing</span>
                             <p className={defaultP({ size: "sm", width: "max" })}>홈</p>
                         </Link></li>
-                        <li><Link href="/schedule" className={`${iconDesc} ${iconButton({ types: "nav"})} ${path === "/schedule" ? iconButton({ types: "on" }) :""}`}>
+                        <li><Link href="/2/schedule" className={`${iconDesc} ${iconButton({ types: "nav"})} ${path === "/schedule" ? iconButton({ types: "on" }) :""}`}>
                             <span className={`material-symbols-rounded`}>calendar_month</span>
                             <p className={defaultP({ size: "sm", width: "max" })}>일정</p>
                         </Link></li>
-                        <li><Link href="/activities" className={`${iconDesc} ${iconButton({ types: "nav"})} ${path === "/activities" ? iconButton({ types: "on" }) :""}`}>
+                        <li><Link href="/2/activities" className={`${iconDesc} ${iconButton({ types: "nav"})} ${path === "/activities" ? iconButton({ types: "on" }) :""}`}>
                             <span className={`material-symbols-rounded`}>approval</span>
                             <p className={defaultP({ size: "sm", width: "max" })}>참여 활동</p>
                         </Link></li>
-                        <li><Link href="/works" className={`${iconDesc} ${iconButton({ types: "nav"})} ${path === "/works" ? iconButton({ types: "on" }) :""}`}>
+                        <li><Link href="/2/works" className={`${iconDesc} ${iconButton({ types: "nav"})} ${path === "/works" ? iconButton({ types: "on" }) :""}`}>
                             <span className={`material-symbols-rounded`}>architecture</span>
                             <p className={defaultP({ size: "sm", width: "max" })}>작품 찾기</p>
                         </Link></li>
-                        <li><Link href="/settings" className={`${iconDesc} ${iconButton({ types: "nav"})} ${path === "/settings" ? iconButton({ types: "on" }) :""}`}>
+                        <li><Link href="/2/settings" className={`${iconDesc} ${iconButton({ types: "nav"})} ${path === "/settings" ? iconButton({ types: "on" }) :""}`}>
                             <span className={`material-symbols-rounded`}>settings</span>
                             <p className={defaultP({ size: "sm", width: "max" })}>설정</p>
                         </Link></li>
