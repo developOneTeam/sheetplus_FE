@@ -5,12 +5,16 @@ import { header, title, sheet, subtitle, iconNav } from "../styles/layouts.css";
 import { icon } from "../styles/others.css";
 import Link from "next/link";
 import Logout from "../components/Logout";
+import { cookies } from "next/headers";
 
 export default async function SubRootLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const aToken = cookies().get("access");
+    const rToken = cookies().get("refresh");
+
     return (
         <>
         <header className={header()}>
@@ -22,9 +26,11 @@ export default async function SubRootLayout({
             </h1>
             <section className={iconNav}>
                 <Logout />
-                <Link href="/notifications" className={`${iconButton()} ${icon} material-symbols-rounded`}>
-                    notifications
-                </Link>
+                {aToken && rToken ? 
+                    <Link href="./notifications" className={`${iconButton()} ${icon} material-symbols-rounded`}>
+                        notifications
+                    </Link>
+                :""}
             </section>
         </header>
         {children}
