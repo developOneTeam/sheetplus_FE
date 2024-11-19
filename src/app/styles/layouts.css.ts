@@ -322,6 +322,8 @@ export const navLayout = style({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+
+    zIndex: 4,
     
     "@media": {
         "screen and (min-width: 768px)": {

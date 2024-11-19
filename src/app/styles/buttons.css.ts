@@ -127,6 +127,7 @@ export const iconButton = recipe({
                 position: "fixed",
                 flexDirection: "column",
                 gap: "0.5rem",
+                zIndex: 5,
 
                 "@media": {
                     "screen and (min-width: 768px)": {
