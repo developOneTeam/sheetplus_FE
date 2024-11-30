@@ -46,3 +46,14 @@ export function displayedDate(festival: Festival) {
         return dateTime.format(festival.end_date)
     }
 }
+
+export function displayedTime(dateSrc: string) {
+    const convertedDate = new Date(dateSrc);
+    const dateFormat = new Intl.DateTimeFormat("ko-KR", {
+        hour: "numeric",
+        minute: "numeric",
+        hour12: false
+    })
+
+    return dateFormat.format(convertedDate);
+}

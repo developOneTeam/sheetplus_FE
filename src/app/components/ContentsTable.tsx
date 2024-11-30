@@ -3,7 +3,7 @@ import Link from "next/link";
 import { scheduleTable, scheduleLine, scheduleContentBlock, schedulePlace, accentArea, iconDesc } from "../styles/layouts.css";
 import { defaultH2, defaultP, icon } from "../styles/others.css";
 import { Festival, Schedule } from "../types/common";
-import { filterScheduleByTime } from "../utils/schedule";
+import { displayedTime, filterScheduleByTime } from "../utils/schedule";
 import { buildingRadio, buildingSwitch } from "../styles/buttons.css";
 import { useEffect, useRef, useState } from "react";
 
@@ -84,7 +84,7 @@ export default function ContentsTable(props: Props) {
                     <li key={event.secureId}><Link href={`/schedule/${event.secureId}`} className={scheduleLine}>
                         <div className={scheduleContentBlock}>
                             <p className={defaultP({ size: "lg", width: "time", align: "center", flexOptions: "notShrink" })}>
-                            {event.startTime}
+                            {displayedTime(event.startTime)}
                             </p>
                             <p className={defaultP({ size: "lg" })}>
                                 <span className={defaultP({ size: "sm", style: "disabled", width: "block" })}>
